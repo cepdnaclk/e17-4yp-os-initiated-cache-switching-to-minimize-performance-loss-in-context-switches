@@ -3,24 +3,28 @@ layout: home
 permalink: index.html
 
 # Please update this with your repository name and title
-repository-name: eYY-4yp-project-template
-title:
+repository-name: https://github.com/cepdnaclk/e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches
+title: OS-Initiated Cache Switching to Minimize Performance Loss in Context Switches
 ---
 
 [comment]: # "This is the standard layout for the project, but you can clean this and use your own template"
 
-# Project Title
+# OS-Initiated Cache Switching to Minimize Performance Loss in Context Switches
+
+
 
 #### Team
 
-- eNumber, Name, [email](mailto:name@email.com)
-- eNumber, Name, [email](mailto:name@email.com)
-- eNumber, Name, [email](mailto:name@email.com)
+- e17015, M.R.M. Arshad, [email](mailto:e17015@eng.pdn.ac.lk)
+- e17090, F.B.A. Harshamal, [email](mailto:e17090@eng.pdn.ac.lk)
+- e17168, K.H.S.P. Kodagoda , [email](mailto:e17168@eng.pdn.ac.lk)
 
 #### Supervisors
 
-- Name, [email](mailto:name@eng.pdn.ac.lk)
-- Name, [email](mailto:name@eng.pdn.ac.lk)
+- Dr.Isuru Nawinne, [email](mailto:name@eng.pdn.ac.lk)
+- Prof.Roshan Ragel, [email](mailto:name@eng.pdn.ac.lk)
+- Dr.Mahanama Wickramasingh, [email](mailto:name@eng.pdn.ac.lk)
+- Dr.Haris Javaid, [email](mailto:name@eng.pdn.ac.lk)
 
 #### Table of content
 
@@ -35,9 +39,11 @@ title:
 
 ---
 
-DELETE THIS SAMPLE before publishing to GitHub Pages !!!
+
+
+[comment]: # "DELETE THIS SAMPLE before publishing to GitHub Pages !!!
 This is a sample image, to show how to add images to your page. To learn more options, please refer [this](https://projects.ce.pdn.ac.lk/docs/faq/how-to-add-an-image/)
-![Sample Image](./images/sample.png)
+![Sample Image](./images/sample.png)"
 
 
 ## Abstract
@@ -66,8 +72,8 @@ This is a sample image, to show how to add images to your page. To learn more op
 
 [//]: # ( NOTE: EDIT THIS LINKS WITH YOUR REPO DETAILS )
 
-- [Project Repository](https://github.com/cepdnaclk/repository-name)
-- [Project Page](https://cepdnaclk.github.io/repository-name)
+- [Project Repository](https://github.com/cepdnaclk/e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches)
+- [Project Page](https://github.io/cepdnaclk/e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches)
 - [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
 - [University of Peradeniya](https://eng.pdn.ac.lk/)
 
