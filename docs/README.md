@@ -41,11 +41,6 @@ title: OS-Initiated Cache Switching to Minimize Performance Loss in Context Swit
 
 
 
-[comment]: # "DELETE THIS SAMPLE before publishing to GitHub Pages !!!
-This is a sample image, to show how to add images to your page. To learn more options, please refer [this](https://projects.ce.pdn.ac.lk/docs/faq/how-to-add-an-image/)
-![Sample Image](./images/sample.png)"
-
-
 ## Abstract
 
 ## Related works
