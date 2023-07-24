@@ -1,4 +1,5 @@
 module ID(
+  // inputs
   switch_cache_w_in,
   rotate_signal_in,
   d_mem_r_in, 
@@ -23,6 +24,7 @@ module ID(
   clk,
   busywait,
   branch_jump_signal,
+  // outputs
   rotate_signal_out, mux_complmnt_out, mux_inp_2_out, mux_inp_1_out, mux_d_mem_out, write_reg_en_out,d_mem_r_out, d_mem_w_out, branch_out, jump_out,
   pc_4_out, pc_out, data_1_out, data_2_out, mux_1_out_out,mux_result_out,write_address_out,
   alu_op_out, fun_3_out,switch_cache_w_out

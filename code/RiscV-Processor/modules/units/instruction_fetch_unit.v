@@ -1,3 +1,5 @@
+//`include "../mux/mux2x1.v"
+
 
 module instruction_fetch_unit (
     input [31:0] branch_jump_addres,

@@ -1,6 +1,7 @@
 
 
 module instruction_decode_unit (
+  // outputs
   switch_cache_w,
   reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output,
   write_address_for_current_instruction,
@@ -20,6 +21,7 @@ module instruction_decode_unit (
   data_1,
   data_2,
   mux_1_out,
+  // inputs
   instration,
   data_in,
   write_reg_enable_signal_from_pre,

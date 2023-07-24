@@ -1,4 +1,5 @@
-module IF(pc_in, pc_4_in, instration_in, reset, clk,busywait,branch_jump_signal,pc_out, pc_4_out, instration_out);
+module IF(pc_in, pc_4_in, instration_in, reset, clk,busywait,branch_jump_signal,
+          pc_out, pc_4_out, instration_out);
 
   input [31:0] pc_in, pc_4_in, instration_in;
   output reg [31:0] pc_out, pc_4_out, instration_out;

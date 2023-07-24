@@ -1,10 +1,12 @@
 
 
 module instruction_execute_unit (
+    // inputs
     input [31:0] data1,data2,PC,INCREMENTED_PC_by_four,mux1out,
     input [1:0]mux4signal,
     input mux2signal,mux3signal,muxComplentsignal,rotate_signal,branch_signal,jump_signal,
     input [2:0]func3,aluop,
+    // outputs
     output [31:0] branch_jump_addres,
     output [31:0] result,
     output branch_or_jump_signal

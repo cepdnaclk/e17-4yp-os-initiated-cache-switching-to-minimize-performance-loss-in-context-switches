@@ -1,4 +1,5 @@
 module EX(
+  // inputs
   d_mem_r_in, 
 	d_mem_w_in,
   mux_d_mem_in,
@@ -10,6 +11,7 @@ module EX(
   reset,
   clk,
   busywait,
+  // outputs
   data_2_out, 
   result_mux_4_out,
   mux_d_mem_out, 
