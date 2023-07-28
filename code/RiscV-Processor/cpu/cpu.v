@@ -94,7 +94,7 @@ IF if_reg(
   reset, 
   clk,
   busywait,
-  branch_or_jump_signal, // branch or jump signal, input for the mux before the PC
+  branch_or_jump_signal,
   // outputs
   pc_if_reg_out, // PC
   pc_4_if_reg_out,  // PC + 4
@@ -107,12 +107,12 @@ instruction_decode_unit id_unit(
   reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output,
   write_address_for_current_instruction_id_unit_out,
   rotate_signal_id_unit_out,
-  d_mem_r_id_unit_out, // data memory read signal , from control unit
-  d_mem_w_id_unit_out, // data memoery write signal , from control unit
-  branch_id_unit_out, // brach signal from control unit
-  jump_id_unit_out, // jump signal from control unit
-  write_reg_en_id_unit_out, // write enable signal for reg file from control unit
-  mux_d_mem_id_unit_out, // from control unit to  load data or alu result selection mux 
+  d_mem_r_id_unit_out, 
+  d_mem_w_id_unit_out,
+  branch_id_unit_out,
+  jump_id_unit_out,
+  write_reg_en_id_unit_out,
+  mux_d_mem_id_unit_out,
   mux_result_id_unit_out,
   mux_inp_2_id_unit_out, 
   mux_complmnt_id_unit_out,
