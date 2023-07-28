@@ -74,31 +74,31 @@ end
 
 instruction_fetch_unit if_unit(
   // inputs
-  branch_jump_addres, 
-  branch_or_jump_signal, 
-  data_memory_busywait, 
+  branch_jump_addres, // 32 bits , branch or jump signal, input for mux before the PC
+  branch_or_jump_signal,  // 1 bit , control signal for mux before the PC
+  data_memory_busywait,  // 1bit busy wait from memory
   reset, 
   clk, 
   // outputs
-  pc_instruction_fetch_unit_out, 
-  pc_4_instruction_fetch_unit_out, 
-  instruction_instruction_fetch_unit_out, 
+  pc_instruction_fetch_unit_out, // PC value
+  pc_4_instruction_fetch_unit_out, // PC + 4
+  instruction_instruction_fetch_unit_out, // 32bits instruction from instruction memory
   busywait
-  );
+);
   
 IF if_reg(
   // inputs
-  pc_instruction_fetch_unit_out, 
-  pc_4_instruction_fetch_unit_out, 
-  instruction_instruction_fetch_unit_out, 
+  pc_instruction_fetch_unit_out, // PC
+  pc_4_instruction_fetch_unit_out,  // PC + 4
+  instruction_instruction_fetch_unit_out, // instruction from instruction mem
   reset, 
   clk,
   busywait,
-  branch_or_jump_signal,
+  branch_or_jump_signal, // branch or jump signal, input for the mux before the PC
   // outputs
-  pc_if_reg_out, 
-  pc_4_if_reg_out, 
-  instration_if_reg_out
+  pc_if_reg_out, // PC
+  pc_4_if_reg_out,  // PC + 4
+  instration_if_reg_out // instruction 
   );
 
 instruction_decode_unit id_unit(
@@ -107,23 +107,23 @@ instruction_decode_unit id_unit(
   reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output,
   write_address_for_current_instruction_id_unit_out,
   rotate_signal_id_unit_out,
-  d_mem_r_id_unit_out, 
-  d_mem_w_id_unit_out,
-  branch_id_unit_out,
-  jump_id_unit_out,
-  write_reg_en_id_unit_out,
-  mux_d_mem_id_unit_out,
+  d_mem_r_id_unit_out, // data memory read signal , from control unit
+  d_mem_w_id_unit_out, // data memoery write signal , from control unit
+  branch_id_unit_out, // brach signal from control unit
+  jump_id_unit_out, // jump signal from control unit
+  write_reg_en_id_unit_out, // write enable signal for reg file from control unit
+  mux_d_mem_id_unit_out, // from control unit to  load data or alu result selection mux 
   mux_result_id_unit_out,
   mux_inp_2_id_unit_out, 
   mux_complmnt_id_unit_out,
   mux_inp_1_id_unit_out,
-  alu_op_id_unit_out,
-  fun_3_id_unit_out,
-  data_1_id_unit_out, // read data 1
-  data_2_id_unit_out, // read data 2
+  alu_op_id_unit_out,  // alu operation from control unit
+  fun_3_id_unit_out, // gunct 3
+  data_1_id_unit_out, // read data 1 from reg file
+  data_2_id_unit_out, // read data 2 from reg file
   mux_1_out_id_unit_out,
   // inputs
-  instration_if_reg_out,
+  instration_if_reg_out, // instruction
   write_data,
   write_reg_en_ex_reg_out,
   write_address_ex_reg_out,
@@ -136,28 +136,28 @@ ID id_reg(
   // inputs
   switch_cache_w_id_unit_out,
   rotate_signal_id_unit_out,
-  d_mem_r_id_unit_out, 
-	d_mem_w_id_unit_out,
-  branch_id_unit_out,
-  jump_id_unit_out,
-  write_reg_en_id_unit_out,
-  mux_d_mem_id_unit_out,
-	mux_result_id_unit_out,
+  d_mem_r_id_unit_out, // data memory read signal , from control unit
+	d_mem_w_id_unit_out, // data memoery write signal , from control unit
+  branch_id_unit_out, // brach signal from control unit
+  jump_id_unit_out, // jump signal from control unit
+  write_reg_en_id_unit_out, // write enable signal for reg file from control unit
+  mux_d_mem_id_unit_out, // from control unit to  load data or alu result selection mux after the data mem
+	mux_result_id_unit_out, 
 	mux_inp_2_id_unit_out, 
   mux_complmnt_id_unit_out,
 	mux_inp_1_id_unit_out,
   alu_op_id_unit_out,
-  fun_3_id_unit_out,
+  fun_3_id_unit_out, // funct 3
   write_address_for_current_instruction_id_unit_out,
-  data_1_id_unit_out,
-  data_2_id_unit_out,
+  data_1_id_unit_out, // read data 1 from reg file
+  data_2_id_unit_out, // read data 2 from reg file
   mux_1_out_id_unit_out,
-  pc_if_reg_out,
-  pc_4_if_reg_out,
+  pc_if_reg_out, // PC
+  pc_4_if_reg_out, // PC + 4
   reset,
   clk,
   busywait,
-  branch_or_jump_signal,
+  branch_or_jump_signal, // branch or jump signal, input for the mux before the PC
   // outputs
   rotate_signal_id_reg_out, 
   mux_complmnt_id_reg_out, 
@@ -202,7 +202,7 @@ instruction_execute_unit iex_unit(
   // outputs
   branch_jump_addres,
   result_iex_unit_out,
-  branch_or_jump_signal
+  branch_or_jump_signal // branch or jump signal, input for the mux before the PC
 );
 
 EX ex_reg(

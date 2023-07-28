@@ -14,7 +14,7 @@ module EX(
   // outputs
   data_2_out, 
   result_mux_4_out,
-  mux_d_mem_out, 
+  mux_d_mem_out, // goes to the mux that select the load data or alu result output result
   write_reg_en_out, 
   d_mem_r_out, 
   d_mem_w_out,
