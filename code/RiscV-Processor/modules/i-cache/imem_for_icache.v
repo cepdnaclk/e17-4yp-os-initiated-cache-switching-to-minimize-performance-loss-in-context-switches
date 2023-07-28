@@ -8,14 +8,18 @@ module Instruction_memory(
     busywait
 );
 
+// Inputs
 input reset;
 input               clock;
 input               read;
 input[27:0]          address;
+
+// Outputs
 output reg [127:0]  readdata;
 output reg          busywait;
-reg [3:0]counter;
-reg readaccess;
+
+reg [3:0]counter; // Track the current byte of the instruction that is being read
+reg readaccess; // Indicate the status of the instruction
 
 
 //Declare memory array 1024x8-bits 
@@ -32,62 +36,11 @@ begin
 
 end
 
-//ADDI x1,x1,0x8F1
-//ADDI x17,x17,0x8F1
-//ORI x12,x17,0x800
-//AND x13,x17,x11
-//LB x12,0x001(x13)
-//BEQ x4,x5,0x014
-
-
-// ADDI x1,x1,0x8F1
-// ORI x12,x1,0x800
-// SB x1,0xF23(x12)
-// SW x12,0xF23(x1)
-// LB x2,0xF23(x12)
-// LW x13,0xF23(x1)
-
-
-
-
-
-// ADDI x1,x1,0x8F1
-// ANDI x12,x1,0x000 
-
-// SB x1,0x001(x12)  
-
-// LB x2,0xF23(x12) 
-// SW  x12,0xF23(x1) 
-// LW x13,0xF23(x1)
-// SW  x13,0xF23(x1)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Detecting an incoming memory access
-
-
 always @(*)
 begin
-    busywait <= (read && counter!=4'b1111)? 1 : 0;
-    readaccess <= (read)? 1'b1 : 1'b0;
+    busywait <= (read && counter!=4'b1111)? 1 : 0; // if cpu want to read and counter is not at the end of the instruction
+    readaccess <= (read)? 1'b1 : 1'b0; // cpu reading the instruction
 end
 
 always @(posedge clock,posedge reset) begin

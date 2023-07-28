@@ -41,28 +41,28 @@ module control(
 				d_mem_w <= 1'd0;
 				jump <= 1'd0;
 				branch <= 1'd0;
-				wrten_reg <= 1'd1;
+				wrten_reg <= 1'd1; // Write enable signal for register file
 				mux_complmnt <= 1'd0;
-				mux_d_mem <= 1'd1;
-				mux_result <= 1'd1;
-				mux_inp_2 <= 1'd0;
+				mux_d_mem <= 1'd1; // Select the load data or alu value
+				mux_result <= 1'd1; // Load unsign immediate and take the output of imeediate value
+				mux_inp_2 <= 1'd0; // Immediate value
 				mux_inp_1 <= 1'd0;
-				mux_wire_module <= 3'd3;
-				alu_op <= 3'd0;
+				mux_wire_module <= 3'd3; // Select unsigned U_imm value from wire module
+				alu_op <= 3'd0; // Just pass the alu value opcode
 				switch_cache_w <= 1'd0;
 			end
 
 			7'b0010111: begin	//AUIPC
-				d_mem_r <= 1'd0;
+				d_mem_r <= 1'd0; 
 				d_mem_w <= 1'd0;
 				jump <= 1'd0;
 				branch <= 1'd0;
 				wrten_reg <= 1'd1;
 				mux_complmnt <= 1'd0;
 				mux_d_mem <= 1'd1;
-				mux_result <= 2'd2;
-				mux_inp_2 <= 1'd1;
-				mux_inp_1 <= 1'd1;
+				mux_result <= 2'd2; // Value pc + imm << 12
+				mux_inp_2 <= 1'd1; // Immediate value
+				mux_inp_1 <= 1'd1; // PC value
 				mux_wire_module <= 3'd3;
 				alu_op <= 3'd0;
 				switch_cache_w <= 1'd0;
@@ -76,7 +76,7 @@ module control(
 				wrten_reg <= 1'd1;
 				mux_complmnt <= 1'd0;
 				mux_d_mem <= 1'd1;
-				mux_result <= 2'd3;
+				mux_result <= 2'd3; // Select the pc + 4
 				mux_inp_2 <= 1'd1;
 				mux_inp_1 <= 1'd1;
 				mux_wire_module <= 3'd1;
