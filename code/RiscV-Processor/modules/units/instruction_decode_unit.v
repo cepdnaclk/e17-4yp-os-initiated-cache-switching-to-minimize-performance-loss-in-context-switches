@@ -1,16 +1,17 @@
 
 
 module instruction_decode_unit (
+  // outputs
   switch_cache_w,
   reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output,
-  write_address_for_current_instruction,
+  write_address_for_current_instruction, // write back addres of reg file 
   rotate_signal,
-  d_mem_r, 
-	d_mem_w,
-  branch,
-  jump,
-  write_reg_en,
-  mux_d_mem,
+  d_mem_r, // data mem read signal from control unit
+	d_mem_w, // data mem read signal from control unit
+  branch, // branch signal from control unit
+  jump, // jump signal from control unit
+  write_reg_en, // write enable signal for reg file from control unit
+  mux_d_mem, // from control unit to  (load data or alu result) selection mux 
 	mux_result,
 	mux_inp_2, 
   mux_complmnt,
@@ -20,6 +21,7 @@ module instruction_decode_unit (
   data_1,
   data_2,
   mux_1_out,
+  // inputs
   instration,
   data_in,
   write_reg_enable_signal_from_pre,

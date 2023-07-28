@@ -1,12 +1,14 @@
 
 module memory_access_unit (
+    // inputs
     input clock,reset,
     input mem_read_signal,mem_write_signal,mux5signal,
     input [31:0] mux4_out_result,data2,
     input [2:0] func3,
+    // outputs
     output data_memory_busywait,
-
     output [31:0] mux5_out_write_data,
+    // inputs
     input [2:0] func3_cache_select_reg_value,
     input write_cache_select_reg
 );
