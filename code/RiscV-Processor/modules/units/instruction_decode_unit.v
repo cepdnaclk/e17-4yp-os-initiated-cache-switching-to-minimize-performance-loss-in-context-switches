@@ -43,14 +43,60 @@ module instruction_decode_unit (
   output [31:0] reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output;
 
 
-  assign write_address_for_current_instruction=instration[11:7];
-  assign fun_3=instration[14:12];
+  // goes to MEM reg
+  assign write_address_for_current_instruction=instration[11:7]; // write back address for reg file
+  
+  // goes to ALU control unit
+  assign fun_3=instration[14:12];  // fun_3 value
   assign rotate_signal=instration[30];
   
 
-  control control_unit(switch_cache_w,d_mem_r, d_mem_w, jump, branch, write_reg_en, mux_d_mem, mux_result, mux_inp_2, mux_complmnt, mux_inp_1, mux_wire_module, alu_op, instration[6:0], instration[14:12], instration[31:25]); 
-  reg_file register_file(data_1, data_2, data_in, write_address_from_pre, instration[19:15], instration[24:20], write_reg_enable_signal_from_pre, clk, reset,reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output);
-  Wire_module wire_module(instration,B_imm, J_imm, S_imm, U_imm, I_imm);
+  control control_unit(
+    // outputs
+    switch_cache_w, 
+    d_mem_r, 
+    d_mem_w, 
+    jump, 
+    branch, 
+    write_reg_en, 
+    mux_d_mem, 
+    mux_result, 
+    mux_inp_2, 
+    mux_complmnt, 
+    mux_inp_1, 
+    mux_wire_module, // immidiate value selection signal for mux1
+    alu_op, 
+    // inputs
+    instration[6:0],  // opcode
+    instration[14:12],  // funct 3 
+    instration[31:25] // funct 7
+    );
+
+  reg_file register_file(
+    data_1, // Read data 1 from reg file 
+    data_2, // Read data 2 from reg file
+    data_in, // write data for reg file 
+    write_address_from_pre, // write address for regfile
+    instration[19:15], // read address  for data 1
+    instration[24:20], // read address for data 2
+    write_reg_enable_signal_from_pre, // write enable signal for reg file 
+    clk, 
+    reset,
+    reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output
+  );
+
+  Wire_module wire_module( // sign extented extend the immediate value for each type
+    // inputs
+    instration,
+    // outputs
+    B_imm, //  B-Type instruction's immidiate value
+    J_imm, //  J-Type instruction's immidiate value
+    S_imm, //  S-Type instruction's immidiate value
+    U_imm, //  U-Type instruction's immidiate value
+    I_imm  //  I-Type instruction's immidiate value
+  );
+
+  // seletct the relavant imm valu for relevant instrunction type (B,J,S,U,I)
   mux5x1 mux_1(B_imm, J_imm, S_imm, U_imm, I_imm, mux_wire_module, mux_1_out);
 
 endmodule

@@ -74,31 +74,31 @@ end
 
 instruction_fetch_unit if_unit(
   // inputs
-  branch_jump_addres, 
-  branch_or_jump_signal, 
-  data_memory_busywait, 
+  branch_jump_addres, // 32 bits , branch or jump signal, input for mux before the PC
+  branch_or_jump_signal,  // 1 bit , control signal for mux before the PC
+  data_memory_busywait,  // 1bit busy wait from memory
   reset, 
   clk, 
   // outputs
-  pc_instruction_fetch_unit_out, 
-  pc_4_instruction_fetch_unit_out, 
-  instruction_instruction_fetch_unit_out, 
+  pc_instruction_fetch_unit_out, // PC value
+  pc_4_instruction_fetch_unit_out, // PC + 4
+  instruction_instruction_fetch_unit_out, // 32bits instruction from instruction memory
   busywait
-  );
+);
   
 IF if_reg(
   // inputs
-  pc_instruction_fetch_unit_out, 
-  pc_4_instruction_fetch_unit_out, 
-  instruction_instruction_fetch_unit_out, 
+  pc_instruction_fetch_unit_out, // PC
+  pc_4_instruction_fetch_unit_out,  // PC + 4
+  instruction_instruction_fetch_unit_out, // instruction from instruction mem
   reset, 
   clk,
   busywait,
-  branch_or_jump_signal,
+  branch_or_jump_signal, // branch or jump signal, input for mux before the PC
   // outputs
-  pc_if_reg_out, 
-  pc_4_if_reg_out, 
-  instration_if_reg_out
+  pc_if_reg_out, // PC
+  pc_4_if_reg_out,  // PC + 4
+  instration_if_reg_out // instruction 
   );
 
 instruction_decode_unit id_unit(
@@ -111,7 +111,7 @@ instruction_decode_unit id_unit(
   d_mem_w_id_unit_out,
   branch_id_unit_out,
   jump_id_unit_out,
-  write_reg_en_id_unit_out,
+  write_reg_en_id_unit_out, 
   mux_d_mem_id_unit_out,
   mux_result_id_unit_out,
   mux_inp_2_id_unit_out, 
@@ -123,7 +123,7 @@ instruction_decode_unit id_unit(
   data_2_id_unit_out, // read data 2
   mux_1_out_id_unit_out,
   // inputs
-  instration_if_reg_out,
+  instration_if_reg_out, // instruction
   write_data,
   write_reg_en_ex_reg_out,
   write_address_ex_reg_out,
