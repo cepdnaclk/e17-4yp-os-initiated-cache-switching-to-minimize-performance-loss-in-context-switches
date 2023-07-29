@@ -31,11 +31,13 @@ reg [7:0] memory_array [0:1023];
 //Initialize instruction memory
 initial
 begin
-     $readmemh("hex_memory_file.mem", memory_array);
-    // memory_array[0] = 32'b00000000000000000001000000110111;
-    // memory_array[1] = 32'b00000000000000000010000010110111;
-    // memory_array[2] = 32'b00000000000000000011000100110111;
-    // memory_array[3] = 32'b00000000000000000111000110110111;
+
+    $readmemh("hex_memory_file.mem", memory_array);
+
+    memory_array[0] = 8'h93;
+    memory_array[1] = 8'h01;
+    memory_array[2] = 8'h81;
+    memory_array[3] = 8'hc1;
 
 end
 
