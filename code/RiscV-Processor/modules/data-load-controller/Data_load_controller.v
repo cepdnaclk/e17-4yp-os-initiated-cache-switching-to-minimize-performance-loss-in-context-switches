@@ -9,10 +9,19 @@ input [31:0] data_mem_in;
 output reg [31:0] data_out;
 wire [31:0] lb,lbu,lh,lhu;
 
+/*
+| imm[11:0] |   rs1   | 000 |  rd | 0000011 |   LB  
+| imm[11:0] |   rs1   | 001 |  rd | 0000011 |   LH  
+| imm[11:0] |   rs1   | 010 |  rd | 0000011 |   LW  
+| imm[11:0] |   rs1   | 100 |  rd | 0000011 |   LBU 
+| imm[11:0] |   rs1   | 101 |  rd | 0000011 |   LHU 
+*/
+
 assign lb ={{24{data_mem_in[7]}},data_mem_in[7:0]}; // take last 8 bits and 24 of sign bit
 assign lbu ={{24{1'b0}},data_mem_in[7:0]}; // take last 8 bits and 24 of zero values and extend
 assign lh ={{16{data_mem_in[15]}},data_mem_in[15:0]}; // take last 16 bits and 16 of sign bit
 assign lhu ={{16{1'b0}},data_mem_in[15:0]}; // take last 16 bits and 16 of zero values end extend
+
 
 
 always @(*) begin

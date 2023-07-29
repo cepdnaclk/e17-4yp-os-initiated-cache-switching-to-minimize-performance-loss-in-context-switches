@@ -13,9 +13,9 @@ module alu(RESULT, DATA1, DATA2, SELECT, ROTATE,zero_signal,sign_bit_signal,sltu
 	assign  AND=DATA1 & DATA2;
 	assign  OR=DATA1 | DATA2;
 	assign  XOR=DATA1 ^ DATA2;
-	assign  SLL = DATA1 << DATA2; 
-	assign  SRL = DATA1 >> DATA2;						  
-    assign  SRA = DATA1 >>> DATA2;	
+	assign  SLL = DATA1 << DATA2; //  shift left logical
+	assign  SRL = DATA1 >> DATA2; // shift right logical						  
+    assign  SRA = DATA1 >>> DATA2; // shift right arithmetic
 	assign  SLT = ($signed(DATA1) < $signed(DATA2)) ? 32'd1 : 32'd0; 
 	assign  SLTU = ($unsigned(DATA1) < $unsigned(DATA2)) ? 32'd1 : 32'd0;
 	

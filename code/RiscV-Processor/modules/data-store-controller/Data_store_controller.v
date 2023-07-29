@@ -9,6 +9,11 @@ input [31:0] data2;
 output reg [31:0] to_data_memory;
 wire [31:0] sh,sb;
 
+/*
+    | imm[11:5]|   rs2   |   rs1   |   funct3 | imm[4:0] | opcode| SB
+    | imm[11:5]|   rs2   |   rs1   |   funct3 | imm[4:0] | opcode| SH
+    | imm[11:5]|   rs2   |   rs1   |   funct3 | imm[4:0] | opcode| SW
+*/
 assign sb ={{24{1'b0}},data2[7:0]};
 assign sh ={{16{1'b0}},data2[15:0]};
 
