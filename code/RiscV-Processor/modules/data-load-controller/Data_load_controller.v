@@ -17,10 +17,11 @@ wire [31:0] lb,lbu,lh,lhu;
 | imm[11:0] |   rs1   | 101 |  rd | 0000011 |   LHU 
 */
 
-assign lb ={{24{data_mem_in[7]}},data_mem_in[7:0]};
-assign lbu ={{24{1'b0}},data_mem_in[7:0]};
-assign lh ={{16{data_mem_in[15]}},data_mem_in[15:0]};
-assign lhu ={{16{1'b0}},data_mem_in[15:0]};
+assign lb ={{24{data_mem_in[7]}},data_mem_in[7:0]}; // take last 8 bits and 24 of sign bit
+assign lbu ={{24{1'b0}},data_mem_in[7:0]}; // take last 8 bits and 24 of zero values and extend
+assign lh ={{16{data_mem_in[15]}},data_mem_in[15:0]}; // take last 16 bits and 16 of sign bit
+assign lhu ={{16{1'b0}},data_mem_in[15:0]}; // take last 16 bits and 16 of zero values end extend
+
 
 
 always @(*) begin
@@ -32,7 +33,7 @@ always @(*) begin
             data_out<=lh;
         end
         3'b010:begin
-            data_out<=data_mem_in;
+            data_out<=data_mem_in; // load the word 32 bit
         end
         3'b100:begin
             data_out<=lbu;
