@@ -28,7 +28,7 @@ Branch_jump_controller bjunit(branch_adress,alu_result,func3,branch_signal,jump_
 
 
 always @(*) begin
-    branch_adress<=PC+mux1out;
+    branch_adress<=PC+mux1out; // add immediate value to the pc and get the branch address
 end
 
 

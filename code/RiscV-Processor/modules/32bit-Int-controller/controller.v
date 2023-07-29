@@ -114,85 +114,102 @@ module control(
 				switch_cache_w <= 1'd0;
 			end
 
-			7'b1100011: begin	//BEQ, BNE......
+			/*
+			pc <- rsl == rs2 ? pc + imm, pc + 4
+			*/
+			7'b1100011: begin	//BEQ, BNE, BLT, BGE, BLTU, BGEU
 				d_mem_r <= 1'd0;
 				d_mem_w <= 1'd0;
 				jump <= 1'd0;
-				branch <= 1'd1;
-				wrten_reg <= 1'd0;
-				mux_complmnt <= 1'd1;
-				mux_d_mem <= 1'd0;
+				branch <= 1'd1; // branch signal
+				wrten_reg <= 1'd0; 
+				mux_complmnt <= 1'd1; // complement the data
+				mux_d_mem <= 1'd0; // 
 				mux_result <= 1'd0;
 				mux_inp_2 <= 1'd0;
 				mux_inp_1 <= 1'd0;
-				mux_wire_module <= 3'd0;
-				alu_op <= 3'd0;
+				mux_wire_module <= 3'd0; // B type
+				alu_op <= 3'd0; // Add operation (substraction)
 				switch_cache_w <= 1'd0;
 			end
 
-			7'b0000011: begin	//lb,lh,lw
-				d_mem_r <= 1'd1;
+			/*
+				lb rd, offset(rs1) ==> rd <- $(rsl + imm)
+				lh rd, offset(rs1) ==> rd <- s16'$(rsl+ imm)
+				lw rd, offset(rs1) ==> rd <- $(rsl+ imm) & 0xFFFFF
+
+				there is only lw
+
+			*/
+			7'b0000011: begin	// lb, lh, lw, lbu, lhu
+				d_mem_r <= 1'd1; // get the register value
 				d_mem_w <= 1'd0;
 				jump <= 1'd0;
 				branch <= 1'd0;
-				wrten_reg <= 1'd1;
+				wrten_reg <= 1'd1; // write data to the register file
 				mux_complmnt <= 1'd0;
 				mux_d_mem <= 1'd0;
-				mux_result <= 2'd2;
-				mux_inp_2 <= 1'd1;
-				mux_inp_1 <= 1'd0;
-				mux_wire_module <= 3'd4;
-				alu_op <= 3'd0;
+				mux_result <= 2'd2; // alu result
+				mux_inp_2 <= 1'd1; // imeediate value from wire module
+				mux_inp_1 <= 1'd0; // data 1 from register file
+				mux_wire_module <= 3'd4; // I type
+				alu_op <= 3'd0; // add
 				switch_cache_w <= 1'd0;
 			end
 
+			/*
+			sw rs2, offset(rs1)
+			*/
+
 			7'b0100011: begin //sb,sh,sw,..
 				d_mem_r <= 1'd0;
-				d_mem_w <= 1'd1;
+				d_mem_w <= 1'd1; // write to the data memory
 				jump <= 1'd0;
 				branch <= 1'd0;
 				wrten_reg <= 1'd0;
 				mux_complmnt <= 1'd0;
 				mux_d_mem <= 1'd0;
-				mux_result <= 2'd2;
-				mux_inp_2 <= 1'd1;
-				mux_inp_1 <= 1'd0;
-				mux_wire_module <= 3'd2;
-				alu_op <= 3'd0;
+				mux_result <= 2'd2; // alu result
+				mux_inp_2 <= 1'd1; // immediate value from wire module
+				mux_inp_1 <= 1'd0; // data 1 from register file
+				mux_wire_module <= 3'd2; // S type
+				alu_op <= 3'd0; // add
 				switch_cache_w <= 1'd0;
 			end
 
-			7'b0010011: begin // ADDI/slti/xori/ori/andi/....
+			7'b0010011: begin // ADDI, SLTI, SLTIU, XORI, ORI, ANDI, SLLI, SRLI, SRAI
 				d_mem_r <= 1'd0;
 				d_mem_w <= 1'd0;
 				jump <= 1'd0;
 				branch <= 1'd0;
-				wrten_reg <= 1'd1;
+				wrten_reg <= 1'd1; // write reigister
 				mux_complmnt <= 1'd0;
-				mux_d_mem <= 1'd1;
-				mux_result <= 2'd2;
-				mux_inp_2 <= 1'd1;
-				mux_inp_1 <= 1'd0;
-				mux_wire_module <= 3'd4;
-				alu_op <= fun_3;
+				mux_d_mem <= 1'd1; // select the alu
+				mux_result <= 2'd2; // alu result
+				mux_inp_2 <= 1'd1; // immedidate value
+				mux_inp_1 <= 1'd0; // data 1 from register file
+				mux_wire_module <= 3'd4; // I type
+				alu_op <= fun_3; // select the operation
 				switch_cache_w <= 1'd0;
 			end
 
-			7'b0110011: begin  // add/sub/and/or
+			7'b0110011: begin  // ADD, SUB, SLL, SLT, SLTU, XOR, SRL, SRA, OR, AND
 				d_mem_r <= 1'd0;
 				d_mem_w <= 1'd0;
 				jump <= 1'd0;
 				branch <= 1'd0;
 				wrten_reg <= 1'd1;
-				mux_complmnt <= fun_7[5] ? 1'd1 : 1'd0;
-				mux_d_mem <= 1'd1;
-				mux_result <= 2'd2;
-				mux_inp_2 <= 1'd0;
-				mux_inp_1 <= 1'd0;
-				mux_wire_module <= 3'd0;
-				alu_op <= fun_3;
+				mux_complmnt <= fun_7[5] ? 1'd1 : 1'd0; // SUB, SRA
+				mux_d_mem <= 1'd1; // select alu
+				mux_result <= 2'd2; // alu result
+				mux_inp_2 <= 1'd0; // data 2
+				mux_inp_1 <= 1'd0; // data 1
+				mux_wire_module <= 3'd0; // B type
+				alu_op <= fun_3; // operation
 				switch_cache_w <= 1'd0;
 			end
+
+			/*cache controller*/
 
 			7'b1111111: begin
 				d_mem_r <= 1'd0;

@@ -17,8 +17,13 @@ module instruction_fetch_unit (
 wire [31:0]mux6out;
 wire instruction_mem_busywait;
 
+/*
+mux6 is there to select the pc + 4 value or select the branch value from the branch or jump controller unit
+so the pc is increasing while executing
+*/
+
 or(busywait,instruction_mem_busywait,data_memory_busywait);
-mux2x1 mux6(INCREMENTED_PC_by_four,branch_jump_addres,branch_or_jump_signal,mux6out); // mux befor the PC
+mux2x1 mux6(INCREMENTED_PC_by_four,branch_jump_addres,branch_or_jump_signal,mux6out); // mux before the PC
 icache myicache(clock,reset,PC,instruction,instruction_mem_busywait);
 
 /*
