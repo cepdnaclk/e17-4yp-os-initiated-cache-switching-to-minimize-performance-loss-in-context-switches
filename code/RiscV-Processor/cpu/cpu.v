@@ -121,7 +121,7 @@ instruction_decode_unit id_unit(
   fun_3_id_unit_out, // gunct 3
   data_1_id_unit_out, // read data 1 from reg file
   data_2_id_unit_out, // read data 2 from reg file
-  mux_1_out_id_unit_out,
+  mux_1_out_id_unit_out, // wiremodule output
   // inputs
   instration_if_reg_out, // instruction
   write_data,
@@ -151,7 +151,7 @@ ID id_reg(
   write_address_for_current_instruction_id_unit_out,
   data_1_id_unit_out, // read data 1 from reg file
   data_2_id_unit_out, // read data 2 from reg file
-  mux_1_out_id_unit_out,
+  mux_1_out_id_unit_out, // wire module output
   pc_if_reg_out, // PC
   pc_4_if_reg_out, // PC + 4
   reset,
@@ -173,7 +173,7 @@ ID id_reg(
   pc_id_reg_out, 
   data_1_id_reg_out, 
   data_2_id_reg_out, 
-  mux_1_out_id_reg_out,
+  mux_1_out_id_reg_out, // wire module out
   mux_result_id_reg_out,
   write_address_id_reg_out,
   alu_op_id_reg_out, 
@@ -189,8 +189,8 @@ instruction_execute_unit iex_unit(
   data_2_id_reg_out,
   pc_id_reg_out,
   pc_4_id_reg_out,
-  mux_1_out_id_reg_out,
-  mux_result_id_reg_out,
+  mux_1_out_id_reg_out, // wire module out
+  mux_result_id_reg_out, // 2bits goes to mux4 as a signal
   mux_inp_1_id_reg_out,
   mux_inp_2_id_reg_out,
   mux_complmnt_id_reg_out,
@@ -212,7 +212,7 @@ EX ex_reg(
   mux_d_mem_id_reg_out,
   write_reg_en_id_reg_out,
   write_address_id_reg_out,
-  fun_3_id_reg_out,
+  fun_3_id_reg_out,  // funct 3
   data_2_id_reg_out,
   result_iex_unit_out,
   reset,
@@ -220,12 +220,12 @@ EX ex_reg(
   busywait,
   // outputs
   data_2_ex_reg_out, 
-  result_mux_4_ex_reg_out,
+  result_mux_4_ex_reg_out, // goes to mux4
   mux_d_mem_ex_reg_out, 
   write_reg_en_ex_reg_out, 
   d_mem_r_ex_reg_out, 
   d_mem_w_ex_reg_out,
-  fun_3_ex_reg_out,
+  fun_3_ex_reg_out, // funct 3
   write_address_ex_reg_out
     
 );
@@ -238,14 +238,14 @@ memory_access_unit mem_access_unit(
   d_mem_r_ex_reg_out,
   d_mem_w_ex_reg_out,
   mux_d_mem_ex_reg_out,
-  result_mux_4_ex_reg_out,
+  result_mux_4_ex_reg_out, // goes to mux4
   data_2_ex_reg_out,
-  fun_3_ex_reg_out,
+  fun_3_ex_reg_out, // funct 3
   // outputs
   data_memory_busywait,
   write_data,
   // inputs
-  fun_3_id_reg_out,
+  fun_3_id_reg_out, // funct 3 from previous pipline reg
   switch_cache_w_id_reg_out
 );
 

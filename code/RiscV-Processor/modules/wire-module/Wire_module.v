@@ -31,7 +31,7 @@
         - S-Type
             used for storing data from a register into memory. 
             They have an immediate offset to compute the memory address and use one source register (rs1) for data to be stored
-                Example: sw rs1, offset(rs2)
+                Example: sw rs2, offset(rs1)
 
                 | imm[11:5] (7)   |   rs2 (5)         |   rs1 (5)   | funct3 (3) | imm[4:0] (5) | opcode (7) |
         
@@ -92,7 +92,7 @@ assign S_imm={{21{Instruction[31]}},Instruction[30:25],Instruction[11:7]};
 // | imm[31:12] (20)   | rd (5) | opcode (7) |
 assign U_imm={Instruction[31:12],{12{1'b0}}};
 
-// sign extention imidiate value for R type
+// sign extention imidiate value for I type
 //  | imm[11:0] (12) | rs1 (5) | funct3 (3) | rd (5)   | opcode (7) |
 assign I_imm={{21{Instruction[31]}},Instruction[30:20]};
     
