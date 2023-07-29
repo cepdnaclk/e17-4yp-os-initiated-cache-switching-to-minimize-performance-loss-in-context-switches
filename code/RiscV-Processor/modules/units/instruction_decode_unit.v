@@ -20,7 +20,7 @@ module instruction_decode_unit (
   fun_3,
   data_1,
   data_2,
-  mux_1_out,
+  mux_1_out, // wire module output
   // inputs
   instration,
   data_in,

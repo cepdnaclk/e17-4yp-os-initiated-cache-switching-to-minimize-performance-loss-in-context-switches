@@ -7,13 +7,13 @@ module EX(
   write_address_in,
   fun_3_in,
   data_2_in,
-  result_mux_4_in,
+  result_mux_4_in, // goes to 
   reset,
   clk,
   busywait,
   // outputs
   data_2_out, 
-  result_mux_4_out,
+  result_mux_4_out, 
   mux_d_mem_out, // goes to the mux that select the load data or alu result output result
   write_reg_en_out, 
   d_mem_r_out, 
