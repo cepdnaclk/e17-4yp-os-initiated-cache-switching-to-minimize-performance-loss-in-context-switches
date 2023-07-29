@@ -12,7 +12,7 @@ module control(
 	mux_complmnt, 
 	mux_inp_1,
 	mux_wire_module, // 3bits , imm value selection signal for relavant instruction type (B,J,S,U,I)
-	alu_op,  // 3bits ALU Operation 
+	alu_op,  // 3bits ALU Operation
 	// inputs
 	opcode,  
 	fun_3, 
@@ -201,7 +201,7 @@ module control(
 				wrten_reg <= 1'd1;
 				mux_complmnt <= fun_7[5] ? 1'd1 : 1'd0; // SUB, SRA
 				mux_d_mem <= 1'd1; // select alu
-				mux_result <= 2'd2; // alu result               //logic mul or 2 select
+				mux_result <= 2'd2; // alu result func_7[0]
 				mux_inp_2 <= 1'd0; // data 2
 				mux_inp_1 <= 1'd0; // data 1
 				mux_wire_module <= 3'd0; // B type
