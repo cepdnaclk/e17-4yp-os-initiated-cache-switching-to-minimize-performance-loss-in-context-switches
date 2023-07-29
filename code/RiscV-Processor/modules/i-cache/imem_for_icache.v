@@ -29,10 +29,12 @@ reg [7:0] memory_array [0:1023];
 initial
 begin
     //  $readmemh("hex_memory_file.mem", memory_array);
-    memory_array[0] = 8'h93;
-    memory_array[1] = 8'h01;
-    memory_array[2] = 8'h81;
-    memory_array[3] = 8'hc1;
+    
+    memory_array[0] = 8'h37;
+    memory_array[1] = 8'h40;
+    memory_array[2] = 8'h1f;
+    memory_array[3] = 8'h00;
+    
     // memory_array[0] = 8'b10010011;
     // memory_array[1] = 8'b00000000;
     // memory_array[2] = 8'b10000000;
