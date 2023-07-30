@@ -33,28 +33,37 @@ initial
 begin
 
     //  $readmemh("hex_memory_file.mem", memory_array);
+    // r0 <- $0 + 1000
+    memory_array[0] = 8'h13;
+    memory_array[1] = 8'h00;
+    memory_array[2] = 8'h80;
+    memory_array[3] = 8'h3e;
     
-    memory_array[0] = 8'h17;
-    memory_array[1] = 8'h10;
-    memory_array[2] = 8'h00;
-    memory_array[3] = 8'h00;
-    
-    // memory_array[0] = 8'b10010011;
-    // memory_array[1] = 8'b00000000;
-    // memory_array[2] = 8'b10000000;
-    // memory_array[3] = 8'b00111110;
-    // memory_array[4] = 8'b10010011;
-    // memory_array[5] = 8'b00000000;
-    // memory_array[6] = 8'b10000000;
-    // memory_array[7] = 8'b00111110;
-    // memory_array[8] = 8'b10010011;
-    // memory_array[9] = 8'b00000000;
-    // memory_array[10] = 8'b10000000;
-    // memory_array[11] = 8'b00111110;
-    // memory_array[12] = 8'b10010011;
-    // memory_array[13] = 8'b00000000;
-    // memory_array[14] = 8'b10000000;
-    // memory_array[15] = 8'b00111110;
+  
+    // r1 <- $0 + 2
+    memory_array[4] = 8'h93;
+    memory_array[5] = 8'h80;
+    memory_array[6] = 8'h20;
+    memory_array[7] = 8'h00;
+
+    // Nope
+    memory_array[8] = 8'h0;
+    memory_array[9] = 8'h0;
+    memory_array[10] = 8'h0;
+    memory_array[11] = 8'h0;
+
+    // Nope
+    memory_array[12] = 8'h0;
+    memory_array[13] = 8'h0;
+    memory_array[14] = 8'h0;
+    memory_array[15] = 8'h0;
+
+
+    //  r3 <- 9 or 4 
+    memory_array[16] = 8'h33;
+    memory_array[17] = 8'h01;
+    memory_array[18] = 8'h10;
+    memory_array[19] = 8'h40;
 
 end
 

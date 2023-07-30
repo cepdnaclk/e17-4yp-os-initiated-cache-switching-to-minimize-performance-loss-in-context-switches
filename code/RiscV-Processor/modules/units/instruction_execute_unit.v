@@ -2,7 +2,7 @@
 
 module instruction_execute_unit (
     // inputs
-    input [31:0] data1,data2,PC,INCREMENTED_PC_by_four,mux1out,
+    input [31:0] data1,data2,PC,INCREMENTED_PC_by_four,muxIout,
     input [1:0]mux4signal,
     input mux1signal,mux2signal,muxComplentsignal,rotate_signal,branch_signal,jump_signal,
     input [2:0]func3,aluop,
@@ -17,18 +17,18 @@ wire zero_signal,sign_bit_signal,sltu_bit_signal;
 reg [31:0] branch_adress;
 
 mux2x1 mux1(data1,PC,mux1signal,input1);
-mux2x1 mux2(data2,mux1out,mux2signal,input2);
+mux2x1 mux2(data2,muxIout,mux2signal,input2);
 complementer cmpl(input2,input2Complement);
 mux2x1 muxComplent(input2,input2Complement,muxComplentsignal,complemtMuxOut);
 mul mul_unit(mul_div_result,input1,input2,func3);
 alu alu_unit(alu_result,input1,complemtMuxOut,aluop,rotate_signal,zero_signal,sign_bit_signal,sltu_bit_signal);
-mux4x1 mux4(mul_div_result,mux1out,alu_result,INCREMENTED_PC_by_four,mux4signal,result);
+mux4x1 mux4(mul_div_result,muxIout,alu_result,INCREMENTED_PC_by_four,mux4signal,result);
 Branch_jump_controller bjunit(branch_adress,alu_result,func3,branch_signal,jump_signal,zero_signal,sign_bit_signal,sltu_bit_signal,branch_jump_addres,branch_or_jump_signal);
 
 
 
 always @(*) begin
-    branch_adress<=PC+mux1out; // add immediate value to the pc and get the branch address
+    branch_adress<=PC+muxIout; // add immediate value to the pc and get the branch address
 end
 
 
