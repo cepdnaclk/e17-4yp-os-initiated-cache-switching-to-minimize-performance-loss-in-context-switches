@@ -34,9 +34,9 @@ begin
 
     //  $readmemh("hex_memory_file.mem", memory_array);
     
-    memory_array[0] = 8'h37;
-    memory_array[1] = 8'h40;
-    memory_array[2] = 8'h1f;
+    memory_array[0] = 8'h17;
+    memory_array[1] = 8'h10;
+    memory_array[2] = 8'h00;
     memory_array[3] = 8'h00;
     
     // memory_array[0] = 8'b10010011;
