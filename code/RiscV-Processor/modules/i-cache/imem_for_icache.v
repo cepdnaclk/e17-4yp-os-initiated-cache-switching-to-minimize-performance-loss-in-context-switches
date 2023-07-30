@@ -34,17 +34,17 @@ begin
 
     //  $readmemh("hex_memory_file.mem", memory_array);
     
-    memory_array[0] = 8'h37;
-    memory_array[1] = 8'h40;
-    memory_array[2] = 8'h1f;
+    memory_array[0] = 8'h17;
+    memory_array[1] = 8'h10;
+    memory_array[2] = 8'h00;
     memory_array[3] = 8'h00;
     
-    // memory_array[0] = 8'b10010011;
-    // memory_array[1] = 8'b00000000;
-    // memory_array[2] = 8'b10000000;
-    // memory_array[3] = 8'b00111110;
-    // memory_array[4] = 8'b10010011;
-    // memory_array[5] = 8'b00000000;
+    // memory_array[0] = 8'h13;
+    // memory_array[1] = 8'h00;
+    // memory_array[2] = 8'h80;
+    // memory_array[3] = 8'h3e;
+    // memory_array[4] = 8'h00;
+    // memory_array[5] = 8'h;
     // memory_array[6] = 8'b10000000;
     // memory_array[7] = 8'b00111110;
     // memory_array[8] = 8'b10010011;

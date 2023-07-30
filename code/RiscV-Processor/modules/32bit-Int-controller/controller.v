@@ -12,7 +12,7 @@ module control(
 	mux_complmnt, 
 	mux_inp_1,
 	mux_wire_module, // 3bits , imm value selection signal for relavant instruction type (B,J,S,U,I)
-	alu_op,  // 3bits ALU Operation
+	alu_op,  // 3bits ALU Operation 
 	// inputs
 	opcode,  
 	fun_3, 
@@ -36,68 +36,54 @@ module control(
 
 		case(opcode)
 		
-			/*
-			rd <- imm << 12
-			*/
 			7'b0110111: begin	//LUI
 				d_mem_r <= 1'd0;
-				d_mem_w <= 1'd0;
-				jump <= 1'd0;
-				branch <= 1'd0;
-				wrten_reg <= 1'd1; // Write enable signal for register file
-				mux_complmnt <= 1'd0;
-				mux_d_mem <= 1'd1; // Select the load data or alu value
-				mux_result <= 1'd1; // Load unsign immediate and take the output of imeediate value
-				mux_inp_2 <= 1'd1; // Immediate value
-				mux_inp_1 <= 1'd0; // data value
-				mux_wire_module <= 3'd3; // Select unsigned U_imm value from wire module
-				alu_op <= 3'd0; // Just pass the alu value opcode
-				switch_cache_w <= 1'd0;
-			end
-
-			/*
-			rd <- pc + imm << 12
-			*/
-			7'b0010111: begin	//AUIPC
-				d_mem_r <= 1'd0; 
 				d_mem_w <= 1'd0;
 				jump <= 1'd0;
 				branch <= 1'd0;
 				wrten_reg <= 1'd1;
 				mux_complmnt <= 1'd0;
 				mux_d_mem <= 1'd1;
-				mux_result <= 2'd2; // Value pc + imm << 12
-				mux_inp_2 <= 1'd1; // Immediate value
-				mux_inp_1 <= 1'd1; // PC value
+				mux_result <= 1'd1;
+				mux_inp_2 <= 1'd0;
+				mux_inp_1 <= 1'd0;
 				mux_wire_module <= 3'd3;
 				alu_op <= 3'd0;
 				switch_cache_w <= 1'd0;
 			end
 
-			/*
-			rd <- pc + 4
-			pc <- pc + imm
-			*/
-			7'b1101111: begin	//JAL
+			7'b0010111: begin	//AUIPC
 				d_mem_r <= 1'd0;
 				d_mem_w <= 1'd0;
-				jump <= 1'd1; // Jump signl to the 
+				jump <= 1'd0;
 				branch <= 1'd0;
 				wrten_reg <= 1'd1;
 				mux_complmnt <= 1'd0;
-				mux_d_mem <= 1'd1; // Data load or alu value
-				mux_result <= 2'd3; // Select the pc + 4
-				mux_inp_2 <= 1'd1; // Immediate value
-				mux_inp_1 <= 1'd1; // PC value
-				mux_wire_module <= 3'd1; // J type
+				mux_d_mem <= 1'd1;
+				mux_result <= 2'd2;
+				mux_inp_2 <= 1'd1;
+				mux_inp_1 <= 1'd1;
+				mux_wire_module <= 3'd3;
 				alu_op <= 3'd0;
 				switch_cache_w <= 1'd0;
 			end
 
-			/*
-			pc <- (rsl + imm) & '1
-			re <- pc + 4
-			*/
+			7'b1101111: begin	//JAL
+				d_mem_r <= 1'd0;
+				d_mem_w <= 1'd0;
+				jump <= 1'd1;
+				branch <= 1'd0;
+				wrten_reg <= 1'd1;
+				mux_complmnt <= 1'd0;
+				mux_d_mem <= 1'd1;
+				mux_result <= 2'd3;
+				mux_inp_2 <= 1'd1;
+				mux_inp_1 <= 1'd1;
+				mux_wire_module <= 3'd1;
+				alu_op <= 3'd0;
+				switch_cache_w <= 1'd0;
+			end
+
 			7'b1100111: begin	//JALR
 				d_mem_r <= 1'd0;
 				d_mem_w <= 1'd0;
@@ -106,110 +92,93 @@ module control(
 				wrten_reg <= 1'd1;
 				mux_complmnt <= 1'd0;
 				mux_d_mem <= 1'd1;
-				mux_result <= 2'd3; // Select the pc + 4
-				mux_inp_2 <= 1'd1; // Immediate value
-				mux_inp_1 <= 1'd0; // rs1
-				mux_wire_module <= 3'd4; // I type
-				alu_op <= 3'd0; // Just pass why
+				mux_result <= 2'd3;
+				mux_inp_2 <= 1'd1;
+				mux_inp_1 <= 1'd0;
+				mux_wire_module <= 3'd4;
+				alu_op <= 3'd0;
 				switch_cache_w <= 1'd0;
 			end
 
-			/*
-			pc <- rsl == rs2 ? pc + imm, pc + 4
-			*/
-			7'b1100011: begin	//BEQ, BNE, BLT, BGE, BLTU, BGEU
+			7'b1100011: begin	//BEQ, BNE......
 				d_mem_r <= 1'd0;
 				d_mem_w <= 1'd0;
 				jump <= 1'd0;
-				branch <= 1'd1; // branch signal
-				wrten_reg <= 1'd0; 
-				mux_complmnt <= 1'd1; // complement the data
-				mux_d_mem <= 1'd0; // 
+				branch <= 1'd1;
+				wrten_reg <= 1'd0;
+				mux_complmnt <= 1'd1;
+				mux_d_mem <= 1'd0;
 				mux_result <= 1'd0;
 				mux_inp_2 <= 1'd0;
 				mux_inp_1 <= 1'd0;
-				mux_wire_module <= 3'd0; // B type
-				alu_op <= 3'd0; // Add operation (substraction)
+				mux_wire_module <= 3'd0;
+				alu_op <= 3'd0;
 				switch_cache_w <= 1'd0;
 			end
 
-			/*
-				lb rd, offset(rs1) ==> rd <- $(rsl + imm)
-				lh rd, offset(rs1) ==> rd <- s16'$(rsl+ imm)
-				lw rd, offset(rs1) ==> rd <- $(rsl+ imm) & 0xFFFFF
-
-				there is only lw
-
-			*/
-			7'b0000011: begin	// lb, lh, lw, lbu, lhu
-				d_mem_r <= 1'd1; // get the register value
+			7'b0000011: begin	//lb,lh,lw
+				d_mem_r <= 1'd1;
 				d_mem_w <= 1'd0;
 				jump <= 1'd0;
 				branch <= 1'd0;
-				wrten_reg <= 1'd1; // write data to the register file
+				wrten_reg <= 1'd1;
 				mux_complmnt <= 1'd0;
 				mux_d_mem <= 1'd0;
-				mux_result <= 2'd2; // alu result
-				mux_inp_2 <= 1'd1; // imeediate value from wire module
-				mux_inp_1 <= 1'd0; // data 1 from register file
-				mux_wire_module <= 3'd4; // I type
-				alu_op <= 3'd0; // add
+				mux_result <= 2'd2;
+				mux_inp_2 <= 1'd1;
+				mux_inp_1 <= 1'd0;
+				mux_wire_module <= 3'd4;
+				alu_op <= 3'd0;
 				switch_cache_w <= 1'd0;
 			end
 
-			/*
-			sw rs2, offset(rs1)
-			*/
-
 			7'b0100011: begin //sb,sh,sw,..
 				d_mem_r <= 1'd0;
-				d_mem_w <= 1'd1; // write to the data memory
+				d_mem_w <= 1'd1;
 				jump <= 1'd0;
 				branch <= 1'd0;
 				wrten_reg <= 1'd0;
 				mux_complmnt <= 1'd0;
 				mux_d_mem <= 1'd0;
-				mux_result <= 2'd2; // alu result
-				mux_inp_2 <= 1'd1; // immediate value from wire module
-				mux_inp_1 <= 1'd0; // data 1 from register file
-				mux_wire_module <= 3'd2; // S type
-				alu_op <= 3'd0; // add
+				mux_result <= 2'd2;
+				mux_inp_2 <= 1'd1;
+				mux_inp_1 <= 1'd0;
+				mux_wire_module <= 3'd2;
+				alu_op <= 3'd0;
 				switch_cache_w <= 1'd0;
 			end
 
-			7'b0010011: begin // ADDI, SLTI, SLTIU, XORI, ORI, ANDI, SLLI, SRLI, SRAI
-				d_mem_r <= 1'd0;
-				d_mem_w <= 1'd0;
-				jump <= 1'd0;
-				branch <= 1'd0;
-				wrten_reg <= 1'd1; // write reigister
-				mux_complmnt <= 1'd0;
-				mux_d_mem <= 1'd1; // select the alu
-				mux_result <= 2'd2; // alu result
-				mux_inp_2 <= 1'd1; // immedidate value
-				mux_inp_1 <= 1'd0; // data 1 from register file
-				mux_wire_module <= 3'd4; // I type
-				alu_op <= fun_3; // select the operation
-				switch_cache_w <= 1'd0;
-			end
-
-			7'b0110011: begin  // ADD, SUB, SLL, SLT, SLTU, XOR, SRL, SRA, OR, AND
+			7'b0010011: begin // ADDI/slti/xori/ori/andi/....
 				d_mem_r <= 1'd0;
 				d_mem_w <= 1'd0;
 				jump <= 1'd0;
 				branch <= 1'd0;
 				wrten_reg <= 1'd1;
-				mux_complmnt <= fun_7[5] ? 1'd1 : 1'd0; // SUB, SRA
-				mux_d_mem <= 1'd1; // select alu
-				mux_result <= 2'd2; // alu result func_7[0]
-				mux_inp_2 <= 1'd0; // data 2
-				mux_inp_1 <= 1'd0; // data 1
-				mux_wire_module <= 3'd0; // B type
-				alu_op <= fun_3; // operation
+				mux_complmnt <= 1'd0;
+				mux_d_mem <= 1'd1;
+				mux_result <= 2'd2;
+				mux_inp_2 <= 1'd1;
+				mux_inp_1 <= 1'd0;
+				mux_wire_module <= 3'd4;
+				alu_op <= fun_3;
 				switch_cache_w <= 1'd0;
 			end
 
-			/*cache controller*/
+			7'b0110011: begin  // add/sub/and/or
+				d_mem_r <= 1'd0;
+				d_mem_w <= 1'd0;
+				jump <= 1'd0;
+				branch <= 1'd0;
+				wrten_reg <= 1'd1;
+				mux_complmnt <= fun_7[5] ? 1'd1 : 1'd0;
+				mux_d_mem <= 1'd1;
+				mux_result <= 2'd2;
+				mux_inp_2 <= 1'd0;
+				mux_inp_1 <= 1'd0;
+				mux_wire_module <= 3'd0;
+				alu_op <= fun_3;
+				switch_cache_w <= 1'd0;
+			end
 
 			7'b1111111: begin
 				d_mem_r <= 1'd0;
