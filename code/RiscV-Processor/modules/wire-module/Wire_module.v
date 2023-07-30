@@ -78,7 +78,7 @@ output [31:0] B_imm,J_imm,S_imm,U_imm,I_imm;
 
 // sign extention imidiate value for B type 
 // | imm[12]   | imm[10:5]         | rs2 (5)         | rs1 (5)   | funct3 (3) | imm[4:1]   | imm[11] | opcode (7) |
-assign B_imm={{20{Instruction[31]}},Instruction[7],Instruction[30:25],Instruction[11:5],1'b0};
+assign B_imm={{20{Instruction[31]}},Instruction[7],Instruction[30:25],Instruction[11:8],1'b0};
 
 // sign extention imidiate value for J type 
 // | imm[20] (1)      | imm[10:1] (10)   | imm[11] (1)   | imm[19:12] (8) | rd (5) | opcode (7) |

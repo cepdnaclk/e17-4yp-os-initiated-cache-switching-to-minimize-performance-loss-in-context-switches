@@ -170,13 +170,13 @@ module control(
 				jump <= 1'd0;
 				branch <= 1'd0;
 				wrten_reg <= 1'd1;
-				mux_complmnt <= fun_7[5] ? 1'd1 : 1'd0;
-				mux_d_mem <= 1'd1;
-				mux_result <= 2'd2;
-				mux_inp_2 <= 1'd0;
-				mux_inp_1 <= 1'd0;
-				mux_wire_module <= 3'd0;
-				alu_op <= fun_3;
+				mux_complmnt <= (fun_7[5] && !fun_3[0]) ? 1'd1 : 1'd0; // SUB, SRA
+				mux_d_mem <= 1'd1; // select alu
+				mux_result <= 2'd2; // alu result func_7[0]
+				mux_inp_2 <= 1'd0; // data 2
+				mux_inp_1 <= 1'd0; // data 1
+				mux_wire_module <= 3'd0; // B type
+				alu_op <= fun_3; // operation
 				switch_cache_w <= 1'd0;
 			end
 
