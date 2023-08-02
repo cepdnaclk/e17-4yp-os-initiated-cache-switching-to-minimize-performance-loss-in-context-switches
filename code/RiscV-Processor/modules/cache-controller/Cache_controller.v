@@ -1,12 +1,15 @@
 module Cache_controller (
+    // inputs
     clock,
     reset,
     read,
     write,
     address,
     writedata,
+    // outputs
     readdata,
 	busywait,
+    // inputs
     func3_cache_select_reg_value,
     write_cache_select_reg
 );
