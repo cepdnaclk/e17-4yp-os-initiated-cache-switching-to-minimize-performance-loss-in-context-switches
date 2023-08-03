@@ -1,26 +1,48 @@
-// module MEM(
-//   mem_out,
-//   write_reg_en,
-//   write_address,
-//   write_data,
-//   reset,
-//   clk
-//   );
+module MEM(
+    // inputs
+    clk,
+    reset,
+    write_address_in,
+    write_en_in,
+    mux5_sel_in,
+    alu_result_in,
+    d_mem_result_in,
 
-//   input [31:0] write_data;
-//   input write_reg_en, reset, clk;
-//   input [4:0] write_address;
-//   output [37:0] mem_out;
+    // outputs
+    write_address_out,
+    write_en_out,
+    mux5_sel_out,
+    alu_result_out,
+    d_mem_result_out
+  );
 
-//   always @(posedge clk)
-//   begin
+    input [4:0] write_address_in;
+    input write_en_in, mux5_sel_in, reset, clk;
+    input [31:0] alu_result_in, d_mem_result_in;
 
-//     if(reset)begin
-//       mem_out <= 37'd0;
-//     end else begin
-//       mem_out <= {write_reg_en, write_address, write_data};
-//     end
+    output reg [4:0] write_address_out;
+    output reg write_en_out, mux5_sel_out;
+    output reg [31:0] alu_result_out, d_mem_result_out;
 
-//   end
+    always @(posedge clk)
+    begin
 
-// endmodule
+        if(reset)begin
+            write_address_out <= 4'b0;
+            write_en_out <= 1'b0;
+            mux5_sel_out <= 1'b0;
+            alu_result_out <= 32'b0;
+            d_mem_result_out <= 32'b0;
+        end
+        else
+        begin
+            write_address_out <= write_address_in;
+            write_en_out <= write_en_in;
+            mux5_sel_out <= mux5_sel_in;
+            alu_result_out <= alu_result_in;
+            d_mem_result_out <= d_mem_result_in;
+        end
+
+  end
+
+endmodule
