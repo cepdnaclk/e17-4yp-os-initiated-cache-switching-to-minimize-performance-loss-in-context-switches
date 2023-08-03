@@ -29,7 +29,7 @@ module dcache (
 
     output reg busywait,mem_read,mem_write;
     output reg [31:0] readdata;
-    output reg [31:0] test_output[3:0]; // test
+    output reg [127:0] test_output; // test
 
     wire valid,dirty;
     input [127:0] mem_readdata;
@@ -42,7 +42,10 @@ module dcache (
     output reg [27:0] mem_address;
     output reg [127:0] mem_writedata;
 
-    
+    always @* begin
+        test_output = {word[0][3], word[0][2], word[0][1], word[0][0]};
+    end
+
     /*
     Combinational part for indexing, tag comparison for hit deciding, etc.
     ...

@@ -1,5 +1,5 @@
 $date
-	Thu Aug 03 15:17:02 2023
+	Fri Aug 04 03:59:56 2023
 $end
 $version
 	Icarus Verilog
@@ -187,7 +187,7 @@ $var wire 1 O mux_d_mem $end
 $var wire 1 R mux_complmnt $end
 $var wire 32 =" mux_1_out [31:0] $end
 $var wire 1 X jump $end
-$var wire 32 >" instration [31:0] $end
+$var wire 32 >" instruction [31:0] $end
 $var wire 3 ?" fun_3 [2:0] $end
 $var wire 32 @" data_in [31:0] $end
 $var wire 32 A" data_2 [31:0] $end
@@ -481,271 +481,287 @@ $var wire 1 + reset $end
 $var wire 1 g write $end
 $var wire 1 7 write_cache_select_reg $end
 $var wire 32 <$ writedata [31:0] $end
-$var wire 128 =$ mem_readdata [127:0] $end
-$var wire 1 >$ mem_busywait $end
-$var wire 1 ?$ cache_4_mem_write $end
-$var wire 1 @$ cache_4_mem_read $end
-$var wire 28 A$ cache_4_mem_address [27:0] $end
-$var wire 1 B$ cache_3_mem_write $end
-$var wire 1 C$ cache_3_mem_read $end
-$var wire 28 D$ cache_3_mem_address [27:0] $end
-$var wire 1 E$ cache_2_mem_write $end
-$var wire 1 F$ cache_2_mem_read $end
-$var wire 28 G$ cache_2_mem_address [27:0] $end
-$var wire 128 H$ cache_1_mem_writedata [127:0] $end
-$var wire 1 I$ cache_1_mem_write $end
-$var wire 1 J$ cache_1_mem_read $end
-$var wire 28 K$ cache_1_mem_address [27:0] $end
-$var wire 32 L$ cache4_read_data [31:0] $end
-$var wire 1 M$ cache4_busywait $end
-$var wire 32 N$ cache3_read_data [31:0] $end
-$var wire 1 O$ cache3_busywait $end
-$var wire 32 P$ cache2_read_data [31:0] $end
-$var wire 1 Q$ cache2_busywait $end
-$var wire 32 R$ cache1_read_data [31:0] $end
-$var wire 1 S$ cache1_busywait $end
+$var wire 128 =$ test_output4 [127:0] $end
+$var wire 128 >$ test_output3 [127:0] $end
+$var wire 128 ?$ test_output2 [127:0] $end
+$var wire 128 @$ test_output1 [127:0] $end
+$var wire 128 A$ mem_readdata [127:0] $end
+$var wire 1 B$ mem_busywait $end
+$var wire 1 C$ cache_4_mem_write $end
+$var wire 1 D$ cache_4_mem_read $end
+$var wire 28 E$ cache_4_mem_address [27:0] $end
+$var wire 1 F$ cache_3_mem_write $end
+$var wire 1 G$ cache_3_mem_read $end
+$var wire 28 H$ cache_3_mem_address [27:0] $end
+$var wire 1 I$ cache_2_mem_write $end
+$var wire 1 J$ cache_2_mem_read $end
+$var wire 28 K$ cache_2_mem_address [27:0] $end
+$var wire 128 L$ cache_1_mem_writedata [127:0] $end
+$var wire 1 M$ cache_1_mem_write $end
+$var wire 1 N$ cache_1_mem_read $end
+$var wire 28 O$ cache_1_mem_address [27:0] $end
+$var wire 32 P$ cache4_read_data [31:0] $end
+$var wire 1 Q$ cache4_busywait $end
+$var wire 32 R$ cache3_read_data [31:0] $end
+$var wire 1 S$ cache3_busywait $end
+$var wire 32 T$ cache2_read_data [31:0] $end
+$var wire 1 U$ cache2_busywait $end
+$var wire 32 V$ cache1_read_data [31:0] $end
+$var wire 1 W$ cache1_busywait $end
 $var reg 1 _ busywait $end
-$var reg 1 T$ cache1_select $end
-$var reg 1 U$ cache2_select $end
-$var reg 1 V$ cache3_select $end
-$var reg 1 W$ cache4_select $end
-$var reg 3 X$ cache_switching_reg [2:0] $end
-$var reg 28 Y$ mem_address [27:0] $end
-$var reg 1 Z$ mem_read $end
-$var reg 1 [$ mem_write $end
-$var reg 128 \$ mem_writedata [127:0] $end
-$var reg 32 ]$ readdata [31:0] $end
+$var reg 1 X$ cache1_select $end
+$var reg 1 Y$ cache2_select $end
+$var reg 1 Z$ cache3_select $end
+$var reg 1 [$ cache4_select $end
+$var reg 3 \$ cache_switching_reg [2:0] $end
+$var reg 28 ]$ mem_address [27:0] $end
+$var reg 1 ^$ mem_read $end
+$var reg 1 _$ mem_write $end
+$var reg 128 `$ mem_writedata [127:0] $end
+$var reg 32 a$ readdata [31:0] $end
 $scope module dcache1 $end
-$var wire 32 ^$ address [31:0] $end
+$var wire 32 b$ address [31:0] $end
 $var wire 1 * clock $end
-$var wire 1 _$ dirty $end
+$var wire 1 c$ dirty $end
 $var wire 1 4$ mem_busywait $end
 $var wire 1 ,$ read $end
 $var wire 1 + reset $end
-$var wire 1 `$ valid $end
+$var wire 1 d$ valid $end
 $var wire 1 -$ write $end
-$var wire 32 a$ writedata [31:0] $end
-$var wire 128 b$ mem_readdata [127:0] $end
-$var reg 1 S$ busywait $end
-$var reg 1 c$ hit $end
-$var reg 28 d$ mem_address [27:0] $end
-$var reg 1 J$ mem_read $end
-$var reg 1 I$ mem_write $end
-$var reg 128 e$ mem_writedata [127:0] $end
-$var reg 3 f$ next_state [2:0] $end
-$var reg 32 g$ readdata [31:0] $end
-$var reg 3 h$ state [2:0] $end
-$var reg 1 i$ write_from_mem $end
-$var integer 32 j$ i [31:0] $end
+$var wire 32 e$ writedata [31:0] $end
+$var wire 128 f$ mem_readdata [127:0] $end
+$var reg 1 W$ busywait $end
+$var reg 1 g$ hit $end
+$var reg 28 h$ mem_address [27:0] $end
+$var reg 1 N$ mem_read $end
+$var reg 1 M$ mem_write $end
+$var reg 128 i$ mem_writedata [127:0] $end
+$var reg 3 j$ next_state [2:0] $end
+$var reg 32 k$ readdata [31:0] $end
+$var reg 3 l$ state [2:0] $end
+$var reg 128 m$ test_output [127:0] $end
+$var reg 1 n$ write_from_mem $end
+$var integer 32 o$ i [31:0] $end
 $upscope $end
 $scope module dcache2 $end
-$var wire 32 k$ address [31:0] $end
+$var wire 32 p$ address [31:0] $end
 $var wire 1 * clock $end
-$var wire 1 l$ dirty $end
+$var wire 1 q$ dirty $end
 $var wire 1 5$ mem_busywait $end
 $var wire 1 .$ read $end
 $var wire 1 + reset $end
-$var wire 1 m$ valid $end
+$var wire 1 r$ valid $end
 $var wire 1 /$ write $end
-$var wire 32 n$ writedata [31:0] $end
-$var wire 128 o$ mem_readdata [127:0] $end
-$var reg 1 Q$ busywait $end
-$var reg 1 p$ hit $end
-$var reg 28 q$ mem_address [27:0] $end
-$var reg 1 F$ mem_read $end
-$var reg 1 E$ mem_write $end
-$var reg 128 r$ mem_writedata [127:0] $end
-$var reg 3 s$ next_state [2:0] $end
-$var reg 32 t$ readdata [31:0] $end
-$var reg 3 u$ state [2:0] $end
-$var reg 1 v$ write_from_mem $end
-$var integer 32 w$ i [31:0] $end
+$var wire 32 s$ writedata [31:0] $end
+$var wire 128 t$ mem_readdata [127:0] $end
+$var reg 1 U$ busywait $end
+$var reg 1 u$ hit $end
+$var reg 28 v$ mem_address [27:0] $end
+$var reg 1 J$ mem_read $end
+$var reg 1 I$ mem_write $end
+$var reg 128 w$ mem_writedata [127:0] $end
+$var reg 3 x$ next_state [2:0] $end
+$var reg 32 y$ readdata [31:0] $end
+$var reg 3 z$ state [2:0] $end
+$var reg 128 {$ test_output [127:0] $end
+$var reg 1 |$ write_from_mem $end
+$var integer 32 }$ i [31:0] $end
 $upscope $end
 $scope module dcache3 $end
-$var wire 32 x$ address [31:0] $end
+$var wire 32 ~$ address [31:0] $end
 $var wire 1 * clock $end
-$var wire 1 y$ dirty $end
+$var wire 1 !% dirty $end
 $var wire 1 7$ mem_busywait $end
 $var wire 1 0$ read $end
 $var wire 1 + reset $end
-$var wire 1 z$ valid $end
+$var wire 1 "% valid $end
 $var wire 1 1$ write $end
-$var wire 32 {$ writedata [31:0] $end
-$var wire 128 |$ mem_readdata [127:0] $end
-$var reg 1 O$ busywait $end
-$var reg 1 }$ hit $end
-$var reg 28 ~$ mem_address [27:0] $end
-$var reg 1 C$ mem_read $end
-$var reg 1 B$ mem_write $end
-$var reg 128 !% mem_writedata [127:0] $end
-$var reg 3 "% next_state [2:0] $end
-$var reg 32 #% readdata [31:0] $end
-$var reg 3 $% state [2:0] $end
-$var reg 1 %% write_from_mem $end
-$var integer 32 &% i [31:0] $end
+$var wire 32 #% writedata [31:0] $end
+$var wire 128 $% mem_readdata [127:0] $end
+$var reg 1 S$ busywait $end
+$var reg 1 %% hit $end
+$var reg 28 &% mem_address [27:0] $end
+$var reg 1 G$ mem_read $end
+$var reg 1 F$ mem_write $end
+$var reg 128 '% mem_writedata [127:0] $end
+$var reg 3 (% next_state [2:0] $end
+$var reg 32 )% readdata [31:0] $end
+$var reg 3 *% state [2:0] $end
+$var reg 128 +% test_output [127:0] $end
+$var reg 1 ,% write_from_mem $end
+$var integer 32 -% i [31:0] $end
 $upscope $end
 $scope module dcache4 $end
-$var wire 32 '% address [31:0] $end
+$var wire 32 .% address [31:0] $end
 $var wire 1 * clock $end
-$var wire 1 (% dirty $end
+$var wire 1 /% dirty $end
 $var wire 1 9$ mem_busywait $end
 $var wire 1 2$ read $end
 $var wire 1 + reset $end
-$var wire 1 )% valid $end
+$var wire 1 0% valid $end
 $var wire 1 3$ write $end
-$var wire 32 *% writedata [31:0] $end
-$var wire 128 +% mem_readdata [127:0] $end
-$var reg 1 M$ busywait $end
-$var reg 1 ,% hit $end
-$var reg 28 -% mem_address [27:0] $end
-$var reg 1 @$ mem_read $end
-$var reg 1 ?$ mem_write $end
-$var reg 128 .% mem_writedata [127:0] $end
-$var reg 3 /% next_state [2:0] $end
-$var reg 32 0% readdata [31:0] $end
-$var reg 3 1% state [2:0] $end
-$var reg 1 2% write_from_mem $end
-$var integer 32 3% i [31:0] $end
+$var wire 32 1% writedata [31:0] $end
+$var wire 128 2% mem_readdata [127:0] $end
+$var reg 1 Q$ busywait $end
+$var reg 1 3% hit $end
+$var reg 28 4% mem_address [27:0] $end
+$var reg 1 D$ mem_read $end
+$var reg 1 C$ mem_write $end
+$var reg 128 5% mem_writedata [127:0] $end
+$var reg 3 6% next_state [2:0] $end
+$var reg 32 7% readdata [31:0] $end
+$var reg 3 8% state [2:0] $end
+$var reg 128 9% test_output [127:0] $end
+$var reg 1 :% write_from_mem $end
+$var integer 32 ;% i [31:0] $end
 $upscope $end
 $scope module my_data_memory $end
-$var wire 28 4% address [27:0] $end
+$var wire 28 <% address [27:0] $end
 $var wire 1 * clock $end
-$var wire 1 Z$ read $end
+$var wire 1 ^$ read $end
 $var wire 1 + reset $end
-$var wire 1 [$ write $end
-$var wire 128 5% writedata [127:0] $end
-$var reg 1 >$ busywait $end
-$var reg 4 6% counter [3:0] $end
-$var reg 1 7% readaccess $end
-$var reg 128 8% readdata [127:0] $end
-$var reg 1 9% writeaccess $end
+$var wire 1 _$ write $end
+$var wire 128 =% writedata [127:0] $end
+$var reg 1 B$ busywait $end
+$var reg 4 >% counter [3:0] $end
+$var reg 1 ?% readaccess $end
+$var reg 128 @% readdata [127:0] $end
+$var reg 1 A% writeaccess $end
 $upscope $end
 $upscope $end
 $upscope $end
 $scope module mem_reg $end
-$var wire 32 :% alu_result_in [31:0] $end
+$var wire 32 B% alu_result_in [31:0] $end
 $var wire 1 * clk $end
-$var wire 32 ;% d_mem_result_in [31:0] $end
+$var wire 32 C% d_mem_result_in [31:0] $end
 $var wire 1 Q mux5_sel_in $end
 $var wire 1 , reset $end
-$var wire 5 <% write_address_in [4:0] $end
+$var wire 5 D% write_address_in [4:0] $end
 $var wire 1 / write_en_in $end
-$var reg 32 =% alu_result_out [31:0] $end
-$var reg 32 >% d_mem_result_out [31:0] $end
+$var reg 32 E% alu_result_out [31:0] $end
+$var reg 32 F% d_mem_result_out [31:0] $end
 $var reg 1 V mux5_sel_out $end
-$var reg 5 ?% write_address_out [4:0] $end
+$var reg 5 G% write_address_out [4:0] $end
 $var reg 1 0 write_en_out $end
 $upscope $end
 $scope module mux5 $end
-$var wire 32 @% in1 [31:0] $end
-$var wire 32 A% in2 [31:0] $end
+$var wire 32 H% in1 [31:0] $end
+$var wire 32 I% in2 [31:0] $end
 $var wire 1 V select $end
-$var reg 32 B% out [31:0] $end
+$var reg 32 J% out [31:0] $end
 $upscope $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
+bx J%
+bx I%
+bx H%
+bx G%
+bx F%
+bx E%
+bx D%
+b0xxxxxxxxxxxxxxxx C%
 bx B%
-bx A%
+xA%
 bx @%
-bx ?%
+x?%
 bx >%
-bx =%
+bz =%
 bx <%
-b0xxxxxxxxxxxxxxxx ;%
-bx :%
-x9%
+bx ;%
+x:%
+bx 9%
 bx 8%
-x7%
+bx 7%
 bx 6%
-bz 5%
+bx 5%
 bx 4%
-bx 3%
-x2%
+x3%
+bx 2%
 bx 1%
-bx 0%
-bx /%
+x0%
+x/%
 bx .%
 bx -%
 x,%
 bx +%
 bx *%
-x)%
-x(%
+bx )%
+bx (%
 bx '%
 bx &%
 x%%
 bx $%
 bx #%
-bx "%
-bx !%
+x"%
+x!%
 bx ~$
-x}$
-bx |$
+bx }$
+x|$
 bx {$
-xz$
-xy$
+bx z$
+bx y$
 bx x$
 bx w$
-xv$
-bx u$
+bx v$
+xu$
 bx t$
 bx s$
-bx r$
-bx q$
-xp$
+xr$
+xq$
+bx p$
 bx o$
-bx n$
-xm$
-xl$
+xn$
+bx m$
+bx l$
 bx k$
 bx j$
-xi$
+bx i$
 bx h$
-bx g$
+xg$
 bx f$
 bx e$
-bx d$
+xd$
 xc$
 bx b$
 bx a$
-x`$
+bz `$
 x_$
-bx ^$
+x^$
 bx ]$
-bz \$
+bx \$
 x[$
 xZ$
-bx Y$
-bx X$
+xY$
+xX$
 xW$
-xV$
+bx V$
 xU$
-xT$
+bx T$
 xS$
 bx R$
 xQ$
 bx P$
-xO$
-bx N$
+bx O$
+xN$
 xM$
 bx L$
 bx K$
 xJ$
 xI$
 bx H$
-bx G$
+xG$
 xF$
-xE$
-bx D$
+bx E$
+xD$
 xC$
 xB$
 bx A$
-x@$
-x?$
-x>$
+bx @$
+bx ?$
+bx >$
 bx =$
 bx <$
 bx ;$
@@ -1067,9 +1083,9 @@ b0 |"
 b0 ,#
 b0 -#
 b0 M#
-09%
-07%
-0>$
+0A%
+0?%
+0B$
 0s"
 b0 &#
 b0 '#
@@ -1093,8 +1109,8 @@ b0 +#
 b0 z"
 b0 )#
 b0 S#
-0[$
-0Z$
+0_$
+0^$
 0_
 0t#
 0h#
@@ -1164,42 +1180,42 @@ b0 Q#
 bx 1
 bx {#
 bx %$
-bx ;%
-0c$
-0p$
-0}$
-0,%
+bx C%
+0g$
+0u$
+0%%
+03%
 b0 z#
 b0 *$
 b0 <$
-b0 a$
-b0 n$
-b0 {$
-b0 *%
-1W$
-0V$
-0U$
-0T$
-02%
-0M$
-0?$
-0@$
-b0 /%
-0%%
-0O$
-0B$
-0C$
-b0 "%
-0v$
-0Q$
-0E$
-0F$
+b0 e$
 b0 s$
-0i$
+b0 #%
+b0 1%
+1[$
+0Z$
+0Y$
+0X$
+0:%
+0Q$
+0C$
+0D$
+b0 6%
+0,%
 0S$
+0F$
+0G$
+b0 (%
+0|$
+0U$
 0I$
 0J$
-b0 f$
+b0 x$
+0n$
+0W$
+0M$
+0N$
+b0 j$
 0p#
 0\#
 0m#
@@ -1247,14 +1263,14 @@ b0 3"
 0.$
 00$
 02$
-0`$
-0_$
-0m$
-0l$
-0z$
-0y$
-0)%
-0(%
+0d$
+0c$
+0r$
+0q$
+0"%
+0!%
+00%
+0/%
 b0 )$
 b0 ($
 b0 s#
@@ -1350,7 +1366,7 @@ b0 "#
 07
 b0 5
 b0 }
-b0 <%
+b0 D%
 b0 ^
 b0 {
 b0 w#
@@ -1364,39 +1380,39 @@ b0 :
 b0 |
 b0 y#
 b0 +$
-b0 ^$
-b0 k$
-b0 x$
-b0 '%
-b0 :%
+b0 b$
+b0 p$
+b0 ~$
+b0 .%
+b0 B%
 b0 b
 b0 z
 b0 v#
 b0 &$
-b0 6%
-b0 X$
-b0 1%
-b0 $%
-b0 u$
-b0 h$
+b0 >%
+b0 \$
+b0 8%
+b0 *%
+b0 z$
+b0 l$
 b0 o#
 b100000 c"
-b1000 3%
-b1000 &%
-b1000 w$
-b1000 j$
+b1000 ;%
+b1000 -%
+b1000 }$
+b1000 o$
 b1000 q#
 1+
 #50
 b0 q
-b0 =%
-b0 A%
+b0 E%
+b0 I%
 0V
 00
 b0 2
 b0 2"
 b0 _"
-b0 ?%
+b0 G%
 b100000 c"
 1*
 #60
@@ -1413,7 +1429,12 @@ b1 n#
 b1 o#
 0*
 #150
+bx `$
+bx =%
+0[$
+1X$
 b1 s#
+b1 \$
 1*
 #200
 0*
@@ -1568,14 +1589,14 @@ bx ?"
 bx 4
 bx ~
 bx 3"
-x`$
-x_$
-xm$
-xl$
-xz$
-xy$
-x)%
-x(%
+xd$
+xc$
+xr$
+xq$
+x"%
+x!%
+x0%
+x/%
 b0 C
 b0 T#
 b0 _#
@@ -1595,11 +1616,11 @@ bx :
 bx |
 bx y#
 bx +$
-bx ^$
-bx k$
-bx x$
-bx '%
-bx :%
+bx b$
+bx p$
+bx ~$
+bx .%
+bx B%
 1*
 #1800
 1t#
@@ -1616,8 +1637,8 @@ b1 n#
 1h#
 b0 s#
 bx q
-bx =%
-bx A%
+bx E%
+bx I%
 b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx g#
 b0xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx u#
 1*
@@ -1861,14 +1882,14 @@ b0 ?"
 b0 4
 b0 ~
 b0 3"
-0`$
-0_$
-0m$
-0l$
-0z$
-0y$
-0)%
-0(%
+0d$
+0c$
+0r$
+0q$
+0"%
+0!%
+00%
+0/%
 b100 C
 b100 T#
 b100 _#
@@ -1921,11 +1942,11 @@ b0 :
 b0 |
 b0 y#
 b0 +$
-b0 ^$
-b0 k$
-b0 x$
-b0 '%
-b0 :%
+b0 b$
+b0 p$
+b0 ~$
+b0 .%
+b0 B%
 1*
 #3600
 0*
@@ -1973,14 +1994,14 @@ b0 k#
 b0xxxxxxxxxxxxxxxx 1
 b0xxxxxxxxxxxxxxxx {#
 b0xxxxxxxxxxxxxxxx %$
-b0xxxxxxxxxxxxxxxx ;%
+b0xxxxxxxxxxxxxxxx C%
 bx z#
 bx *$
 bx <$
-bx a$
-bx n$
-bx {$
-bx *%
+bx e$
+bx s$
+bx #%
+bx 1%
 b0 v"
 b0 D#
 b0 K#
@@ -2042,7 +2063,7 @@ b1 3"
 b10 f#
 bx 5
 bx }
-bx <%
+bx D%
 bx ^
 bx {
 bx w#
@@ -2112,8 +2133,8 @@ b1000 T#
 b1000 _#
 b1000 c#
 b0 q
-b0 =%
-b0 A%
+b0 E%
+b0 I%
 1*
 #3700
 0*
@@ -2175,18 +2196,18 @@ b110 .#
 bx 1
 bx {#
 bx %$
-bx ;%
+bx C%
 b0 z#
 b0 *$
 b0 <$
-b0 a$
-b0 n$
-b0 {$
-b0 *%
+b0 e$
+b0 s$
+b0 #%
+b0 1%
 b0xxxxxxxxxxxxxxxx W
 b0xxxxxxxxxxxxxxxx @"
 b0xxxxxxxxxxxxxxxx `"
-b0xxxxxxxxxxxxxxxx B%
+b0xxxxxxxxxxxxxxxx J%
 b11 f#
 b0 G"
 b0 P"
@@ -2244,7 +2265,7 @@ b1000 N#
 09
 b0 5
 b0 }
-b0 <%
+b0 D%
 b0 ^
 b0 {
 b0 w#
@@ -2256,22 +2277,22 @@ b11111111111111111111110000011000 :
 b11111111111111111111110000011000 |
 b11111111111111111111110000011000 y#
 b11111111111111111111110000011000 +$
-b11111111111111111111110000011000 ^$
-b11111111111111111111110000011000 k$
-b11111111111111111111110000011000 x$
-b11111111111111111111110000011000 '%
-b11111111111111111111110000011000 :%
+b11111111111111111111110000011000 b$
+b11111111111111111111110000011000 p$
+b11111111111111111111110000011000 ~$
+b11111111111111111111110000011000 .%
+b11111111111111111111110000011000 B%
 b0 b
 b0 z
 b0 v#
 b0 &$
 b0xxxxxxxxxxxxxxxx h
-b0xxxxxxxxxxxxxxxx >%
-b0xxxxxxxxxxxxxxxx @%
+b0xxxxxxxxxxxxxxxx F%
+b0xxxxxxxxxxxxxxxx H%
 bx 2
 bx 2"
 bx _"
-bx ?%
+bx G%
 1*
 #3800
 0*
@@ -2334,23 +2355,23 @@ b10100 `#
 b11111111111111111111110000011000 W
 b11111111111111111111110000011000 @"
 b11111111111111111111110000011000 `"
-b11111111111111111111110000011000 B%
+b11111111111111111111110000011000 J%
 0e#
 bx d#
 b1 i#
 b0 f#
 b1 5
 b1 }
-b1 <%
+b1 D%
 b10 :
 b10 |
 b10 y#
 b10 +$
-b10 ^$
-b10 k$
-b10 x$
-b10 '%
-b10 :%
+b10 b$
+b10 p$
+b10 ~$
+b10 .%
+b10 B%
 b0 3
 b0 v
 b0 1"
@@ -2385,17 +2406,17 @@ b10000 T#
 b10000 _#
 b10000 c#
 bx h
-bx >%
-bx @%
+bx F%
+bx H%
 b11111111111111111111110000011000 q
-b11111111111111111111110000011000 =%
-b11111111111111111111110000011000 A%
+b11111111111111111111110000011000 E%
+b11111111111111111111110000011000 I%
 1V
 10
 b0 2
 b0 2"
 b0 _"
-b0 ?%
+b0 G%
 1*
 #3900
 1t#
@@ -2413,19 +2434,19 @@ b1 n#
 b10 W
 b10 @"
 b10 `"
-b10 B%
+b10 J%
 b0 s#
 b11111111111111111111110000011000 '
 b11111111111111111111110000011000 B
 b11111111111111111111110000011000 :"
 b11111111111111111111110000011000 X"
 b10 q
-b10 =%
-b10 A%
+b10 E%
+b10 I%
 b1 2
 b1 2"
 b1 _"
-b1 ?%
+b1 G%
 1*
 #4000
 0*
@@ -2620,18 +2641,18 @@ b101 3"
 b1 f#
 b0 5
 b0 }
-b0 <%
+b0 D%
 0/
 0Q
 b0 :
 b0 |
 b0 y#
 b0 +$
-b0 ^$
-b0 k$
-b0 x$
-b0 '%
-b0 :%
+b0 b$
+b0 p$
+b0 ~$
+b0 .%
+b0 B%
 b1100 E
 b1100 0"
 b1100 k"
@@ -2734,7 +2755,7 @@ b101 Q#
 bx W
 bx @"
 bx `"
-bx B%
+bx J%
 0/#
 b10 f#
 b0 D"
@@ -2812,14 +2833,14 @@ b10100 N#
 1f
 1L
 b0 q
-b0 =%
-b0 A%
+b0 E%
+b0 I%
 0V
 00
 b0 2
 b0 2"
 b0 _"
-b0 ?%
+b0 G%
 1*
 #5800
 0*
@@ -2851,7 +2872,7 @@ b1111101000 w"
 b1111101000 8#
 b1111101000 R#
 b1111100111 7#
-b1 /%
+b1 j$
 b10100001010000100000011 Z
 b10100001010000100000011 V#
 b10100001010000100000011 ]#
@@ -2859,10 +2880,10 @@ b10100001010000100000011 k#
 b11111111111111111111110000011000 z#
 b11111111111111111111110000011000 *$
 b11111111111111111111110000011000 <$
-b11111111111111111111110000011000 a$
-b11111111111111111111110000011000 n$
-b11111111111111111111110000011000 {$
-b11111111111111111111110000011000 *%
+b11111111111111111111110000011000 e$
+b11111111111111111111110000011000 s$
+b11111111111111111111110000011000 #%
+b11111111111111111111110000011000 1%
 b11110100001001000000 v"
 b11110100001001000000 D#
 b11110100001001000000 K#
@@ -2898,13 +2919,13 @@ b100000 F
 b100000 U#
 b100000 ^#
 b100000 `#
-13$
+1-$
 b11000 )$
 b1111110000011000 ($
 b11 f#
 b101 5
 b101 }
-b101 <%
+b101 D%
 b10 ^
 b10 {
 b10 w#
@@ -2915,11 +2936,11 @@ b111 :
 b111 |
 b111 y#
 b111 +$
-b111 ^$
-b111 k$
-b111 x$
-b111 '%
-b111 :%
+b111 b$
+b111 p$
+b111 ~$
+b111 .%
+b111 B%
 b11111111111111111111110000011000 b
 b11111111111111111111110000011000 z
 b11111111111111111111110000011000 v#
@@ -2970,111 +2991,111 @@ b11100 _#
 b11100 c#
 1*
 #5900
-19$
-17%
-1>$
+14$
+1?%
+1B$
 1l
-b0 Y$
-b0 4%
-1Z$
+b0 ]$
+b0 <%
+1^$
 1_
-1M$
-b0 A$
-b0 -%
-1@$
-b1 /%
-b1 1%
+1W$
+b0 O$
+b0 h$
+1N$
+b1 j$
+b1 l$
 0*
 #5950
-b1 6%
+b1 >%
 b111 q
-b111 =%
-b111 A%
+b111 E%
+b111 I%
 b101 2
 b101 2"
 b101 _"
-b101 ?%
+b101 G%
 1*
 #6000
 0*
 #6050
-b10 6%
+b10 >%
 1*
 #6100
 0*
 #6150
-b11 6%
+b11 >%
 1*
 #6200
 0*
 #6250
-b100 6%
+b100 >%
 1*
 #6300
 0*
 #6350
-b101 6%
+b101 >%
 1*
 #6400
 0*
 #6450
-b110 6%
+b110 >%
 1*
 #6500
 0*
 #6550
-b111 6%
+b111 >%
 1*
 #6600
 0*
 #6650
-b1000 6%
+b1000 >%
 1*
 #6700
 0*
 #6750
-b1001 6%
+b1001 >%
 1*
 #6800
 0*
 #6850
-b1010 6%
+b1010 >%
 1*
 #6900
 0*
 #6950
-b1011 6%
+b1011 >%
 1*
 #7000
 0*
 #7050
-b1100 6%
+b1100 >%
 1*
 #7100
 0*
 #7150
-b1101 6%
+b1101 >%
 1*
 #7200
 0*
 #7250
-b1110 6%
+b1110 >%
 1*
 #7300
 0*
 #7350
-b11 /%
-09$
-0>$
-b1111 6%
+b11 j$
+04$
+0B$
+b1111 >%
 1*
 #7400
-07%
-0Z$
-12%
-0@$
-b0 /%
-b11 1%
+0?%
+0^$
+1n$
+0N$
+b0 j$
+b11 l$
 0*
 #7450
 1*
@@ -3082,7 +3103,7 @@ b11 1%
 b11111111111111111111110000011000 1
 b11111111111111111111110000011000 {#
 b11111111111111111111110000011000 %$
-b11111111111111111111110000011000 ;%
+b11111111111111111111110000011000 C%
 0l
 b1111110000011000 ~#
 b11111111111111111111110000011000 !$
@@ -3091,16 +3112,18 @@ b11000 #$
 0_
 b11111111111111111111110000011000 |#
 b11111111111111111111110000011000 $$
-b11111111111111111111110000011000 ]$
-1,%
-b11111111111111111111110000011000 L$
-b11111111111111111111110000011000 0%
-02%
-0M$
-b0 /%
-1)%
-1(%
-b0 1%
+b11111111111111111111110000011000 a$
+1g$
+b11111111111111111111110000011000 V$
+b11111111111111111111110000011000 k$
+0n$
+0W$
+b0 j$
+bx11111111111111111111110000011000xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx @$
+bx11111111111111111111110000011000xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx m$
+1d$
+1c$
+b0 l$
 0*
 #7550
 b1 n#
@@ -3151,19 +3174,19 @@ b11000 .#
 b11000 1
 b11000 {#
 b11000 %$
-b11000 ;%
+b11000 C%
 b11000 z#
 b11000 *$
 b11000 <$
-b11000 a$
-b11000 n$
-b11000 {$
-b11000 *%
-0,%
+b11000 e$
+b11000 s$
+b11000 #%
+b11000 1%
+0g$
 b11111111111111111111110000011000 W
 b11111111111111111111110000011000 @"
 b11111111111111111111110000011000 `"
-b11111111111111111111110000011000 B%
+b11111111111111111111110000011000 J%
 0e#
 bx d#
 b10 i#
@@ -3193,9 +3216,9 @@ b10 ?"
 b10 4
 b10 ~
 b10 3"
-03$
-0)%
-0(%
+0-$
+0d$
+0c$
 b100000 C
 b100000 T#
 b100000 _#
@@ -3220,7 +3243,7 @@ b11100 j"
 b11100 N#
 b0 5
 b0 }
-b0 <%
+b0 D%
 b0 ^
 b0 {
 b0 w#
@@ -3231,20 +3254,14 @@ b11110100001001000000 :
 b11110100001001000000 |
 b11110100001001000000 y#
 b11110100001001000000 +$
-b11110100001001000000 ^$
-b11110100001001000000 k$
-b11110100001001000000 x$
-b11110100001001000000 '%
-b11110100001001000000 :%
+b11110100001001000000 b$
+b11110100001001000000 p$
+b11110100001001000000 ~$
+b11110100001001000000 .%
+b11110100001001000000 B%
 b11111111111111111111110000011000 h
-b11111111111111111111110000011000 >%
-b11111111111111111111110000011000 @%
-bzxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx =$
-bzxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx b$
-bzxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx o$
-bzxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx |$
-bzxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx +%
-bzxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx 8%
+b11111111111111111111110000011000 F%
+b11111111111111111111110000011000 H%
 1*
 #7600
 1t#
@@ -3262,18 +3279,18 @@ b1 n#
 b11000 W
 b11000 @"
 b11000 `"
-b11000 B%
+b11000 J%
 b0 s#
 b11000 h
-b11000 >%
-b11000 @%
+b11000 F%
+b11000 H%
 b11110100001001000000 q
-b11110100001001000000 =%
-b11110100001001000000 A%
+b11110100001001000000 E%
+b11110100001001000000 I%
 b0 2
 b0 2"
 b0 _"
-b0 ?%
+b0 G%
 bx010100001010000100000011000000000000000000000000000000000000000000000000000000000000000000000000000000001010001010100011 g#
 bx010100001010000100000011000000000000000000000000000000000000000000000000000000000000000000000000000000001010001010100011 u#
 1*
@@ -3595,19 +3612,19 @@ bx w"
 bx 8#
 bx R#
 bx 7#
-b0 /%
+b0 j$
 b11111111111111111111110000011000 1
 b11111111111111111111110000011000 {#
 b11111111111111111111110000011000 %$
-b11111111111111111111110000011000 ;%
-1,%
+b11111111111111111111110000011000 C%
+1g$
 b0 z#
 b0 *$
 b0 <$
-b0 a$
-b0 n$
-b0 {$
-b0 *%
+b0 e$
+b0 s$
+b0 #%
+b0 1%
 bx }"
 bx .#
 bx %#
@@ -3643,15 +3660,15 @@ b101100 `#
 x4#
 x3#
 x0#
-12$
-1)%
-1(%
+1,$
+1d$
+1c$
 b0 )$
 b0 ($
 b10 f#
 b10 5
 b10 }
-b10 <%
+b10 D%
 b10 ^
 b10 {
 b10 w#
@@ -3663,11 +3680,11 @@ b111 :
 b111 |
 b111 y#
 b111 +$
-b111 ^$
-b111 k$
-b111 x$
-b111 '%
-b111 :%
+b111 b$
+b111 p$
+b111 ~$
+b111 .%
+b111 B%
 b0 b
 b0 z
 b0 v#
@@ -3739,7 +3756,7 @@ b110000 [#
 b110000 b#
 bx |#
 bx $$
-bx ]$
+bx a$
 b101100 (
 b101100 u
 b110000 F
@@ -3749,22 +3766,22 @@ b110000 `#
 b0xxxxxxxxxxxxxxxx 1
 b0xxxxxxxxxxxxxxxx {#
 b0xxxxxxxxxxxxxxxx %$
-b0xxxxxxxxxxxxxxxx ;%
-bx L$
-bx 0%
+b0xxxxxxxxxxxxxxxx C%
+bx V$
+bx k$
 bx z#
 bx *$
 bx <$
-bx a$
-bx n$
-bx {$
-bx *%
+bx e$
+bx s$
+bx #%
+bx 1%
 b11111111111111111111110000011000 W
 b11111111111111111111110000011000 @"
 b11111111111111111111110000011000 `"
-b11111111111111111111110000011000 B%
+b11111111111111111111110000011000 J%
 b11 f#
-02$
+0,$
 b0xxxxxxxx )$
 b0xxxxxxxxxxxxxxxx ($
 b101100 C
@@ -3787,7 +3804,7 @@ b101000 j"
 b101000 N#
 bx 5
 bx }
-bx <%
+bx D%
 bx ^
 bx {
 bx w#
@@ -3799,26 +3816,26 @@ b0 :
 b0 |
 b0 y#
 b0 +$
-b0 ^$
-b0 k$
-b0 x$
-b0 '%
-b0 :%
+b0 b$
+b0 p$
+b0 ~$
+b0 .%
+b0 B%
 bx b
 bx z
 bx v#
 bx &$
 b11111111111111111111110000011000 h
-b11111111111111111111110000011000 >%
-b11111111111111111111110000011000 @%
+b11111111111111111111110000011000 F%
+b11111111111111111111110000011000 H%
 b111 q
-b111 =%
-b111 A%
+b111 E%
+b111 I%
 10
 b10 2
 b10 2"
 b10 _"
-b10 ?%
+b10 G%
 1*
 #9600
 0*
@@ -3836,7 +3853,7 @@ b110100 `#
 b0xxxxxxxxxxxxxxxx W
 b0xxxxxxxxxxxxxxxx @"
 b0xxxxxxxxxxxxxxxx `"
-b0xxxxxxxxxxxxxxxx B%
+b0xxxxxxxxxxxxxxxx J%
 0e#
 bx d#
 b11 i#
@@ -3864,16 +3881,16 @@ b110000 T#
 b110000 _#
 b110000 c#
 b0xxxxxxxxxxxxxxxx h
-b0xxxxxxxxxxxxxxxx >%
-b0xxxxxxxxxxxxxxxx @%
+b0xxxxxxxxxxxxxxxx F%
+b0xxxxxxxxxxxxxxxx H%
 b0 q
-b0 =%
-b0 A%
+b0 E%
+b0 I%
 00
 bx 2
 bx 2"
 bx _"
-bx ?%
+bx G%
 1*
 #9700
 1t#
