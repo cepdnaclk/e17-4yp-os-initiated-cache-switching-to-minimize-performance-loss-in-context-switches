@@ -11,7 +11,7 @@ module memory_access_unit (
     output [31:0] load_data,
     // inputs
     input [2:0] func3_cache_select_reg_value, // funct 3 from previous pipline reg (ID reg)
-    input write_cache_select_reg
+    input write_cache_select_reg // cache switch enable signal
 );
     wire [31:0] store_data,from_data_cache_out;
 

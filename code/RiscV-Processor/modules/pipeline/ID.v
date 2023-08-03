@@ -13,7 +13,7 @@ module ID(
   mux_complmnt_in,
 	mux_inp_1_in,
   alu_op_in,
-  fun_3_in,
+  fun_3_in, // func 3 value
   write_address_in,
   data_1_in,
   data_2_in,
@@ -27,7 +27,9 @@ module ID(
   // outputs
   rotate_signal_out, mux_complmnt_out, mux_inp_2_out, mux_inp_1_out, mux_d_mem_out, write_reg_en_out,d_mem_r_out, d_mem_w_out, branch_out, jump_out,
   pc_4_out, pc_out, data_1_out, data_2_out, mux_1_out_out,mux_result_out,write_address_out,
-  alu_op_out, fun_3_out,switch_cache_w_out
+  alu_op_out,
+  fun_3_out, // func 3 value
+  switch_cache_w_out
   );
 
   input [31:0] pc_4_in, pc_in, data_1_in, data_2_in, mux_1_out_in;

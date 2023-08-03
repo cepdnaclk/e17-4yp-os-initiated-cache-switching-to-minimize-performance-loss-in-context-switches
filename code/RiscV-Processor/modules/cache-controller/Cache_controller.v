@@ -1,14 +1,17 @@
 module Cache_controller (
+    // inputs
     clock,
     reset,
-    read,
-    write,
-    address,
-    writedata,
-    readdata,
+    read, // read enable signal
+    write, // write enable signal
+    address, // read or write address ,alu result
+    writedata, // write data
+    // outputs
+    readdata, // read data
 	busywait,
-    func3_cache_select_reg_value,
-    write_cache_select_reg
+    // inputs
+    func3_cache_select_reg_value, // cache select value
+    write_cache_select_reg // cache switch enable signal
 );
     input reset,read,write,clock,write_cache_select_reg;
     input [31:0] address,writedata;
@@ -43,6 +46,7 @@ module Cache_controller (
         end
     end
 
+    // read or write enable for cache cores
     and(cache1_read,read,cache1_select);
     and(cache1_write,write,cache1_select);
 
@@ -55,19 +59,19 @@ module Cache_controller (
     and(cache4_read,read,cache4_select);
     and(cache4_write,write,cache4_select);
 
+    // generate busy wait signals for cache cores
     and(cache_1_mem_busywait,cache1_select,mem_busywait);
     and(cache_2_mem_busywait,cache2_select,mem_busywait);
     and(cache_3_mem_busywait,cache3_select,mem_busywait);
     and(cache_4_mem_busywait,cache4_select,mem_busywait);
 
-    data_memory my_data_memory(clock,reset,mem_read,mem_write,mem_address,mem_writedata,mem_readdata,mem_busywait);
-
-
+    // 4 cache cores
     dcache dcache1(clock,reset,cache1_read,cache1_write,address,writedata,cache1_read_data,cache1_busywait,cache_1_mem_read,cache_1_mem_write,cache_1_mem_address,cache_1_mem_writedata,mem_readdata,cache_1_mem_busywait);
     dcache dcache2(clock,reset,cache2_read,cache2_write,address,writedata,cache2_read_data,cache2_busywait,cache_2_mem_read,cache_2_mem_write,cache_2_mem_address,cache_2_mem_writedata,mem_readdata,cache_2_mem_busywait);
     dcache dcache3(clock,reset,cache3_read,cache3_write,address,writedata,cache3_read_data,cache3_busywait,cache_3_mem_read,cache_3_mem_write,cache_3_mem_address,cache_2_mem_writedata,mem_readdata,cache_3_mem_busywait);
     dcache dcache4(clock,reset,cache4_read,cache4_write,address,writedata,cache4_read_data,cache4_busywait,cache_4_mem_read,cache_4_mem_write,cache_4_mem_address,cache_2_mem_writedata,mem_readdata,cache_4_mem_busywait);
 
+    data_memory my_data_memory(clock,reset,mem_read,mem_write,mem_address,mem_writedata,mem_readdata,mem_busywait);
 
     always @(*) begin
         case(cache_switching_reg)

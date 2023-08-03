@@ -121,7 +121,7 @@ instruction_decode_unit id_unit(
   mux_complmnt_id_unit_out,
   mux_inp_1_id_unit_out,
   alu_op_id_unit_out,  // alu operation from control unit
-  fun_3_id_unit_out, // gunct 3
+  fun_3_id_unit_out, // funct 3
   data_1_id_unit_out, // read data 1 from reg file
   data_2_id_unit_out, // read data 2 from reg file
   mux_1_out_id_unit_out, // wiremodule output
