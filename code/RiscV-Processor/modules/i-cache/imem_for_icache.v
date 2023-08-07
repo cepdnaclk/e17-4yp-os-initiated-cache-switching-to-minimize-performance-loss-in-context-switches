@@ -40,7 +40,7 @@ begin
     memory_array[3] = 8'hc1;
     
   
-    // r1 <- $0 + 2
+    // 2. r1 <- $0 + 2
     memory_array[4] = 8'h93;
     memory_array[5] = 8'h80;
     memory_array[6] = 8'h20;
