@@ -124,7 +124,7 @@ instruction_decode_unit id_unit(
   mux_1_out_id_unit_out, // wiremodule output
   // inputs
   instration_if_reg_out, // instruction
-  write_data,
+  write_data,   // mux5_out 
   write_reg_en_ex_reg_out,
   write_address_ex_reg_out,
   clk, 
@@ -243,7 +243,7 @@ memory_access_unit mem_access_unit(
   fun_3_ex_reg_out, // funct 3
   // outputs
   data_memory_busywait,
-  write_data,
+  write_data,   // d_mem_out
   // inputs
   fun_3_id_reg_out, // funct 3 from previous pipline reg
   switch_cache_w_id_reg_out
