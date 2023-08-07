@@ -2,6 +2,7 @@
 
 
 module dcache (
+    // inputs
     clock,
     reset,
     read,
@@ -9,13 +10,17 @@ module dcache (
     address,
     writedata,
     readdata,
+    // outputs
 	busywait,
     mem_read,
     mem_write,
     mem_address,
     mem_writedata,
+    // inputs
     mem_readdata,
-    mem_busywait
+    mem_busywait,
+    // outputs test
+    test_output
     );
 
     integer i;
@@ -24,7 +29,7 @@ module dcache (
 
     output reg busywait,mem_read,mem_write;
     output reg [31:0] readdata;
-    
+    output reg [127:0] test_output; // test
 
     wire valid,dirty;
     input [127:0] mem_readdata;
@@ -37,14 +42,23 @@ module dcache (
     output reg [27:0] mem_address;
     output reg [127:0] mem_writedata;
 
-    
+    always @* begin
+        test_output = {word[0][3], word[0][2], word[0][1], word[0][0]};
+    end
+
     /*
     Combinational part for indexing, tag comparison for hit deciding, etc.
     ...
     ...
+    Direct map cache
+    32bit 32 reg: rows -8 (3bits), col -4 
+    tag - address[31:7] - 25 bits
+    index - address[6:4]   3 bits
+    offset - address[3:2]  2 bits
+    LSB 2 bits ignored
     */
     
-    assign  valid=valid_bits[address[6:4]];
+    assign  valid=valid_bits[address[6:4]]; // check the data is 
     assign  dirty=dirty_bits[address[6:4]];
 
     always @(*) begin //extrac the data from word 
@@ -83,7 +97,7 @@ module dcache (
             dirty_bits[address[6:4]]<=0;
             valid_bits[address[6:4]]<=1;
             tags[address[6:4]]<=address[31:7];
-            {word[address[6:4]][3],word[address[6:4]][2],word[address[6:4]][1],word[address[6:4]][0]}<=mem_readdata;
+            {word[address[6:4]][3],word[address[6:4]][2],word[address[6:4]][1],word[address[6:4]][0]}<=mem_readdata; // write data from memory to cache (4 words)
 
         end
         else if (write_from_mem & write) begin //write data get from cpu on write miss 
