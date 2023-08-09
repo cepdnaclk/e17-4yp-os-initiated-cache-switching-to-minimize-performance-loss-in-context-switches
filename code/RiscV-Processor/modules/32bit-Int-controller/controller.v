@@ -3,19 +3,19 @@ module control(
 	switch_cache_w,
 	d_mem_r, // data memory read signal
 	d_mem_w, // data memory write signal
-	jump, 	// jumping signal (goes to brach and Jump controller)
+	jump,// jumping signal (goes to brach and Jump controller)
 	branch, // branching signal (goes to brach and Jump controller)
 	wrten_reg, // write enable for register file
 	mux_d_mem,
 	mux_result,
 	mux_inp_2,
-	mux_complmnt, 
+	mux_complmnt,
 	mux_inp_1,
 	mux_wire_module, // 3bits , imm value selection signal for relavant instruction type (B,J,S,U,I)
 	alu_op,  // 3bits ALU Operation 
 	// inputs
-	opcode,  
-	fun_3, 
+	opcode,
+	fun_3,
 	fun_7
 	);
 	
