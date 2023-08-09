@@ -1,22 +1,24 @@
 [*]
 [*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Wed Aug 02 17:55:18 2023
+[*] Mon Aug 07 17:52:45 2023
 [*]
 [dumpfile] "C:\Users\ASUS\Desktop\FYP\e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches\code\RiscV-Processor\test-bench\cpuwave.vcd"
-[dumpfile_mtime] "Wed Aug 02 17:30:00 2023"
-[dumpfile_size] 115724
+[dumpfile_mtime] "Mon Aug 07 17:42:41 2023"
+[dumpfile_size] 113347
 [savefile] "C:\Users\ASUS\Desktop\FYP\e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches\code\RiscV-Processor\test-bench\signals.gtkw"
-[timestart] 739010
+[timestart] 530400
 [size] 1536 801
-[pos] -538 -121
-*-14.000000 815000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-15.000000 185000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] cpuTestbench.
 [treeopen] cpuTestbench.mycpu.
 [treeopen] cpuTestbench.mycpu.id_unit.
 [treeopen] cpuTestbench.mycpu.iex_unit.
 [treeopen] cpuTestbench.mycpu.if_unit.
-[sst_width] 197
-[signals_width] 215
+[treeopen] cpuTestbench.mycpu.if_unit.myicache.
+[treeopen] cpuTestbench.mycpu.mem_access_unit.
+[sst_width] 208
+[signals_width] 283
 [sst_expanded] 1
 [sst_vpaned_height] 224
 @28
@@ -29,31 +31,38 @@ cpuTestbench.mycpu.if_reg.instration_in[31:0]
 -
 @420
 cpuTestbench.mycpu.id_unit.I_imm[31:0]
-@24
 cpuTestbench.mycpu.id_unit.S_imm[31:0]
 @200
 -
 @420
 cpuTestbench.mycpu.id_unit.register_file.reg0_output[31:0]
 cpuTestbench.mycpu.id_unit.register_file.reg1_output[31:0]
-@421
 cpuTestbench.mycpu.id_unit.register_file.reg2_output[31:0]
 @200
 -
 -Mux1 out
-@22
+@420
 cpuTestbench.mycpu.iex_unit.mux1.out[31:0]
 @200
 -Mux2 Out
 @420
 cpuTestbench.mycpu.iex_unit.mux2.out[31:0]
-@22
 cpuTestbench.mycpu.iex_unit.alu_unit.DATA1[31:0]
-@420
 cpuTestbench.mycpu.iex_unit.alu_unit.DATA2[31:0]
 cpuTestbench.mycpu.iex_unit.alu_unit.RESULT[31:0]
 @28
 cpuTestbench.mycpu.iex_unit.alu_unit.zero_signal
+@24
+cpuTestbench.mycpu.ex_reg.data_2_in[31:0]
+@200
+-
+@24
+cpuTestbench.mycpu.ex_reg.fun_3_in[2:0]
+cpuTestbench.mycpu.ex_reg.fun_3_out[2:0]
+@420
+cpuTestbench.mycpu.ex_reg.data_2_out[31:0]
+@28
+cpuTestbench.mycpu.ex_reg.d_mem_w_out
 @200
 -
 [pattern_trace] 1

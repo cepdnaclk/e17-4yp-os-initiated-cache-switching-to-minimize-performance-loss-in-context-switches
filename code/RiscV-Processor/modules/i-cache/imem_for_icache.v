@@ -33,7 +33,7 @@ initial
 begin
 
     // $readmemh("memfile.mem", memory_array);
-    // r0 <- $0 + 1000
+    // r0 <- $0 + -1000
     memory_array[0] = 8'h13;
     memory_array[1] = 8'h00;
     memory_array[2] = 8'h80;
@@ -59,9 +59,9 @@ begin
     memory_array[15] = 8'h00;
 
 
-    //  r3 <- 9 or 4 
-    memory_array[16] = 8'ha3;
-    memory_array[17] = 8'ha2;
+    // 5. Nope
+    memory_array[16] = 8'h00;
+    memory_array[17] = 8'h00;
     memory_array[18] = 8'h00;
     memory_array[19] = 8'h00;
 
@@ -71,16 +71,17 @@ begin
     memory_array[22] = 8'h00;
     memory_array[23] = 8'h00;
 
-    // Nope
-    memory_array[24] = 8'h00;
-    memory_array[25] = 8'h00;
+    // Cache selection   cache =2
+    memory_array[24] = 8'h7f;
+    memory_array[25] = 8'h20;
     memory_array[26] = 8'h00;
     memory_array[27] = 8'h00;
 
-    //  r3 <- 9 or 4 
-    memory_array[28] = 8'h03;
-    memory_array[29] = 8'ha1;
-    memory_array[30] = 8'h50;
+    // 8. sw x0, 5(x1)  add=7, store -1000
+    // 0x001022a3 0x0000a2a3
+    memory_array[28] = 8'ha3;
+    memory_array[29] = 8'ha2;
+    memory_array[30] = 8'h00;
     memory_array[31] = 8'h00;
 
 end
