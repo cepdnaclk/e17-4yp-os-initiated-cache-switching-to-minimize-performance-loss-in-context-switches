@@ -1,5 +1,9 @@
 $date
+<<<<<<< HEAD
 	Mon Aug 07 21:21:12 2023
+=======
+	Mon Aug 07 23:16:10 2023
+>>>>>>> 393a7209ef481c1c04298df69017fc9d0086c0f2
 $end
 $version
 	Icarus Verilog
