@@ -11,6 +11,8 @@ module EX(
   reset,
   clk,
   busywait,
+  reg2_read_address_in,
+  reg1_read_address_in,
   // outputs
   data_2_out, 
   result_mux_4_out, 
@@ -19,7 +21,9 @@ module EX(
   d_mem_r_out, 
   d_mem_w_out,
   fun_3_out,
-  write_address_out
+  write_address_out,
+  reg2_read_address_out,
+  reg1_read_address_out
   );
 
   input [31:0] data_2_in, result_mux_4_in;
@@ -31,8 +35,8 @@ module EX(
   input [2:0] fun_3_in;
   output reg [2:0] fun_3_out;
 
-  input [4:0] write_address_in;
-  output reg [4:0] write_address_out;
+  input [4:0] write_address_in, reg2_read_address_in, reg1_read_address_in;
+  output reg [4:0] write_address_out, reg2_read_address_out, reg1_read_address_out;
   
 
   always @(posedge clk,posedge reset)
@@ -62,6 +66,8 @@ module EX(
 
       fun_3_out<=fun_3_in;
       write_address_out <=write_address_in;
+      reg2_read_address_out <= reg2_read_address_in;
+      reg1_read_address_out <= reg1_read_address_in;
       
     end
 

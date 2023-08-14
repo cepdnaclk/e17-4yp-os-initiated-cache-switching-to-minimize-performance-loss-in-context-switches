@@ -7,21 +7,24 @@ module MEM(
     mux5_sel_in,
     alu_result_in,
     d_mem_result_in,
-
+    mem_read_in,
+    reg1_read_address_in,
     // outputs
     write_address_out,
     write_en_out,
     mux5_sel_out,
     alu_result_out,
-    d_mem_result_out
+    d_mem_result_out,
+    mem_read_out,
+    reg1_read_address_out
   );
 
-    input [4:0] write_address_in;
-    input write_en_in, mux5_sel_in, reset, clk;
+    input [4:0] write_address_in, reg1_read_address_in;
+    input write_en_in, mux5_sel_in, mem_read_in, reset, clk;
     input [31:0] alu_result_in, d_mem_result_in;
 
-    output reg [4:0] write_address_out;
-    output reg write_en_out, mux5_sel_out;
+    output reg [4:0] write_address_out, reg1_read_address_out;
+    output reg write_en_out, mux5_sel_out, mem_read_out;
     output reg [31:0] alu_result_out, d_mem_result_out;
 
     always @(posedge clk)
@@ -41,6 +44,8 @@ module MEM(
             mux5_sel_out <= mux5_sel_in;
             alu_result_out <= alu_result_in;
             d_mem_result_out <= d_mem_result_in;
+            mem_read_out <= mem_read_in;
+            reg1_read_address_out <= reg1_read_address_in;
         end
 
   end

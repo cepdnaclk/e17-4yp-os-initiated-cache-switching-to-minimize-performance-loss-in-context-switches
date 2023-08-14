@@ -63,9 +63,11 @@ wire [31:0] Register_value_output_wires [31:0];
 wire [4:0] write_address_out;
 wire write_en_out, mux5_sel_out;
 wire [31:0] alu_result_out, d_mem_result_out,mux5_out_write_data;
-  
-  
-
+wire mem_read_out;
+wire [4:0] reg2_write_address_id, reg1_write_address_id;
+wire [4:0] reg2_write_address_id_out, reg1_write_address_id_out, reg2_write_address_ex, reg1_write_address_ex;
+wire [4:0] reg1_write_address_ex, reg1_write_address_mem;
+wire [31:0] alu_out_mem;
 
 always @(*)
 begin
@@ -125,6 +127,8 @@ instruction_decode_unit id_unit(
   data_1_id_unit_out, // read data 1 from reg file
   data_2_id_unit_out, // read data 2 from reg file
   mux_1_out_id_unit_out, // wiremodule output
+  reg2_write_address_id,
+  reg1_write_address_id,
   // inputs
   instration_if_reg_out, // instruction
   mux5_out_write_data,
@@ -161,6 +165,8 @@ ID id_reg(
   clk,
   busywait,
   branch_or_jump_signal, // branch or jump signal, input for the mux before the PC
+  reg2_write_address_id,
+  reg1_write_address_id,
   // outputs
   rotate_signal_id_reg_out, 
   mux_complmnt_id_reg_out, 
@@ -181,7 +187,9 @@ ID id_reg(
   write_address_id_reg_out,
   alu_op_id_reg_out, 
   fun_3_id_reg_out,
-  switch_cache_w_id_reg_out
+  switch_cache_w_id_reg_out,
+  reg2_write_address_id_out,
+  reg1_write_address_id_out
 );
 
   
@@ -202,6 +210,10 @@ instruction_execute_unit iex_unit(
   jump_id_reg_out,
   fun_3_id_reg_out,
   alu_op_id_reg_out,
+  reg2_write_address_id_out,
+  reg1_write_address_id_out,
+  alu_out_mem,
+  mux5_out_write_data,
   // outputs
   branch_jump_addres,
   result_iex_unit_out,
@@ -221,6 +233,8 @@ EX ex_reg(
   reset,
   clk,
   busywait,
+  reg2_write_address_id_out,
+  reg1_write_address_id_out,
   // outputs
   data_2_ex_reg_out, // data 2 reg values
   result_mux_4_ex_reg_out, // goes to mux4
@@ -229,8 +243,9 @@ EX ex_reg(
   d_mem_r_ex_reg_out, 
   d_mem_w_ex_reg_out,
   fun_3_ex_reg_out, // funct 3
-  write_address_ex_reg_out // write_address_mem
-    
+  write_address_ex_reg_out, // write_address_mem
+  reg2_write_address_ex,
+  reg1_write_address_ex
 );
 
 
@@ -246,9 +261,14 @@ memory_access_unit mem_access_unit(
   // outputs
   data_memory_busywait,
   write_data, // d_mem_out
+  alu_out_mem,
   // inputs
   fun_3_id_reg_out, // funct 3 from previous pipline reg
-  switch_cache_w_id_reg_out
+  switch_cache_w_id_reg_out,
+  reg2_write_address_ex,
+  mem_read_out,
+  write_address_out,
+  mux5_out_write_data
 );
 
 MEM mem_reg(
@@ -260,12 +280,16 @@ MEM mem_reg(
   mux_d_mem_ex_reg_out,
   result_mux_4_ex_reg_out,
   write_data,
+  d_mem_r_ex_reg_out,
+  reg1_write_address_ex
   // outputs
   write_address_out,
   write_en_out,
   mux5_sel_out,
   alu_result_out,
-  d_mem_result_out
+  d_mem_result_out,
+  mem_read_out,
+  reg1_write_address_mem
 );
 
 mux2x1 mux5(d_mem_result_out,alu_result_out,mux5_sel_out,mux5_out_write_data);

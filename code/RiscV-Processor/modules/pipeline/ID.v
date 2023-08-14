@@ -24,12 +24,16 @@ module ID(
   clk,
   busywait,
   branch_jump_signal,
+  reg2_read_address_in, // register read address in
+  reg1_read_address_in,
   // outputs
   rotate_signal_out, mux_complmnt_out, mux_inp_2_out, mux_inp_1_out, mux_d_mem_out, write_reg_en_out,d_mem_r_out, d_mem_w_out, branch_out, jump_out,
   pc_4_out, pc_out, data_1_out, data_2_out, mux_1_out_out,mux_result_out,write_address_out,
   alu_op_out,
   fun_3_out, // func 3 value
-  switch_cache_w_out
+  switch_cache_w_out,
+  reg2_read_address_out // register read address out
+  reg1_read_address_out
   );
 
   input [31:0] pc_4_in, pc_in, data_1_in, data_2_in, mux_1_out_in;
@@ -46,9 +50,8 @@ module ID(
   input [1:0] mux_result_in;
   output reg [1:0] mux_result_out;
 
-  input [4:0] write_address_in;
-  output reg [4:0] write_address_out;
-
+  input [4:0] write_address_in, reg2_read_address_in, reg1_read_address_in;
+  output reg [4:0] write_address_out, reg2_read_address_out, reg1_read_address_out;
 
   always @(posedge clk,posedge reset)
   begin
@@ -127,6 +130,8 @@ module ID(
 
       alu_op_out <=alu_op_in;
       fun_3_out <=fun_3_in;
+      reg2_read_address_out <= reg2_read_address_in;
+      reg1_read_address_out <= reg1_read_address_in;
 
     end
 

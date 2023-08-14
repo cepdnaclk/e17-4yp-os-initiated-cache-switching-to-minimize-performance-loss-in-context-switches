@@ -21,6 +21,8 @@ module instruction_decode_unit (
   data_1,
   data_2,
   mux_1_out, // wire module output
+  reg_read_address_2, // register read address
+  reg_read_address_1,
   // inputs
   instruction,
   data_in,
@@ -30,7 +32,7 @@ module instruction_decode_unit (
   reset
   );
 
-  output [4:0] write_address_for_current_instruction;
+  output [4:0] write_address_for_current_instruction, reg_read_address_2, reg_read_address_1;
   output [31:0] data_1, data_2, mux_1_out;
   output mux_complmnt, mux_inp_2, mux_inp_1, mux_d_mem, write_reg_en,d_mem_r, d_mem_w, branch, jump,rotate_signal,switch_cache_w;
   output [2:0] alu_op, fun_3;
@@ -46,7 +48,8 @@ module instruction_decode_unit (
   assign write_address_for_current_instruction=instruction[11:7];
   assign fun_3=instruction[14:12];
   assign rotate_signal=instruction[30];
-  
+  assign reg_read_address_2 = instruction[24:20];
+  assign reg_read_address_1 = instruction[19:15];
 
   control control_unit(switch_cache_w,d_mem_r, d_mem_w, jump, branch, write_reg_en, mux_d_mem, mux_result, mux_inp_2, mux_complmnt, mux_inp_1, mux_wire_module, alu_op, instruction[6:0], instruction[14:12], instruction[31:25]); 
   reg_file register_file(data_1, data_2, data_in, write_address_from_pre, instruction[19:15], instruction[24:20], write_reg_enable_signal_from_pre, clk, reset,reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output);
