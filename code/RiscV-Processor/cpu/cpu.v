@@ -68,6 +68,10 @@ wire [4:0] reg2_write_address_id, reg1_write_address_id;
 wire [4:0] reg2_write_address_id_out, reg1_write_address_id_out, reg2_write_address_ex, reg1_write_address_ex;
 wire [4:0] reg1_write_address_ex, reg1_write_address_mem;
 wire [31:0] alu_out_mem;
+wire mem_read_en_out;
+wire [4:0] reg_write_address_out;
+wire reset_ID_reg, reset_IF_reg, hold_IF_reg;
+wire hazard_detect_signal;
 
 always @(*)
 begin
@@ -96,10 +100,11 @@ IF if_reg(
   pc_instruction_fetch_unit_out, // PC
   pc_4_instruction_fetch_unit_out,  // PC + 4
   instruction_instruction_fetch_unit_out, // instruction from instruction mem
-  reset, 
+  reset_IF_reg, 
   clk,
   busywait,
   branch_or_jump_signal,
+  hold_IF_reg,
   // outputs
   pc_if_reg_out, // PC
   pc_4_if_reg_out,  // PC + 4
@@ -129,13 +134,20 @@ instruction_decode_unit id_unit(
   mux_1_out_id_unit_out, // wiremodule output
   reg2_write_address_id,
   reg1_write_address_id,
+  reset_ID_reg,
+  reset_IF_reg,
+  hold_IF_reg,
+  hazard_detect_signal,
   // inputs
   instration_if_reg_out, // instruction
   mux5_out_write_data,
   write_en_out,
   write_address_out,
   clk, 
-  reset
+  reset,
+  mem_read_en_out,
+  reg_write_address_out,
+  branch_or_jump_signal
 );
 
   
@@ -161,7 +173,7 @@ ID id_reg(
   mux_1_out_id_unit_out, // wire module output
   pc_if_reg_out, // PC
   pc_4_if_reg_out, // PC + 4
-  reset,
+  reset_ID_reg,
   clk,
   busywait,
   branch_or_jump_signal, // branch or jump signal, input for the mux before the PC
@@ -214,10 +226,14 @@ instruction_execute_unit iex_unit(
   reg1_write_address_id_out,
   alu_out_mem,
   mux5_out_write_data,
+  d_mem_r_id_reg_out,
+  write_address_out,
   // outputs
   branch_jump_addres,
   result_iex_unit_out,
-  branch_or_jump_signal // branch or jump signal, input for the mux before the PC
+  branch_or_jump_signal, // branch or jump signal, input for the mux before the PC
+  mem_read_en_out,
+  reg_write_address_out
 );
 
 EX ex_reg(
@@ -245,7 +261,7 @@ EX ex_reg(
   fun_3_ex_reg_out, // funct 3
   write_address_ex_reg_out, // write_address_mem
   reg2_write_address_ex,
-  reg1_write_address_ex
+  reg1_write_address_ex,
 );
 
 

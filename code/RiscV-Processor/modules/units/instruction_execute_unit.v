@@ -14,10 +14,14 @@ module instruction_execute_unit (
     input [4:0] reg1_read_address_in,
     input [31:0] alu_out,
     input [31:0] mux5_out,
+    input mem_read_en_in,
+    input [4:0] reg_write_address_in,
     // outputs
     output [31:0] branch_jump_addres,
     output [31:0] result,
     output branch_or_jump_signal
+    output mem_read_en_out,
+    output [4:0] reg_write_address_out;
 );
 
 wire [31:0]input1,input2,alu_result,mul_div_result,input2Complement,complemtMuxOut;
@@ -25,6 +29,9 @@ wire zero_signal,sign_bit_signal,sltu_bit_signal;
 reg [31:0] branch_adress;
 wire [1:0] data1_forward_select, data2_forward_select;
 wire [31:0] fwd_mux1_out, fwd_mux2_out;
+
+assign mem_read_en_out = mem_read_en_in;
+assign reg_write_address_out = reg_write_address_in;
 
 mux2x1 mux1(fwd_mux1_out,PC,mux1signal,input1);
 mux2x1 mux2(fwd_mux2_out,muxIout,mux2signal,input2);
