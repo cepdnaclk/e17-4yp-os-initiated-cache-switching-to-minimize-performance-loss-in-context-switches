@@ -10,7 +10,7 @@ module Hazard_detection_unit(
     hazard_detect_signal
 );
 
-input mux1_sel_signal, mux2_sel_signal, mem_read;
+input mux1_sel_signal, mux2_sel_signal, mem_read_EX;
 input [4:0] wb_address_EX;
 input [4:0] data_address1, data_address2;
 

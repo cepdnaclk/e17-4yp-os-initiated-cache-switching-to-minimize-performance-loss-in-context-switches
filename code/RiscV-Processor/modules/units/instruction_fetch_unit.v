@@ -10,7 +10,8 @@ module instruction_fetch_unit (
     input clock,
     input hazard_detect_signal,
     // outputs 
-    output reg [31:0] PC,INCREMENTED_PC_by_four,
+    output reg [31:0] PC,
+    output reg [31:0] INCREMENTED_PC_by_four,
     output [31:0]instruction,
     output busywait
 );

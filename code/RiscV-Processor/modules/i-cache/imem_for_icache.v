@@ -96,43 +96,43 @@ begin
     memory_array[6] = 8'h20;
     memory_array[7] = 8'h00;
 
-    // Nope
-    memory_array[8] = 8'h00;
-    memory_array[9] = 8'h00;
-    memory_array[10] = 8'h00;
-    memory_array[11] = 8'h00;
+    // // Nope
+    // memory_array[8] = 8'h00;
+    // memory_array[9] = 8'h00;
+    // memory_array[10] = 8'h00;
+    // memory_array[11] = 8'h00;
 
-    // Nope
-    memory_array[12] = 8'h00;
-    memory_array[13] = 8'h00;
-    memory_array[14] = 8'h00;
-    memory_array[15] = 8'h00;
+    // // Nope
+    // memory_array[12] = 8'h00;
+    // memory_array[13] = 8'h00;
+    // memory_array[14] = 8'h00;
+    // memory_array[15] = 8'h00;
 
 
-    // 5. Nope
-    memory_array[16] = 8'h00;
-    memory_array[17] = 8'h00;
-    memory_array[18] = 8'h00;
-    memory_array[19] = 8'h00;
+    // // 5. Nope
+    // memory_array[16] = 8'h00;
+    // memory_array[17] = 8'h00;
+    // memory_array[18] = 8'h00;
+    // memory_array[19] = 8'h00;
 
-    // Nope
-    memory_array[20] = 8'h00;
-    memory_array[21] = 8'h00;
-    memory_array[22] = 8'h00;
-    memory_array[23] = 8'h00;
+    // // Nope
+    // memory_array[20] = 8'h00;
+    // memory_array[21] = 8'h00;
+    // memory_array[22] = 8'h00;
+    // memory_array[23] = 8'h00;
 
-    // Cache selection   cache =2
-    memory_array[24] = 8'h7f;
-    memory_array[25] = 8'h20;
-    memory_array[26] = 8'h00;
-    memory_array[27] = 8'h00;
+    // // Cache selection   cache =2
+    // memory_array[24] = 8'h7f;
+    // memory_array[25] = 8'h20;
+    // memory_array[26] = 8'h00;
+    // memory_array[27] = 8'h00;
 
-    // 8. sw x0, 5(x1)  add=7, store -1000
-    // 0x0000a2a3
-    memory_array[28] = 8'ha3;
-    memory_array[29] = 8'ha2;
-    memory_array[30] = 8'h00;
-    memory_array[31] = 8'h00;
+    // // 8. sw x0, 5(x1)  add=7, store -1000
+    // // 0x0000a2a3
+    // memory_array[28] = 8'ha3;
+    // memory_array[29] = 8'ha2;
+    // memory_array[30] = 8'h00;
+    // memory_array[31] = 8'h00;
 
 end
 

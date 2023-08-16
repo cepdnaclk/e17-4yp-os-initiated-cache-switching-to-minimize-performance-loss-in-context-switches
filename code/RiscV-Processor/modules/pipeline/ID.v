@@ -32,7 +32,7 @@ module ID(
   alu_op_out,
   fun_3_out, // func 3 value
   switch_cache_w_out,
-  reg2_read_address_out // register read address out
+  reg2_read_address_out, // register read address out
   reg1_read_address_out
   );
 

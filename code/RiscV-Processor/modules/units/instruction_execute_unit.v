@@ -2,10 +2,20 @@
 
 module instruction_execute_unit (
     // inputs
-    input [31:0] data1,data2,PC,INCREMENTED_PC_by_four,muxIout,
-    input [1:0]mux4signal,
-    input mux1signal,mux2signal,muxComplentsignal,rotate_signal,branch_signal,jump_signal,
-    input [2:0]func3,aluop,
+    input [31:0] data1,
+    input [31:0] data2,
+    input [31:0] PC,
+    input [31:0] INCREMENTED_PC_by_four,
+    input [31:0] muxIout,
+    input [1:0] mux4signal,
+    input mux1signal,
+    input mux2signal,
+    input muxComplentsignal,
+    input rotate_signal,
+    input branch_signal,
+    input jump_signal,
+    input [2:0] func3,
+    input [2:0] aluop,
     input [4:0] wb_address_MEM,
     input wb_write_en_MEM,
     input [4:0] wb_address_WB,
@@ -19,9 +29,9 @@ module instruction_execute_unit (
     // outputs
     output [31:0] branch_jump_addres,
     output [31:0] result,
-    output branch_or_jump_signal
+    output branch_or_jump_signal,
     output mem_read_en_out,
-    output [4:0] reg_write_address_out;
+    output [4:0] reg_write_address_out
 );
 
 wire [31:0]input1,input2,alu_result,mul_div_result,input2Complement,complemtMuxOut;

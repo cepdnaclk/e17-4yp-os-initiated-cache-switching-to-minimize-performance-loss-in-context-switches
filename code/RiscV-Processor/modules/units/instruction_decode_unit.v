@@ -43,7 +43,7 @@ module instruction_decode_unit (
   output [4:0] write_address_for_current_instruction, reg_read_address_2, reg_read_address_1;
   output [31:0] data_1, data_2, mux_1_out;
   output mux_complmnt, mux_d_mem, write_reg_en,d_mem_r, d_mem_w, branch, jump,rotate_signal,switch_cache_w;
-  output reg mux_inp_2, mux_inp_1;
+  output mux_inp_2, mux_inp_1;
   output [2:0] alu_op, fun_3;
   output [1:0] mux_result;
   input [31:0] instruction, data_in;
@@ -56,7 +56,7 @@ module instruction_decode_unit (
   input [4:0] reg_write_address_ex;
   input branch_jump_signal;
 
-  output reg hazard_detect_signal;
+  output hazard_detect_signal;
   output reset_ID_reg, reset_IF_reg, hold_IF_reg;
 
   assign write_address_for_current_instruction=instruction[11:7];

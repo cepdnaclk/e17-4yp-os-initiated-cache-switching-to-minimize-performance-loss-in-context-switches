@@ -15,6 +15,7 @@
 `include "../modules/mux/mux5x1.v"
 
 `include "../modules/mux/mux2x1.v"
+`include "../modules/mux/mux3x1.v"
 `include "../modules/i-cache/icache.v"
 `include "../modules/i-cache/imem_for_icache.v"
 
@@ -30,6 +31,10 @@
 `include "../modules/data-cache/dmem_for_dcache.v"
 `include "../modules/cache-controller/Cache_controller.v"
 
+`include "../modules/hazard-detection-correction/Ex_forward_unit.v"
+`include "../modules/hazard-detection-correction/Flush_unit.v"
+`include "../modules/hazard-detection-correction/Hazard_detection_unit.v"
+`include "../modules/hazard-detection-correction/Mem_forward_unit.v"
 
 
 module cpu(
@@ -66,9 +71,9 @@ wire [31:0] alu_result_out, d_mem_result_out,mux5_out_write_data;
 wire mem_read_out;
 wire [4:0] reg2_write_address_id, reg1_write_address_id;
 wire [4:0] reg2_write_address_id_out, reg1_write_address_id_out, reg2_write_address_ex, reg1_write_address_ex;
-wire [4:0] reg1_write_address_ex, reg1_write_address_mem;
+wire [4:0] reg1_write_address_mem, write_address_MEM;
 wire [31:0] alu_out_mem;
-wire mem_read_en_out;
+wire mem_read_en_out, write_reg_en_MEM;
 wire [4:0] reg_write_address_out;
 wire reset_ID_reg, reset_IF_reg, hold_IF_reg;
 wire hazard_detect_signal;
@@ -87,7 +92,8 @@ instruction_fetch_unit if_unit(
   branch_or_jump_signal,  // 1 bit , control signal for mux before the PC
   data_memory_busywait,  // 1bit busy wait from memory
   reset, 
-  clk, 
+  clk,
+  hazard_detect_signal,
   // outputs
   pc_instruction_fetch_unit_out, // PC value
   pc_4_instruction_fetch_unit_out, // PC + 4
@@ -222,6 +228,10 @@ instruction_execute_unit iex_unit(
   jump_id_reg_out,
   fun_3_id_reg_out,
   alu_op_id_reg_out,
+  write_address_MEM,
+  write_reg_en_MEM,
+  write_address_out,
+  write_en_out,
   reg2_write_address_id_out,
   reg1_write_address_id_out,
   alu_out_mem,
@@ -259,9 +269,9 @@ EX ex_reg(
   d_mem_r_ex_reg_out, 
   d_mem_w_ex_reg_out,
   fun_3_ex_reg_out, // funct 3
-  write_address_ex_reg_out, // write_address_mem
+  write_address_ex_reg_out, // write_address
   reg2_write_address_ex,
-  reg1_write_address_ex,
+  reg1_write_address_ex
 );
 
 
@@ -284,7 +294,11 @@ memory_access_unit mem_access_unit(
   reg2_write_address_ex,
   mem_read_out,
   write_address_out,
-  mux5_out_write_data
+  mux5_out_write_data,
+  write_reg_en_ex_reg_out,
+  write_address_ex_reg_out,
+  write_reg_en_MEM,
+  write_address_MEM
 );
 
 MEM mem_reg(
@@ -297,7 +311,7 @@ MEM mem_reg(
   result_mux_4_ex_reg_out,
   write_data,
   d_mem_r_ex_reg_out,
-  reg1_write_address_ex
+  reg1_write_address_ex,
   // outputs
   write_address_out,
   write_en_out,

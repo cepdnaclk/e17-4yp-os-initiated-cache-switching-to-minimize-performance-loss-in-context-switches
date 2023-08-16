@@ -9,7 +9,7 @@ module Flush_unit(
 );
 
 input hazard_detect, bj_mux_select;
-output reg reset_ID_reg, reset_IF_reg, hold_IF_reg;
+output reset_ID_reg, reset_IF_reg, hold_IF_reg;
 
 // In case of a branch/jump, IF/ID PR must be reset
 // In case of a load-use hazard, IF/ID PR must hold its value
