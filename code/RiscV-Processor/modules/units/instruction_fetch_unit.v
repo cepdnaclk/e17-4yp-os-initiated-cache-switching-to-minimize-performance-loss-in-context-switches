@@ -1,5 +1,3 @@
-//`include "../mux/mux2x1.v"
-
 
 module instruction_fetch_unit (
     // inputs

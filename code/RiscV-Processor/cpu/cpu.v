@@ -84,8 +84,6 @@ begin
   debug_ins<=instruction_instruction_fetch_unit_out;
 end
 
-
-
 instruction_fetch_unit if_unit(
   // inputs
   branch_jump_addres, // 32 bits , branch or jump signal, input for mux before the PC
@@ -106,6 +104,7 @@ IF if_reg(
   pc_instruction_fetch_unit_out, // PC
   pc_4_instruction_fetch_unit_out,  // PC + 4
   instruction_instruction_fetch_unit_out, // instruction from instruction mem
+  reset,
   reset_IF_reg, 
   clk,
   busywait,

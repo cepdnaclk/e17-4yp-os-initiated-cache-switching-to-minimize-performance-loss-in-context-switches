@@ -87,14 +87,43 @@ begin
     memory_array[0] = 8'h13;
     memory_array[1] = 8'h00;
     memory_array[2] = 8'h80;
-    memory_array[3] = 8'hc1;
+    memory_array[3] = 8'h3e;
     
   
-    // 2. r1 <- $0 + 2
+    // r1 <- $0 + 2
     memory_array[4] = 8'h93;
     memory_array[5] = 8'h80;
     memory_array[6] = 8'h20;
     memory_array[7] = 8'h00;
+
+    // r2 <- $0 + 50
+    memory_array[8] = 8'h13;
+    memory_array[9] = 8'h01;
+    memory_array[10] = 8'h21;
+    memory_array[11] = 8'h03;
+
+    // memory_array[12] = 8'h00;
+    // memory_array[13] = 8'h00;
+    // memory_array[14] = 8'h00;
+    // memory_array[15] = 8'h00;
+    
+  
+    // add x3, x0, x1
+    memory_array[12] = 8'hb3;
+    memory_array[13] = 8'h01;
+    memory_array[14] = 8'h10;
+    memory_array[15] = 8'h00;
+
+    memory_array[16] = 8'h00;
+    memory_array[17] = 8'h00;
+    memory_array[18] = 8'h00;
+    memory_array[19] = 8'h00;
+
+    // sub x4, x3, x2
+    memory_array[20] = 8'h33;
+    memory_array[21] = 8'h82;
+    memory_array[22] = 8'h21;
+    memory_array[23] = 8'h00;
 
     // // Nope
     // memory_array[8] = 8'h00;
