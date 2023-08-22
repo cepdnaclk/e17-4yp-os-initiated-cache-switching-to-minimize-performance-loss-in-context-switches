@@ -311,6 +311,7 @@ MEM mem_reg(
   write_data,
   d_mem_r_ex_reg_out,
   reg1_write_address_ex,
+  busywait,
   // outputs
   write_address_out,
   write_en_out,

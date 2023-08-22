@@ -53,6 +53,32 @@ module ID(
   input [4:0] write_address_in, reg2_read_address_in, reg1_read_address_in;
   output reg [4:0] write_address_out, reg2_read_address_out, reg1_read_address_out;
 
+  // reg on;
+  // // assign on <= 1'b0;
+
+  // reg switch_cache_w_temp;
+  // reg rotate_signal_temp;
+  // reg mux_complmnt_temp;
+  // reg mux_inp_2_temp;
+  // reg mux_inp_1_temp;
+  // reg mux_d_mem_temp;
+  // reg write_reg_en_temp;
+  // reg d_mem_r_temp;
+  // reg d_mem_w_temp;
+  // reg branch_temp;
+  // reg jump_temp;
+  // reg [31:0] pc_4_temp;
+  // reg [31:0] pc_temp;
+  // reg [31:0] data_1_temp;
+  // reg [31:0] data_2_temp;
+  // reg [31:0] mux_1_out_temp;
+  // reg [1:0] mux_result_temp;
+  // reg [4:0] write_address_temp;
+  // reg [2:0] alu_op_temp;
+  // reg [2:0] fun_3_temp;
+  // reg [4:0] reg2_read_address_temp;
+  // reg [4:0] reg1_read_address_temp;
+
   always @(posedge clk,posedge reset)
   begin
     // #1
@@ -136,5 +162,63 @@ module ID(
     end
 
   end
+
+  // always @(posedge busywait) begin
+  //     on <= 1'b1;
+  //     switch_cache_w_temp <= switch_cache_w_in;
+  //     rotate_signal_temp <=rotate_signal_in;
+  //     mux_complmnt_temp <=mux_complmnt_in;
+  //     mux_inp_2_temp <= mux_inp_2_in;
+  //     mux_inp_1_temp <=mux_inp_1_in;
+  //     mux_d_mem_temp <=  mux_d_mem_in;
+  //     write_reg_en_temp <= write_reg_en_in;
+  //     d_mem_r_temp <= d_mem_r_in;
+  //     d_mem_w_temp <=d_mem_w_in;
+  //     branch_temp <=branch_in;
+  //     jump_temp <=jump_in;
+  //     pc_4_temp <=pc_4_in;
+  //     pc_temp <= pc_in;
+  //     data_1_temp <=data_1_in;
+  //     data_2_temp <=data_2_in;
+  //     mux_1_out_temp <=mux_1_out_in;
+  //     mux_result_temp <=mux_result_in;
+  //     write_address_temp <=write_address_in;
+  //     alu_op_temp <=alu_op_in;
+  //     fun_3_temp <=fun_3_in;
+  //     reg2_read_address_temp <= reg2_read_address_in;
+  //     reg1_read_address_temp <= reg1_read_address_in;
+  // end
+
+  // always @(negedge busywait) begin
+  //     if(on) begin
+  //       on <= 1'b0;
+  //       switch_cache_w_out <= switch_cache_w_temp;
+  //       rotate_signal_out <=rotate_signal_temp;
+  //       mux_complmnt_out <=mux_complmnt_temp;
+  //       mux_inp_2_out <= mux_inp_2_temp;
+  //       mux_inp_1_out <=mux_inp_1_temp;
+  //       mux_d_mem_out <=  mux_d_mem_temp;
+  //       write_reg_en_out <= write_reg_en_temp;
+  //       d_mem_r_out <= d_mem_r_temp;
+  //       d_mem_w_out <=d_mem_w_temp;
+  //       branch_out <=branch_temp;
+  //       jump_out <=jump_temp;
+
+  //       pc_4_out <=pc_4_temp;
+  //       pc_out <= pc_temp;
+  //       data_1_out <=data_1_temp;
+  //       data_2_out <=data_2_temp;
+  //       mux_1_out_out <=mux_1_out_temp;
+
+  //       mux_result_out <=mux_result_temp;
+
+  //       write_address_out <=write_address_temp;
+
+  //       alu_op_out <=alu_op_temp;
+  //       fun_3_out <=fun_3_temp;
+  //       reg2_read_address_out <= reg2_read_address_temp;
+  //       reg1_read_address_out <= reg1_read_address_temp;
+  //     end
+  // end
 
 endmodule

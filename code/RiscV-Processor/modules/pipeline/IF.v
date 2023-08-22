@@ -37,16 +37,18 @@ module IF(
       pc_out <=32'd0;
       pc_4_out <=32'd0;
       instration_out <=32'd0;
-    end else if (!busywait) begin // store all the related value in IF reg if  the previous stage isn't busy
+    end else if (!busywait && hold == 1'b0) begin // store all the related value in IF reg if  the previous stage isn't busy
       pc_out <=pc_in;
       pc_4_out <=pc_4_in;
       instration_out <=instration_in;
-    end else if(hold == 1'b0)
-    begin
-      pc_out <=pc_in;
-      pc_4_out <=pc_4_in;
-      instration_out <=instration_in;
-    end
+    end 
+    
+    // else if(hold == 1'b0)
+    // begin
+    //   pc_out <=pc_in;
+    //   pc_4_out <=pc_4_in;
+    //   instration_out <=instration_in;
+    // end
 
   end
 
