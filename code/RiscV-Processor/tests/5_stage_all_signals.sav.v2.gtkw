@@ -1,0 +1,253 @@
+[*]
+[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
+[*] Thu Aug 24 18:42:06 2023
+[*]
+[dumpfile] "D:\FYP\e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches\code\RiscV-Processor\tests\cpuwave.vcd"
+[dumpfile_mtime] "Thu Aug 24 18:13:31 2023"
+[dumpfile_size] 124866
+[savefile] "D:\FYP\e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches\code\RiscV-Processor\tests\5_stage_all_signals.sav.v2.gtkw"
+[timestart] 334840
+[size] 1366 705
+[pos] -1 -1
+*-14.000000 390050 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] cpuTestbench.
+[treeopen] cpuTestbench.mycpu.
+[treeopen] cpuTestbench.mycpu.if_unit.myicache.
+[sst_width] 269
+[signals_width] 231
+[sst_expanded] 1
+[sst_vpaned_height] 253
+@200
+-IF Unit
+@28
+cpuTestbench.CLK
+cpuTestbench.mycpu.if_unit.reset
+@420
+cpuTestbench.mycpu.if_unit.PC[31:0]
+@22
+cpuTestbench.mycpu.if_unit.instruction[31:0]
+@200
+-IF reg
+@28
+cpuTestbench.mycpu.if_reg.busywait
+@420
+cpuTestbench.mycpu.if_reg.pc_in[31:0]
+cpuTestbench.mycpu.if_reg.pc_out[31:0]
+@200
+-ID Unit
+@420
+cpuTestbench.mycpu.id_unit.wire_module.I_imm[31:0]
+cpuTestbench.mycpu.id_unit.S_imm[31:0]
+cpuTestbench.mycpu.id_unit.alu_op[2:0]
+@28
+cpuTestbench.mycpu.id_unit.hazard_detect_signal
+@420
+cpuTestbench.mycpu.id_unit.register_file.INADDRESS[4:0]
+cpuTestbench.mycpu.id_unit.register_file.IN[31:0]
+@28
+cpuTestbench.mycpu.id_unit.register_file.WRITE
+@24
+cpuTestbench.mycpu.id_unit.register_file.reg0_output[31:0]
+cpuTestbench.mycpu.id_unit.register_file.reg1_output[31:0]
+cpuTestbench.mycpu.id_unit.register_file.reg2_output[31:0]
+cpuTestbench.mycpu.id_unit.register_file.reg3_output[31:0]
+@420
+cpuTestbench.mycpu.id_unit.register_file.reg4_output[31:0]
+cpuTestbench.mycpu.id_unit.register_file.OUT1[31:0]
+cpuTestbench.mycpu.id_unit.register_file.OUT2[31:0]
+@200
+-ID Reg
+@28
+cpuTestbench.mycpu.id_reg.busywait
+@420
+cpuTestbench.mycpu.id_reg.pc_in[31:0]
+cpuTestbench.mycpu.id_reg.pc_out[31:0]
+cpuTestbench.mycpu.id_reg.data_1_in[31:0]
+cpuTestbench.mycpu.id_reg.data_1_out[31:0]
+cpuTestbench.mycpu.id_reg.data_2_in[31:0]
+cpuTestbench.mycpu.id_reg.data_2_out[31:0]
+cpuTestbench.mycpu.id_reg.mux_1_out_in[31:0]
+cpuTestbench.mycpu.id_reg.mux_1_out_out[31:0]
+@200
+-
+-Ex_Unit
+@420
+cpuTestbench.mycpu.iex_unit.data1[31:0]
+cpuTestbench.mycpu.iex_unit.data2[31:0]
+@200
+-fwd Muxes
+@24
+cpuTestbench.mycpu.iex_unit.fwd_mux1.in1[31:0]
+cpuTestbench.mycpu.iex_unit.fwd_mux1.in2[31:0]
+cpuTestbench.mycpu.iex_unit.fwd_mux1.in3[31:0]
+cpuTestbench.mycpu.iex_unit.fwd_mux1.out[31:0]
+cpuTestbench.mycpu.iex_unit.fwd_mux1.select[1:0]
+@200
+-
+@24
+cpuTestbench.mycpu.iex_unit.fwd_mux2.in1[31:0]
+cpuTestbench.mycpu.iex_unit.fwd_mux2.in2[31:0]
+cpuTestbench.mycpu.iex_unit.fwd_mux2.in3[31:0]
+@c00024
+cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+@28
+(0)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(1)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(2)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(3)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(4)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(5)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(6)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(7)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(8)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(9)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(10)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(11)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(12)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(13)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(14)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(15)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(16)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(17)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(18)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(19)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(20)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(21)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(22)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(23)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(24)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(25)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(26)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(27)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(28)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(29)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(30)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+(31)cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+@1401200
+-group_end
+@24
+cpuTestbench.mycpu.iex_unit.fwd_mux2.select[1:0]
+@200
+-
+@420
+cpuTestbench.mycpu.iex_unit.mux1.out[31:0]
+cpuTestbench.mycpu.iex_unit.mux2.out[31:0]
+cpuTestbench.mycpu.iex_unit.alu_result[31:0]
+@24
+cpuTestbench.mycpu.iex_unit.mux4.out[31:0]
+@200
+-EX Reg
+@28
+cpuTestbench.mycpu.ex_reg.busywait
+cpuTestbench.mycpu.id_unit.register_file.CLK
+@420
+cpuTestbench.mycpu.ex_reg.result_mux_4_in[31:0]
+cpuTestbench.mycpu.ex_reg.result_mux_4_out[31:0]
+cpuTestbench.mycpu.ex_reg.data_2_out[31:0]
+cpuTestbench.mycpu.ex_reg.write_address_out[4:0]
+@200
+-Mem Unit
+@420
+cpuTestbench.mycpu.mem_access_unit.alu_out_mem[31:0]
+cpuTestbench.mycpu.mem_access_unit.data2[31:0]
+@28
+cpuTestbench.mycpu.mem_access_unit.mem_read_en_WB
+@420
+cpuTestbench.mycpu.mem_access_unit.mem_address_WB[4:0]
+@28
+cpuTestbench.mycpu.mem_access_unit.mem_forward.mem_write_en_MEM
+@420
+cpuTestbench.mycpu.mem_access_unit.mem_forward.mem_address_MEM[4:0]
+@28
+cpuTestbench.mycpu.mem_access_unit.mem_forward.mem_forward_select
+@200
+-MEM Reg
+@28
+cpuTestbench.mycpu.mem_reg.mux5_sel_out
+@420
+cpuTestbench.mycpu.mem_reg.alu_result_out[31:0]
+cpuTestbench.mycpu.mem_reg.d_mem_result_out[31:0]
+@28
+cpuTestbench.mycpu.mem_reg.mem_read_out
+@22
+cpuTestbench.mycpu.mem_reg.write_address_out[4:0]
+@200
+-WB Unit
+@420
+cpuTestbench.mycpu.mux5.in1[31:0]
+cpuTestbench.mycpu.mux5.in2[31:0]
+cpuTestbench.mycpu.mux5.out[31:0]
+@28
+cpuTestbench.mycpu.mux5.select
+@420
+cpuTestbench.mycpu.mux5.out[31:0]
+@24
+cpuTestbench.mycpu.id_unit.register_file.reg0_output[31:0]
+@420
+cpuTestbench.mycpu.id_unit.register_file.reg1_output[31:0]
+@24
+cpuTestbench.mycpu.id_unit.register_file.reg2_output[31:0]
+@28
+cpuTestbench.mycpu.clk
+cpuTestbench.mycpu.id_reg.busywait
+@200
+-
+-4th instruction
+-if unit
+@23
+cpuTestbench.mycpu.if_unit.instruction[31:0]
+@200
+-if reg
+@22
+cpuTestbench.mycpu.if_reg.instration_in[31:0]
+cpuTestbench.mycpu.if_reg.instration_out[31:0]
+@28
+cpuTestbench.mycpu.if_reg.hold
+@22
+cpuTestbench.mycpu.if_reg.test[3:0]
+@200
+-id unit
+@420
+cpuTestbench.mycpu.id_unit.register_file.OUT1ADDRESS[4:0]
+cpuTestbench.mycpu.id_unit.register_file.OUT2ADDRESS[4:0]
+cpuTestbench.mycpu.id_unit.register_file.reg0_output[31:0]
+@24
+cpuTestbench.mycpu.id_unit.register_file.reg1_output[31:0]
+@420
+cpuTestbench.mycpu.id_unit.register_file.reg2_output[31:0]
+cpuTestbench.mycpu.id_unit.register_file.reg3_output[31:0]
+cpuTestbench.mycpu.id_unit.register_file.OUT1[31:0]
+@22
+cpuTestbench.mycpu.id_unit.register_file.OUT2[31:0]
+@200
+-id reg
+@420
+cpuTestbench.mycpu.id_reg.data_1_in[31:0]
+cpuTestbench.mycpu.id_reg.data_1_out[31:0]
+cpuTestbench.mycpu.id_reg.data_2_in[31:0]
+cpuTestbench.mycpu.id_reg.data_2_out[31:0]
+@200
+-
+-fwd muxs
+@420
+cpuTestbench.mycpu.iex_unit.fwd_mux1.in1[31:0]
+cpuTestbench.mycpu.iex_unit.fwd_mux1.in2[31:0]
+cpuTestbench.mycpu.iex_unit.fwd_mux1.in3[31:0]
+cpuTestbench.mycpu.iex_unit.fwd_mux1.out[31:0]
+@28
+cpuTestbench.mycpu.iex_unit.fwd_mux1.select[1:0]
+@200
+-
+@420
+cpuTestbench.mycpu.iex_unit.fwd_mux2.in1[31:0]
+@24
+cpuTestbench.mycpu.iex_unit.fwd_mux2.in2[31:0]
+@420
+cpuTestbench.mycpu.iex_unit.fwd_mux2.in3[31:0]
+cpuTestbench.mycpu.iex_unit.fwd_mux2.out[31:0]
+@28
+cpuTestbench.mycpu.iex_unit.fwd_mux2.select[1:0]
+@200
+-
+[pattern_trace] 1
+[pattern_trace] 0

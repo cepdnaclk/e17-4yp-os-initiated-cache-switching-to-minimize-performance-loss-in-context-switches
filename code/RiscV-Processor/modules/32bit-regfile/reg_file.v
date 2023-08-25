@@ -7,7 +7,7 @@ module reg_file (OUT1, OUT2, IN, INADDRESS, OUT1ADDRESS, OUT2ADDRESS, WRITE, CLK
 	input [4:0] OUT1ADDRESS, OUT2ADDRESS;		//address of register that should read
 	input [4:0] INADDRESS;						//address of writting register
 	input  WRITE, CLK, RESET;					//enable sigle to write, clock, reset signal
-	output reg [31:0] OUT1, OUT2;				//output of readed register
+	output [31:0] OUT1, OUT2;				//output of readed register
 	reg [31:0] Register [31:0];					//32bit 32 register
 	integer j;									//for for loop
 	output [31:0] reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output;
@@ -17,7 +17,7 @@ module reg_file (OUT1, OUT2, IN, INADDRESS, OUT1ADDRESS, OUT2ADDRESS, WRITE, CLK
   // end
 
 	//writting part
-	always @ (posedge CLK,posedge RESET)			
+	always @ (negedge CLK,posedge RESET)			
 	begin
 		//writting part
 		if(RESET)
@@ -36,11 +36,13 @@ module reg_file (OUT1, OUT2, IN, INADDRESS, OUT1ADDRESS, OUT2ADDRESS, WRITE, CLK
 	end
 
 	//this is reading part
-	always @ (OUT1ADDRESS, OUT2ADDRESS)
-	begin
-		OUT1 <= Register[OUT1ADDRESS];		//assign
-		OUT2 <= Register[OUT2ADDRESS];		//assign
-	end
+	// always @ (OUT1ADDRESS, OUT2ADDRESS, Register[0] )
+	// begin
+	// 	OUT1 <= Register[OUT1ADDRESS];		//assign
+	// 	OUT2 <= Register[OUT2ADDRESS];		//assign
+	// end
+	assign OUT1 = Register[OUT1ADDRESS];
+	assign OUT2 = Register[OUT2ADDRESS];
 
 
 	assign reg0_output=Register[0];

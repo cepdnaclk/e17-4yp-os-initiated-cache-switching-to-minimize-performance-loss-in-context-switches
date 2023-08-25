@@ -3,8 +3,10 @@
 
 
 module icache (clock,
+    // inputs
     reset,
     address,
+    // outputs
     instruction,
 	busywait
     );

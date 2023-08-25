@@ -20,7 +20,7 @@ module IF(
   input busywait,branch_jump_signal;
   input  reset, clk;
   input hold, hazard_rest;
-  
+  reg  [3:0]test ; 
   
   always @(posedge clk,posedge reset)
   begin
@@ -29,24 +29,34 @@ module IF(
       pc_out <=32'd0;
       pc_4_out <=32'd0;
       instration_out <=32'd0;
+      test <= 4'd0;
     end else if(hazard_rest) begin
       pc_out <=32'd0;
       pc_4_out <=32'd0;
       instration_out <=32'd0;
+      test <= 4'd1;
+
     end else if (branch_jump_signal)begin // Why why why clear IF reg on a branch jump signal 
       pc_out <=32'd0;
       pc_4_out <=32'd0;
       instration_out <=32'd0;
-    end else if (!busywait) begin // store all the related value in IF reg if  the previous stage isn't busy
+      test <= 4'd2;
+
+    end else if (!busywait && !hold) begin // store all the related value in IF reg if  the previous stage isn't busy
       pc_out <=pc_in;
       pc_4_out <=pc_4_in;
       instration_out <=instration_in;
-    end else if(hold == 1'b0)
-    begin
-      pc_out <=pc_in;
-      pc_4_out <=pc_4_in;
-      instration_out <=instration_in;
-    end
+      test <= 4'd4;
+
+    end 
+    // else if(hold == 1'b0)
+    // begin
+    //   pc_out <=pc_in;
+    //   pc_4_out <=pc_4_in;
+    //   instration_out <=instration_in;
+    //   test <= 4'd5;
+
+    // end
 
   end
 
