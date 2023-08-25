@@ -44,7 +44,6 @@ module cpu(
     output [31:0] reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output,
 	  // why program counter as a output ? 
     output reg[31:0]pc,
-
     // what does this do
     output reg[31:0]debug_ins
   );
@@ -76,7 +75,7 @@ wire [31:0] alu_out_mem;
 wire mem_read_en_out, write_reg_en_MEM;
 wire [4:0] reg_write_address_out;
 wire reset_ID_reg, reset_IF_reg, hold_IF_reg;
-wire hazard_detect_signal;
+wire hazard_detect_signal, busywait_imem;
 
 always @(*)
 begin
@@ -96,7 +95,8 @@ instruction_fetch_unit if_unit(
   pc_instruction_fetch_unit_out, // PC value
   pc_4_instruction_fetch_unit_out, // PC + 4
   instruction_instruction_fetch_unit_out, // 32bits instruction from instruction memory
-  busywait
+  busywait,
+  busywait_imem
 );
   
 IF if_reg(
@@ -110,6 +110,7 @@ IF if_reg(
   busywait,
   branch_or_jump_signal,
   hold_IF_reg,
+  busywait_imem,
   // outputs
   pc_if_reg_out, // PC
   pc_4_if_reg_out,  // PC + 4
@@ -207,9 +208,7 @@ ID id_reg(
   switch_cache_w_id_reg_out,
   reg2_write_address_id_out,
   reg1_write_address_id_out
-);
-
-  
+);  
 
 instruction_execute_unit iex_unit(
   // inputs

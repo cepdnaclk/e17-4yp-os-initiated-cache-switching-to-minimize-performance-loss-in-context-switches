@@ -32,7 +32,7 @@ reg [7:0] memory_array [0:1023];
 initial
 begin
 
-    // $readmemh("memfile.mem", memory_array);
+    $readmemh("F:/Semester07/FYP/e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches/code/RiscV-Processor/modules/i-cache/memfile.mem", memory_array);
     // // r0 <- $0 + 1000
     // memory_array[0] = 8'h13;
     // memory_array[1] = 8'h00;
@@ -84,23 +84,23 @@ begin
     // memory_array[31] = 8'h00;
 
     // r0 <- $0 + -1000
-    memory_array[0] = 8'h13;
-    memory_array[1] = 8'h00;
-    memory_array[2] = 8'h80;
-    memory_array[3] = 8'h3e;
+    // memory_array[0] = 8'h13;
+    // memory_array[1] = 8'h00;
+    // memory_array[2] = 8'h10;
+    // memory_array[3] = 8'h00;
     
   
-    // r1 <- $0 + 2
-    memory_array[4] = 8'h93;
-    memory_array[5] = 8'h80;
-    memory_array[6] = 8'h20;
-    memory_array[7] = 8'h00;
+    // // r1 <- $0 + 2
+    // memory_array[4] = 8'h93;
+    // memory_array[5] = 8'h80;
+    // memory_array[6] = 8'h40;
+    // memory_array[7] = 8'h00;
 
-    // r2 <- $0 + 50
-    memory_array[8] = 8'h13;
-    memory_array[9] = 8'h01;
-    memory_array[10] = 8'h21;
-    memory_array[11] = 8'h03;
+    // // r2 <- $0 + 50
+    // memory_array[8] = 8'h03;
+    // memory_array[9] = 8'h00;
+    // memory_array[10] = 8'h10;
+    // memory_array[11] = 8'h00;
 
     // memory_array[12] = 8'h00;
     // memory_array[13] = 8'h00;
@@ -109,10 +109,10 @@ begin
     
   
     // add x3, x0, x1
-    memory_array[12] = 8'hb3;
-    memory_array[13] = 8'h01;
-    memory_array[14] = 8'h10;
-    memory_array[15] = 8'h00;
+    // memory_array[12] = 8'hb3;
+    // memory_array[13] = 8'h01;
+    // memory_array[14] = 8'h10;
+    // memory_array[15] = 8'h00;
 
     // memory_array[16] = 8'h00;
     // memory_array[17] = 8'h00;
