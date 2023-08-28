@@ -32,7 +32,8 @@ reg [7:0] memory_array [0:1023];
 initial
 begin
 
-    $readmemh("F:/Semester07/FYP/e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches/code/RiscV-Processor/modules/i-cache/memfile.mem", memory_array);
+    //$readmemh("memfile.mem", memory_array);
+    $readmemh("C:/Users/ASUS/Desktop/FYP/FYP clone02/e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches/code/RiscV-Processor/modules/i-cache/memfile.mem", memory_array);
     // // r0 <- $0 + 1000
     // memory_array[0] = 8'h13;
     // memory_array[1] = 8'h00;
