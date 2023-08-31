@@ -15,6 +15,7 @@
 `include "../modules/mux/mux5x1.v"
 
 `include "../modules/mux/mux2x1.v"
+`include "../modules/mux/mux3x1.v"
 `include "../modules/i-cache/icache.v"
 `include "../modules/i-cache/imem_for_icache.v"
 
@@ -30,6 +31,10 @@
 `include "../modules/data-cache/dmem_for_dcache.v"
 `include "../modules/cache-controller/Cache_controller.v"
 
+`include "../modules/hazard-detection-correction/Ex_forward_unit.v"
+`include "../modules/hazard-detection-correction/Flush_unit.v"
+`include "../modules/hazard-detection-correction/Hazard_detection_unit.v"
+`include "../modules/hazard-detection-correction/Mem_forward_unit.v"
 
 
 module cpu(
@@ -39,7 +44,6 @@ module cpu(
     output [31:0] reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output,
 	  // why program counter as a output ? 
     output reg[31:0]pc,
-
     // what does this do
     output reg[31:0]debug_ins
   );
@@ -63,9 +67,15 @@ wire [31:0] Register_value_output_wires [31:0];
 wire [4:0] write_address_out;
 wire write_en_out, mux5_sel_out;
 wire [31:0] alu_result_out, d_mem_result_out,mux5_out_write_data;
-  
-  
-
+wire mem_read_out;
+wire [4:0] reg2_write_address_id, reg1_write_address_id;
+wire [4:0] reg2_write_address_id_out, reg1_write_address_id_out, reg2_write_address_ex, reg1_write_address_ex;
+wire [4:0] reg1_write_address_mem, write_address_MEM;
+wire [31:0] alu_out_mem;
+wire mem_read_en_out, write_reg_en_MEM;
+wire [4:0] register_write_address_out;
+wire reset_ID_reg, reset_IF_reg, hold_IF_reg;
+wire hazard_detect_signal, busywait_imem;
 
 always @(*)
 begin
@@ -73,20 +83,20 @@ begin
   debug_ins<=instruction_instruction_fetch_unit_out;
 end
 
-
-
 instruction_fetch_unit if_unit(
   // inputs
   branch_jump_addres, // 32 bits , branch or jump signal, input for mux before the PC
   branch_or_jump_signal,  // 1 bit , control signal for mux before the PC
   data_memory_busywait,  // 1bit busy wait from memory
   reset, 
-  clk, 
+  clk,
+  hazard_detect_signal,
   // outputs
   pc_instruction_fetch_unit_out, // PC value
   pc_4_instruction_fetch_unit_out, // PC + 4
   instruction_instruction_fetch_unit_out, // 32bits instruction from instruction memory
-  busywait
+  busywait,
+  busywait_imem
 );
   
 IF if_reg(
@@ -94,10 +104,13 @@ IF if_reg(
   pc_instruction_fetch_unit_out, // PC
   pc_4_instruction_fetch_unit_out,  // PC + 4
   instruction_instruction_fetch_unit_out, // instruction from instruction mem
-  reset, 
+  reset,
+  reset_IF_reg, 
   clk,
   busywait,
   branch_or_jump_signal,
+  hold_IF_reg,
+  busywait_imem,
   // outputs
   pc_if_reg_out, // PC
   pc_4_if_reg_out,  // PC + 4
@@ -125,13 +138,22 @@ instruction_decode_unit id_unit(
   data_1_id_unit_out, // read data 1 from reg file
   data_2_id_unit_out, // read data 2 from reg file
   mux_1_out_id_unit_out, // wiremodule output
+  reg2_write_address_id,
+  reg1_write_address_id,
+  reset_ID_reg,
+  reset_IF_reg,
+  hold_IF_reg,
+  hazard_detect_signal,
   // inputs
   instration_if_reg_out, // instruction
   mux5_out_write_data,
   write_en_out,
   write_address_out,
   clk, 
-  reset
+  reset,
+  mem_read_en_out,
+  register_write_address_out,
+  branch_or_jump_signal
 );
 
   
@@ -157,10 +179,12 @@ ID id_reg(
   mux_1_out_id_unit_out, // wire module output
   pc_if_reg_out, // PC
   pc_4_if_reg_out, // PC + 4
-  reset,
+  reset_ID_reg,
   clk,
   busywait,
   branch_or_jump_signal, // branch or jump signal, input for the mux before the PC
+  reg2_write_address_id,
+  reg1_write_address_id,
   // outputs
   rotate_signal_id_reg_out, 
   mux_complmnt_id_reg_out, 
@@ -181,10 +205,10 @@ ID id_reg(
   write_address_id_reg_out,
   alu_op_id_reg_out, 
   fun_3_id_reg_out,
-  switch_cache_w_id_reg_out
-);
-
-  
+  switch_cache_w_id_reg_out,
+  reg2_write_address_id_out,
+  reg1_write_address_id_out
+);  
 
 instruction_execute_unit iex_unit(
   // inputs
@@ -202,10 +226,22 @@ instruction_execute_unit iex_unit(
   jump_id_reg_out,
   fun_3_id_reg_out,
   alu_op_id_reg_out,
+  write_address_MEM,
+  write_reg_en_MEM,
+  write_address_out,
+  write_en_out,
+  reg2_write_address_id_out,
+  reg1_write_address_id_out,
+  alu_out_mem,
+  mux5_out_write_data,
+  d_mem_r_id_reg_out,
+  write_address_id_reg_out,
   // outputs
   branch_jump_addres,
   result_iex_unit_out,
-  branch_or_jump_signal // branch or jump signal, input for the mux before the PC
+  branch_or_jump_signal, // branch or jump signal, input for the mux before the PC
+  mem_read_en_out,
+  register_write_address_out
 );
 
 EX ex_reg(
@@ -221,6 +257,8 @@ EX ex_reg(
   reset,
   clk,
   busywait,
+  reg2_write_address_id_out,
+  reg1_write_address_id_out,
   // outputs
   data_2_ex_reg_out, // data 2 reg values
   result_mux_4_ex_reg_out, // goes to mux4
@@ -229,8 +267,9 @@ EX ex_reg(
   d_mem_r_ex_reg_out, 
   d_mem_w_ex_reg_out,
   fun_3_ex_reg_out, // funct 3
-  write_address_ex_reg_out // write_address_mem
-    
+  write_address_ex_reg_out, // write_address
+  reg2_write_address_ex,
+  reg1_write_address_ex
 );
 
 
@@ -246,9 +285,18 @@ memory_access_unit mem_access_unit(
   // outputs
   data_memory_busywait,
   write_data, // d_mem_out
+  alu_out_mem,
   // inputs
   fun_3_id_reg_out, // funct 3 from previous pipline reg
-  switch_cache_w_id_reg_out
+  switch_cache_w_id_reg_out,
+  reg2_write_address_ex,
+  mem_read_out,
+  write_address_out,
+  mux5_out_write_data,
+  write_reg_en_ex_reg_out,
+  write_address_ex_reg_out,
+  write_reg_en_MEM,
+  write_address_MEM
 );
 
 MEM mem_reg(
@@ -260,12 +308,17 @@ MEM mem_reg(
   mux_d_mem_ex_reg_out,
   result_mux_4_ex_reg_out,
   write_data,
+  d_mem_r_ex_reg_out,
+  reg1_write_address_ex,
+  busywait,
   // outputs
   write_address_out,
   write_en_out,
   mux5_sel_out,
   alu_result_out,
-  d_mem_result_out
+  d_mem_result_out,
+  mem_read_out,
+  reg1_write_address_mem
 );
 
 mux2x1 mux5(d_mem_result_out,alu_result_out,mux5_sel_out,mux5_out_write_data);

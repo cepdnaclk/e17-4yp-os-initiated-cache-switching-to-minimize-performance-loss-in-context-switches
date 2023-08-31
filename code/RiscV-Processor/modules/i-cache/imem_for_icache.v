@@ -25,64 +25,144 @@ reg [3:0]counter; // Track the current byte of the instruction that is being rea
 reg readaccess; // Indicate the status of the instruction
 
 
-//Declare memory array 1024x8-bits 
+//Declare memory array 1024x8-bits
 reg [7:0] memory_array [0:1023];
 
 //Initialize instruction memory
 initial
 begin
 
-    // $readmemh("memfile.mem", memory_array);
-    // r0 <- $0 + -1000
-    memory_array[0] = 8'h13;
-    memory_array[1] = 8'h00;
-    memory_array[2] = 8'h80;
-    memory_array[3] = 8'hc1;
+    //$readmemh("memfile.mem", memory_array);
+    $readmemh("C:/Users/ASUS/Desktop/FYP/FYP clone02/e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches/code/RiscV-Processor/modules/i-cache/memfile.mem", memory_array);
+    // // r0 <- $0 + 1000
+    // memory_array[0] = 8'h13;
+    // memory_array[1] = 8'h00;
+    // memory_array[2] = 8'h80;
+    // memory_array[3] = 8'hc1;
     
   
-    // 2. r1 <- $0 + 2
-    memory_array[4] = 8'h93;
-    memory_array[5] = 8'h80;
-    memory_array[6] = 8'h20;
-    memory_array[7] = 8'h00;
+    // // 2. r1 <- $0 + 2
+    // memory_array[4] = 8'h93;
+    // memory_array[5] = 8'h80;
+    // memory_array[6] = 8'h20;
+    // memory_array[7] = 8'h00;
 
-    // Nope
-    memory_array[8] = 8'h00;
-    memory_array[9] = 8'h00;
-    memory_array[10] = 8'h00;
-    memory_array[11] = 8'h00;
+    // // Nope
+    // memory_array[8] = 8'h00;
+    // memory_array[9] = 8'h00;
+    // memory_array[10] = 8'h00;
+    // memory_array[11] = 8'h00;
 
-    // Nope
-    memory_array[12] = 8'h00;
-    memory_array[13] = 8'h00;
-    memory_array[14] = 8'h00;
-    memory_array[15] = 8'h00;
+    // // Nope
+    // memory_array[12] = 8'h00;
+    // memory_array[13] = 8'h00;
+    // memory_array[14] = 8'h00;
+    // memory_array[15] = 8'h00;
 
 
-    // 5. Nope
-    memory_array[16] = 8'h00;
-    memory_array[17] = 8'h00;
-    memory_array[18] = 8'h00;
-    memory_array[19] = 8'h00;
+    // //  r3 <- 9 or 4 
+    // memory_array[16] = 8'ha3;
+    // memory_array[17] = 8'ha2;
+    // memory_array[18] = 8'h00;
+    // memory_array[19] = 8'h00;
 
-    // Nope
-    memory_array[20] = 8'h00;
-    memory_array[21] = 8'h00;
-    memory_array[22] = 8'h00;
-    memory_array[23] = 8'h00;
+    // // Nope
+    // memory_array[20] = 8'h00;
+    // memory_array[21] = 8'h00;
+    // memory_array[22] = 8'h00;
+    // memory_array[23] = 8'h00;
 
-    // Cache selection   cache =2
-    memory_array[24] = 8'h7f;
-    memory_array[25] = 8'h20;
-    memory_array[26] = 8'h00;
-    memory_array[27] = 8'h00;
+    // // Nope
+    // memory_array[24] = 8'h00;
+    // memory_array[25] = 8'h00;
+    // memory_array[26] = 8'h00;
+    // memory_array[27] = 8'h00;
 
-    // 8. sw x0, 5(x1)  add=7, store -1000
-    // 0x001022a3 0x0000a2a3
-    memory_array[28] = 8'ha3;
-    memory_array[29] = 8'ha2;
-    memory_array[30] = 8'h00;
-    memory_array[31] = 8'h00;
+    // //  r3 <- 9 or 4 
+    // memory_array[28] = 8'h03;
+    // memory_array[29] = 8'ha1;
+    // memory_array[30] = 8'h50;
+    // memory_array[31] = 8'h00;
+
+    // r0 <- $0 + -1000
+    // memory_array[0] = 8'h13;
+    // memory_array[1] = 8'h00;
+    // memory_array[2] = 8'h10;
+    // memory_array[3] = 8'h00;
+    
+  
+    // // r1 <- $0 + 2
+    // memory_array[4] = 8'h93;
+    // memory_array[5] = 8'h80;
+    // memory_array[6] = 8'h40;
+    // memory_array[7] = 8'h00;
+
+    // // r2 <- $0 + 50
+    // memory_array[8] = 8'h03;
+    // memory_array[9] = 8'h00;
+    // memory_array[10] = 8'h10;
+    // memory_array[11] = 8'h00;
+
+    // memory_array[12] = 8'h00;
+    // memory_array[13] = 8'h00;
+    // memory_array[14] = 8'h00;
+    // memory_array[15] = 8'h00;
+    
+  
+    // add x3, x0, x1
+    // memory_array[12] = 8'hb3;
+    // memory_array[13] = 8'h01;
+    // memory_array[14] = 8'h10;
+    // memory_array[15] = 8'h00;
+
+    // memory_array[16] = 8'h00;
+    // memory_array[17] = 8'h00;
+    // memory_array[18] = 8'h00;
+    // memory_array[19] = 8'h00;
+
+    // // sub x4, x3, x2
+    // memory_array[20] = 8'h33;
+    // memory_array[21] = 8'h82;
+    // memory_array[22] = 8'h21;
+    // memory_array[23] = 8'h00;
+
+    // // Nope
+    // memory_array[8] = 8'h00;
+    // memory_array[9] = 8'h00;
+    // memory_array[10] = 8'h00;
+    // memory_array[11] = 8'h00;
+
+    // // Nope
+    // memory_array[12] = 8'h00;
+    // memory_array[13] = 8'h00;
+    // memory_array[14] = 8'h00;
+    // memory_array[15] = 8'h00;
+
+
+    // // 5. Nope
+    // memory_array[16] = 8'h00;
+    // memory_array[17] = 8'h00;
+    // memory_array[18] = 8'h00;
+    // memory_array[19] = 8'h00;
+
+    // // Nope
+    // memory_array[20] = 8'h00;
+    // memory_array[21] = 8'h00;
+    // memory_array[22] = 8'h00;
+    // memory_array[23] = 8'h00;
+
+    // // Cache selection   cache =2
+    // memory_array[24] = 8'h7f;
+    // memory_array[25] = 8'h20;
+    // memory_array[26] = 8'h00;
+    // memory_array[27] = 8'h00;
+
+    // // 8. sw x0, 5(x1)  add=7, store -1000
+    // // 0x0000a2a3
+    // memory_array[28] = 8'ha3;
+    // memory_array[29] = 8'ha2;
+    // memory_array[30] = 8'h00;
+    // memory_array[31] = 8'h00;
 
 end
 
