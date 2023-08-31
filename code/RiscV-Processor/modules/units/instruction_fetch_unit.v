@@ -41,12 +41,15 @@ end
 
 always @(posedge clock,posedge reset) begin //update the pc value depend on the positive clock edge
     // #2
-	 if(reset)begin
+	if(reset)begin
 		PC <= -4;  // set the PC = -4, the pervious always block increase it to 0
-	 end
-    else if(busywait == 1'b0 && instruction_mem_busywait == 1'b0)begin //update the pc when only busywait is zero 
-        PC <= mux6out; 
+	end
+    else if(busywait == 1'b0 && branch_or_jump_signal == 1'b1) begin
+        PC <= mux6out;
     end
+    else if(busywait == 1'b0 && instruction_mem_busywait == 1'b0) begin //update the pc when only busywait is zero 
+        PC <= mux6out; 
+    end 
 end  
     
 endmodule
