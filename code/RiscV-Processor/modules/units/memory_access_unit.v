@@ -25,7 +25,7 @@ module memory_access_unit (
     output reg_write_en_out,
     output [4:0] reg_write_address_out
 );
-    wire [31:0] store_data,from_data_cache_out, write_data_forward, alu_out_mem;
+    wire [31:0] store_data,from_data_cache_out, write_data_forward;
     wire mem_forward_select;
 
     assign alu_out_mem = mux4_out_result;
