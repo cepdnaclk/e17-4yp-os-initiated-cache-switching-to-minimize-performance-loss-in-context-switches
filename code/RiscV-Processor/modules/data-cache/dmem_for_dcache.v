@@ -20,7 +20,7 @@ output reg [127:0]	readdata;
 output reg      	busywait;
 
 //Declare memory array 1024x8-bits 
-reg [7:0] memory_array [1023:0];
+	reg [7:0] memory_array [63:0];
 
 
 //Detecting an incoming memory access
