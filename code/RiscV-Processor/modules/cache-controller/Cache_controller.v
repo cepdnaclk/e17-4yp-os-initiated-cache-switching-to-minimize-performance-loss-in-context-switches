@@ -36,10 +36,10 @@ module Cache_controller (
     wire cache_2_mem_read,cache_2_mem_write,cache_2_mem_busywait;
     wire cache_3_mem_read,cache_3_mem_write,cache_3_mem_busywait;
     wire cache_4_mem_read,cache_4_mem_write,cache_4_mem_busywait;
-    wire [127:0] test_output1; 
-    wire [127:0] test_output2; 
-    wire [127:0] test_output3; 
-    wire [127:0] test_output4; 
+    // wire [127:0] test_output1; 
+    // wire [127:0] test_output2; 
+    // wire [127:0] test_output3; 
+    // wire [127:0] test_output4; 
 
 
     always @(posedge clock,posedge reset) begin
@@ -71,18 +71,18 @@ module Cache_controller (
     and(cache_4_mem_busywait,cache4_select,mem_busywait);
 
     // 4 cache cores
-    dcache dcache1(clock,reset,cache1_read,cache1_write,address,writedata,cache1_read_data,cache1_busywait,cache_1_mem_read,cache_1_mem_write,cache_1_mem_address,cache_1_mem_writedata,mem_readdata,cache_1_mem_busywait,test_output1);
-    dcache dcache2(clock,reset,cache2_read,cache2_write,address,writedata,cache2_read_data,cache2_busywait,cache_2_mem_read,cache_2_mem_write,cache_2_mem_address,cache_2_mem_writedata,mem_readdata,cache_2_mem_busywait,test_output2);
-    dcache dcache3(clock,reset,cache3_read,cache3_write,address,writedata,cache3_read_data,cache3_busywait,cache_3_mem_read,cache_3_mem_write,cache_3_mem_address,cache_2_mem_writedata,mem_readdata,cache_3_mem_busywait,test_output3);
-    dcache dcache4(clock,reset,cache4_read,cache4_write,address,writedata,cache4_read_data,cache4_busywait,cache_4_mem_read,cache_4_mem_write,cache_4_mem_address,cache_2_mem_writedata,mem_readdata,cache_4_mem_busywait,test_output4);
+    dcache dcache1(clock,reset,cache1_read,cache1_write,address,writedata,cache1_read_data,cache1_busywait,cache_1_mem_read,cache_1_mem_write,cache_1_mem_address,cache_1_mem_writedata,mem_readdata,cache_1_mem_busywait);
+    dcache dcache2(clock,reset,cache2_read,cache2_write,address,writedata,cache2_read_data,cache2_busywait,cache_2_mem_read,cache_2_mem_write,cache_2_mem_address,cache_2_mem_writedata,mem_readdata,cache_2_mem_busywait);
+    dcache dcache3(clock,reset,cache3_read,cache3_write,address,writedata,cache3_read_data,cache3_busywait,cache_3_mem_read,cache_3_mem_write,cache_3_mem_address,cache_3_mem_writedata,mem_readdata,cache_3_mem_busywait);
+    dcache dcache4(clock,reset,cache4_read,cache4_write,address,writedata,cache4_read_data,cache4_busywait,cache_4_mem_read,cache_4_mem_write,cache_4_mem_address,cache_4_mem_writedata,mem_readdata,cache_4_mem_busywait);
 
-    always @(*) 
-    begin
-        $display("cache 1: %h %h %h %h", test_output1[127:96], test_output1[95:64], test_output1[63:32], test_output1[31:0]);
-        $display("cache 2: %h %h %h %h", test_output2[127:96], test_output2[95:64], test_output2[63:32], test_output2[31:0]);
-        $display("cache 3: %h %h %h %h", test_output3[127:96], test_output3[95:64], test_output3[63:32], test_output3[31:0]);
-        $display("cache 4: %h %h %h %h", test_output4[127:96], test_output4[95:64], test_output4[63:32], test_output4[31:0]);
-    end
+    // always @(*) 
+    // begin
+    //     $display("cache 1: %h %h %h %h", test_output1[127:96], test_output1[95:64], test_output1[63:32], test_output1[31:0]);
+    //     $display("cache 2: %h %h %h %h", test_output2[127:96], test_output2[95:64], test_output2[63:32], test_output2[31:0]);
+    //     $display("cache 3: %h %h %h %h", test_output3[127:96], test_output3[95:64], test_output3[63:32], test_output3[31:0]);
+    //     $display("cache 4: %h %h %h %h", test_output4[127:96], test_output4[95:64], test_output4[63:32], test_output4[31:0]);
+    // end
 
     data_memory my_data_memory(clock,reset,mem_read,mem_write,mem_address,mem_writedata,mem_readdata,mem_busywait);
 
