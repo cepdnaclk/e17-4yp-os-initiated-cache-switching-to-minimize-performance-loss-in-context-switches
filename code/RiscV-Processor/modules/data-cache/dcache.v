@@ -18,9 +18,7 @@ module dcache (
     mem_writedata,
     // inputs
     mem_readdata,
-    mem_busywait,
-    // outputs test
-    test_output
+    mem_busywait
     );
 
     integer i;
@@ -29,7 +27,6 @@ module dcache (
 
     output reg busywait,mem_read,mem_write;
     output reg [31:0] readdata;
-    output reg [127:0] test_output; // test
 
     wire valid,dirty;
     input [127:0] mem_readdata;
@@ -38,13 +35,9 @@ module dcache (
     reg valid_bits[0:7];
     reg dirty_bits[0:7];
     reg [24:0] tags[0:7];
-    reg [31:0] word[0:7][0:3];
+    reg [31:0] word[0:3][0:3];
     output reg [27:0] mem_address;
     output reg [127:0] mem_writedata;
-
-    always @* begin
-        test_output = {word[0][3], word[0][2], word[0][1], word[0][0]};
-    end
 
     /*
     Combinational part for indexing, tag comparison for hit deciding, etc.
@@ -63,7 +56,12 @@ module dcache (
 
     always @(*) begin //extrac the data from word 
         if(valid)begin
-            readdata <= word[address[6:4]][address[3:2]];
+            case (address[3:2])
+					2'b00: readdata = word[address[6:4]][0];
+					2'b01: readdata = word[address[6:4]][1];
+					2'b10: readdata = word[address[6:4]][2];
+					2'b11: readdata = word[address[6:4]][3];
+				endcase
         end
     end
 

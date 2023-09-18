@@ -3,7 +3,6 @@
 `include "../modules/units/instruction_fetch_unit.v"
 `include "../modules/units/instruction_decode_unit.v"
 
-
 `include "../modules/pipeline/EX.v"
 `include "../modules/pipeline/ID.v"
 `include "../modules/pipeline/IF.v"
@@ -47,7 +46,6 @@ module cpu(
     // what does this do
     output reg[31:0]debug_ins
   );
-
 
 wire d_mem_r_id_unit_out, d_mem_w_id_unit_out,branch_id_unit_out,jump_id_unit_out,write_reg_en_id_unit_out,mux_d_mem_id_unit_out,mux_inp_2_id_unit_out,mux_complmnt_id_unit_out,mux_inp_1_id_unit_out, rotate_signal_id_unit_out,switch_cache_w_id_unit_out,switch_cache_w_id_reg_out;
 wire branch_or_jump_signal,data_memory_busywait,busywait;

@@ -1,4 +1,4 @@
-`timescale 1ns/100ps
+//`timescale 1ns/100ps
 
 module data_memory(
 	clock,
@@ -20,13 +20,11 @@ output reg [127:0]	readdata;
 output reg      	busywait;
 
 //Declare memory array 1024x8-bits 
-reg [7:0] memory_array [1023:0];
-
+reg [7:0] memory_array [64:0];
 
 //Detecting an incoming memory access
 reg [3:0]counter;
 reg readaccess, writeaccess;
-
 
 always @(*)
 begin
@@ -34,8 +32,6 @@ begin
 	readaccess <= (read && !write)? 1'b1 : 1'b0;
 	writeaccess <= (!read && write)? 1'b1 : 1'b0;
 end
-
-
 
 always @(posedge clock,posedge reset) begin
     if (reset) begin

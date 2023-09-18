@@ -8,7 +8,7 @@ module Flush_unit(
     hold_IF_reg
 );
 
-input hazard_detect, bj_mux_select;
+input hazard_detect, bj_mux_select, busywait;
 output reset_ID_reg, reset_IF_reg, hold_IF_reg;
 
 // In case of a branch/jump, IF/ID PR must be reset
