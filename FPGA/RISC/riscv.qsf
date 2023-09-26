@@ -113,15 +113,16 @@ set_location_assignment PIN_E21 -to 80
 set_location_assignment PIN_M23 -to button
 set_location_assignment PIN_Y2 -to clk
 set_location_assignment PIN_AB28 -to reset
-set_global_assignment -name VERILOG_FILE ../gitt/supportive_modules/supportive_modules/Counter/counter.v
-set_global_assignment -name VERILOG_FILE ../gitt/supportive_modules/supportive_modules/ss_4bit_generator.v
-set_global_assignment -name VERILOG_FILE ../gitt/supportive_modules/supportive_modules/seven_segment_panel.v
-set_global_assignment -name VERILOG_FILE ../gitt/supportive_modules/supportive_modules/mylogic.v
-set_global_assignment -name VERILOG_FILE ../gitt/supportive_modules/supportive_modules/mux9x1.v
-set_global_assignment -name VERILOG_FILE ../gitt/supportive_modules/supportive_modules/mux_16_bit_2x1.v
-set_global_assignment -name VERILOG_FILE ../gitt/supportive_modules/supportive_modules/mux.v
-set_global_assignment -name VERILOG_FILE ../gitt/supportive_modules/supportive_modules/freqency_devider.v
-set_global_assignment -name VERILOG_FILE "../gitt/e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches/code/RiscV-Processor/cpu/cpu.v"
-set_global_assignment -name BDF_FILE riscv.bdf
 set_location_assignment PIN_G19 -to led
+set_global_assignment -name VERILOG_FILE "../../code/RiscV-Processor/supportive_modules/supportive_modules/clock_cycle_counter.v"
+set_global_assignment -name VERILOG_FILE "../../code/RiscV-Processor/supportive_modules/supportive_modules/f_devider.v"
+set_global_assignment -name VERILOG_FILE "../../code/RiscV-Processor/supportive_modules/supportive_modules/Counter/counter.v"
+set_global_assignment -name VERILOG_FILE "../../code/RiscV-Processor/supportive_modules/supportive_modules/ss_4bit_generator.v"
+set_global_assignment -name VERILOG_FILE "../../code/RiscV-Processor/supportive_modules/supportive_modules/seven_segment_panel.v"
+set_global_assignment -name VERILOG_FILE "../../code/RiscV-Processor/supportive_modules/supportive_modules/mylogic.v"
+set_global_assignment -name VERILOG_FILE "../../code/RiscV-Processor/supportive_modules/supportive_modules/mux9x1.v"
+set_global_assignment -name VERILOG_FILE "../../code/RiscV-Processor/supportive_modules/supportive_modules/mux_16_bit_2x1.v"
+set_global_assignment -name VERILOG_FILE "../../code/RiscV-Processor/supportive_modules/supportive_modules/mux.v"
+set_global_assignment -name VERILOG_FILE "../../code/RiscV-Processor/cpu/cpu.v"
+set_global_assignment -name BDF_FILE riscv.bdf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

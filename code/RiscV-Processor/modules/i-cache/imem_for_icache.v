@@ -26,14 +26,14 @@ reg readaccess; // Indicate the status of the instruction
 
 
 //Declare memory array 1024x8-bits
-reg [7:0] memory_array [0:1023];
+reg [7:0] memory_array [0:63];
 
 //Initialize instruction memory
 initial
 begin
 
-    // $readmemh("memfile.mem", memory_array);
-   $readmemh("C:/Users/sandu/OneDrive/Desktop/RISC/memfile.mem", memory_array);
+     $readmemh("memfile.mem", memory_array);
+//    $readmemh("C:/Users/Arshad/Desktop/FYP/Clone4/e/code/RiscV-Processor/modules/i-cache/memfile.mem", memory_array);
     // // r0 <- $0 + 1000
     // memory_array[0] = 8'h13;
     // memory_array[1] = 8'h00;

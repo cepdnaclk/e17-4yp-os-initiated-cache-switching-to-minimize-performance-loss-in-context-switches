@@ -1,23 +1,24 @@
 [*]
-[*] GTKWave Analyzer v3.3.100 (w)1999-2019 BSI
-[*] Sun Jul 30 18:49:30 2023
+[*] GTKWave Analyzer v3.3.108 (w)1999-2020 BSI
+[*] Mon Sep 25 06:54:35 2023
 [*]
-[dumpfile] "D:\FYP\e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches\code\RiscV-Processor\tests\cpuwave.vcd"
-[dumpfile_mtime] "Sun Jul 30 18:45:32 2023"
-[dumpfile_size] 107023
-[savefile] "D:\FYP\e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches\code\RiscV-Processor\tests\addi.sav.gtkw"
-[timestart] 0
-[size] 1366 705
-[pos] -1 -1
-*-18.000000 567000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[dumpfile] "C:\Users\Arshad\Desktop\FYP\Clone4\e\code\RiscV-Processor\tests\cpuwave.vcd"
+[dumpfile_mtime] "Mon Sep 25 06:54:01 2023"
+[dumpfile_size] 227231
+[savefile] "C:\Users\Arshad\Desktop\FYP\Clone4\e\code\RiscV-Processor\tests\addi.sav.gtkw"
+[timestart] 128400
+[size] 1642 600
+[pos] -302 -5
+*-16.387079 1139076 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] cpuTestbench.
 [treeopen] cpuTestbench.mycpu.
+[treeopen] cpuTestbench.mycpu.id_unit.
 [treeopen] cpuTestbench.mycpu.if_unit.
 [treeopen] cpuTestbench.mycpu.if_unit.myicache.
 [sst_width] 254
 [signals_width] 166
 [sst_expanded] 1
-[sst_vpaned_height] 191
+[sst_vpaned_height] 156
 @28
 cpuTestbench.CLK
 @24
@@ -35,14 +36,15 @@ cpuTestbench.mycpu.id_unit.wire_module.I_imm[31:0]
 cpuTestbench.mycpu.iex_unit.alu_unit.RESULT[31:0]
 @200
 -
-@24
-cpuTestbench.mycpu.mem_access_unit.mux5.out[31:0]
-@200
 -
 @24
 cpuTestbench.mycpu.id_unit.register_file.reg0_output[31:0]
 cpuTestbench.mycpu.id_unit.register_file.reg1_output[31:0]
 cpuTestbench.mycpu.id_unit.register_file.reg2_output[31:0]
 cpuTestbench.mycpu.id_unit.register_file.reg3_output[31:0]
+@421
+cpuTestbench.reg4_output[31:0]
+cpuTestbench.reg5_output[31:0]
+cpuTestbench.reg6_output[31:0]
 [pattern_trace] 1
 [pattern_trace] 0

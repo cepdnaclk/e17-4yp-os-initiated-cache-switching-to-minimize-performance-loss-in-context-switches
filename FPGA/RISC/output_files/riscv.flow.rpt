@@ -1,5 +1,5 @@
 Flow report for riscv
-Fri Sep 15 17:05:38 2023
+Mon Sep 25 13:11:16 2023
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -41,17 +41,17 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Fri Sep 15 17:05:17 2023       ;
+; Flow Status                        ; Successful - Mon Sep 25 13:11:02 2023       ;
 ; Quartus Prime Version              ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                      ; riscv                                       ;
 ; Top-level Entity Name              ; riscv                                       ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 11,853 / 114,480 ( 10 % )                   ;
-;     Total combinational functions  ; 11,362 / 114,480 ( 10 % )                   ;
-;     Dedicated logic registers      ; 2,381 / 114,480 ( 2 % )                     ;
-; Total registers                    ; 2381                                        ;
+; Total logic elements               ; 20,385 / 114,480 ( 18 % )                   ;
+;     Total combinational functions  ; 19,896 / 114,480 ( 17 % )                   ;
+;     Dedicated logic registers      ; 2,242 / 114,480 ( 2 % )                     ;
+; Total registers                    ; 2242                                        ;
 ; Total pins                         ; 60 / 529 ( 11 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                       ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 09/15/2023 16:36:02 ;
+; Start date & time ; 09/25/2023 12:54:25 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; riscv               ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 255867591909058.169477596100304        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 9619519379901.169562666512272          ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --         ;
@@ -94,11 +94,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:55     ; 1.0                     ; 4898 MB             ; 00:00:50                           ;
-; Fitter               ; 00:28:10     ; 1.0                     ; 5875 MB             ; 00:22:22                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 4729 MB             ; 00:00:04                           ;
-; Timing Analyzer      ; 00:00:18     ; 2.4                     ; 5102 MB             ; 00:00:17                           ;
-; Total                ; 00:29:27     ; --                      ; --                  ; 00:23:33                           ;
+; Analysis & Synthesis ; 00:00:29     ; 1.0                     ; 4972 MB             ; 00:00:40                           ;
+; Fitter               ; 00:15:56     ; 1.1                     ; 6632 MB             ; 00:18:43                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 4748 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:11     ; 2.2                     ; 5099 MB             ; 00:00:17                           ;
+; Total                ; 00:16:39     ; --                      ; --                  ; 00:19:43                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -107,10 +107,10 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; Clouda           ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; Clouda           ; Windows 10 ; 10.0       ; x86_64         ;
-; Assembler            ; Clouda           ; Windows 10 ; 10.0       ; x86_64         ;
-; Timing Analyzer      ; Clouda           ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; ARSHAD-MRM       ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; ARSHAD-MRM       ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; ARSHAD-MRM       ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; ARSHAD-MRM       ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
