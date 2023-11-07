@@ -32,10 +32,10 @@ always @(*) begin
 		  4'b0101:begin
             out<=in6;
         end
-		  4'b0110:begin
+		  4'b0101:begin
             out<=in7;
         end
-		  4'b0111:begin
+		  4'b1000:begin
             out<=in8;
         end
 		  default:begin

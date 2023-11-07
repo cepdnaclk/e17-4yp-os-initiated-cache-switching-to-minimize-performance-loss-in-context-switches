@@ -9,8 +9,8 @@ module dcache (
     write,
     address,
     writedata,
-    readdata,
     // outputs
+    readdata,
 	busywait,
     mem_read,
     mem_write,
@@ -38,6 +38,15 @@ module dcache (
     reg [31:0] word[0:3][0:3];
     output reg [27:0] mem_address;
     output reg [127:0] mem_writedata;
+
+    // always @(writedata)
+    // begin
+    //     $display({word[0][0],word[0][1],word[0][2],word[0][3]});
+    //     $display({word[1][0],word[1][1],word[1][2],word[1][3]});
+    //     $display({word[2][0],word[2][1],word[2][2],word[2][3]});
+    //     $display({word[3][0],word[3][1],word[3][2],word[3][3]});
+    //     $display(writedata);
+    // end
 
     /*
     Combinational part for indexing, tag comparison for hit deciding, etc.

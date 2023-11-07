@@ -40,7 +40,7 @@ module cpu(
     input clk,
     input reset,
     // what are the uses for these registers ? 
-    output [31:0] reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output,
+    output [31:0] reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output, reg8_output, reg14_output, reg15_output,
 	  // why program counter as a output ? 
     output reg[31:0]pc,
     // what does this do
@@ -56,7 +56,7 @@ wire [4:0] write_address_for_current_instruction_id_unit_out;
 wire [1:0]mux_result_id_unit_out;
 wire [2:0] alu_op_id_unit_out,fun_3_id_unit_out,alu_op_id_reg_out,fun_3_id_reg_out,fun_3_ex_reg_out;
 wire rotate_signal_id_reg_out,mux_complmnt_id_reg_out,mux_inp_2_id_reg_out,mux_inp_1_id_reg_out,mux_d_mem_id_reg_out,write_reg_en_id_reg_out,d_mem_r_id_reg_out,d_mem_w_id_reg_out,branch_id_reg_out,jump_id_reg_out;
-wire [31:0] pc_4_id_reg_out,pc_id_reg_out,data_1_id_reg_out,data_2_id_reg_out,mux_1_out_id_reg_out;
+wire [31:0] pc_4_id_reg_out,pc_id_reg_out,data_1_id_reg_out,data_2_id_reg_out,mux_1_out_id_reg_out, fwd_mux2_out;
 wire [1:0] mux_result_id_reg_out;
 wire [4:0] write_address_id_reg_out,write_address_ex_reg_out;
 wire [31:0]result_iex_unit_out,data_2_ex_reg_out,result_mux_4_ex_reg_out;
@@ -118,7 +118,7 @@ IF if_reg(
 instruction_decode_unit id_unit(
   // outputs
   switch_cache_w_id_unit_out,
-  reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output,
+  reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output, reg8_output, reg14_output, reg15_output,
   write_address_for_current_instruction_id_unit_out,
   rotate_signal_id_unit_out,
   d_mem_r_id_unit_out, 
@@ -239,7 +239,8 @@ instruction_execute_unit iex_unit(
   result_iex_unit_out,
   branch_or_jump_signal, // branch or jump signal, input for the mux before the PC
   mem_read_en_out,
-  register_write_address_out
+  register_write_address_out,
+  fwd_mux2_out
 );
 
 EX ex_reg(
@@ -250,7 +251,7 @@ EX ex_reg(
   write_reg_en_id_reg_out,
   write_address_id_reg_out,
   fun_3_id_reg_out,  // funct 3
-  data_2_id_reg_out,
+  fwd_mux2_out,
   result_iex_unit_out,
   reset,
   clk,

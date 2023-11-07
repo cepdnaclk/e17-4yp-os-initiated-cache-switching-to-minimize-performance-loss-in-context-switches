@@ -19,6 +19,14 @@ input[127:0]     	writedata;
 output reg [127:0]	readdata;
 output reg      	busywait;
 
+// always @(posedge clock)
+// begin
+//     $display(writedata);
+//     $display(memory_array[96]);
+//     $display(memory_array[104]);
+//     $display(memory_array[108]);
+// end
+
 //Declare memory array 1024x8-bits 
 reg [7:0] memory_array [1023:0];
 

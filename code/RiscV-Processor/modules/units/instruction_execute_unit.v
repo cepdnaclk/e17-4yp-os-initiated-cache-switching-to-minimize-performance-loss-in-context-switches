@@ -31,14 +31,15 @@ module instruction_execute_unit (
     output [31:0] result,
     output branch_or_jump_signal,
     output mem_read_en_out,
-    output [4:0] reg_write_address_out
+    output [4:0] reg_write_address_out,
+    output [31:0] fwd_mux2_out
 );
 
 wire [31:0]input1,input2,alu_result,mul_div_result,input2Complement,complemtMuxOut;
 wire zero_signal,sign_bit_signal,sltu_bit_signal;
 reg [31:0] branch_adress;
 wire [1:0] data1_forward_select, data2_forward_select;
-wire [31:0] fwd_mux1_out, fwd_mux2_out;
+wire [31:0] fwd_mux1_out;
 
 assign mem_read_en_out = mem_read_en_in;
 assign reg_write_address_out = reg_write_address_in;
