@@ -13,6 +13,7 @@ module EX(
   busywait,
   reg2_read_address_in,
   reg1_read_address_in,
+  hazard_detect_signal_ex_in,
   // outputs
   data_2_out, 
   result_mux_4_out, 
@@ -23,7 +24,8 @@ module EX(
   fun_3_out,
   write_address_out,
   reg2_read_address_out,
-  reg1_read_address_out
+  reg1_read_address_out,
+  hazard_detect_signal_ex_out
   );
 
   input [31:0] data_2_in, result_mux_4_in;
@@ -37,6 +39,9 @@ module EX(
 
   input [4:0] write_address_in, reg2_read_address_in, reg1_read_address_in;
   output reg [4:0] write_address_out, reg2_read_address_out, reg1_read_address_out;
+
+  input hazard_detect_signal_ex_in;
+  output reg hazard_detect_signal_ex_out;
   
 
   always @(posedge clk,posedge reset)
@@ -54,6 +59,7 @@ module EX(
 
       fun_3_out<= 3'b000;
       write_address_out <= 5'd0;
+      hazard_detect_signal_ex_out <= 1'b0;
 
     end else if (!busywait) begin
       data_2_out <=data_2_in;
@@ -68,6 +74,7 @@ module EX(
       write_address_out <=write_address_in;
       reg2_read_address_out <= reg2_read_address_in;
       reg1_read_address_out <= reg1_read_address_in;
+      hazard_detect_signal_ex_out <= hazard_detect_signal_ex_in;
       
     end
 

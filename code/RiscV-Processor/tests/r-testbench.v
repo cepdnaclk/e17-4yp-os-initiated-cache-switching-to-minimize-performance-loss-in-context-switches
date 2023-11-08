@@ -14,14 +14,6 @@ module cpuTestbench;
     always
         #5 CLK = ~CLK;
 
-    // initial 
-    // begin
-    //     $dumpfile("cpuwave_memory.vcd");
-    //     $dumpvars(0, mycpu);
-    //     for (k = 0; k < 32; k = k + 1)
-    //         $dumpvars(1, mycpu.mem_access_unit.myCache_controller.my_data_memory.memory_array[k]);
-    // end
-
     initial
     begin
     
@@ -29,21 +21,13 @@ module cpuTestbench;
         $dumpfile("cpuwave.vcd");
 		$dumpvars(0, cpuTestbench);
 		
-        // for (k = 0; k < 32; k = k + 1)
-        //     $dumpvars(1, mycpu.mem_access_unit.myCache_controller.my_data_memory.memory_array[k]);
-    
-        
         CLK = 1'b0;
         RESET = 1'b0;
-        
-        // TODO: Reset the CPU (by giving a pulse to RESET signal) to start the program execution
-		// RESET = 1'b1;
+
 		#2
 		RESET = 1'b1;
 		#4
 		RESET = 1'b0;
-		// #4
-		// RESET = 1'b0;
         
         // finish simulation after some time
         #6000

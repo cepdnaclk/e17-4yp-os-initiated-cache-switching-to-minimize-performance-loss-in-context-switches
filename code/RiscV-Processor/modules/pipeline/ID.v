@@ -26,6 +26,7 @@ module ID(
   branch_jump_signal,
   reg2_read_address_in, // register read address in
   reg1_read_address_in,
+  hazard_detect_signal,
   // outputs
   rotate_signal_out,
   mux_complmnt_out,
@@ -48,7 +49,8 @@ module ID(
   fun_3_out, // func 3 value
   switch_cache_w_out,
   reg2_read_address_out, // register read address out
-  reg1_read_address_out
+  reg1_read_address_out,
+  hazard_detect_signal_out
   );
 
   input [31:0] pc_4_in, pc_in, data_1_in, data_2_in, mux_1_out_in;
@@ -67,6 +69,9 @@ module ID(
 
   input [4:0] write_address_in, reg2_read_address_in, reg1_read_address_in;
   output reg [4:0] write_address_out, reg2_read_address_out, reg1_read_address_out;
+
+  input hazard_detect_signal;
+  output reg hazard_detect_signal_out;
 
   // reg on;
   // // assign on <= 1'b0;
@@ -121,6 +126,7 @@ module ID(
       mux_1_out_out <= 31'd0;
 
       write_address_out <= 5'd0;
+      hazard_detect_signal_out <= 1'd0;
       
     end else if(branch_jump_signal)begin
 
@@ -145,6 +151,7 @@ module ID(
       mux_1_out_out <= 31'd0;
 
       write_address_out <= 5'd0;
+      hazard_detect_signal_out <= 1'd0;
 
     end else if (!busywait) begin
       switch_cache_w_out <= switch_cache_w_in;
@@ -173,6 +180,7 @@ module ID(
       fun_3_out <=fun_3_in;
       reg2_read_address_out <= reg2_read_address_in;
       reg1_read_address_out <= reg1_read_address_in;
+      hazard_detect_signal_out <= hazard_detect_signal;
 
     end
 

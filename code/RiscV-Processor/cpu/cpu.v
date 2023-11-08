@@ -73,7 +73,7 @@ wire [31:0] alu_out_mem;
 wire mem_read_en_out, write_reg_en_MEM;
 wire [4:0] register_write_address_out;
 wire reset_ID_reg, reset_IF_reg, hold_IF_reg;
-wire hazard_detect_signal, busywait_imem;
+wire hazard_detect_signal, busywait_imem, hazard_detect_signal_out, hazard_detect_signal_ex_out, hazard_detect_signal_ex_reg_out;
 
 always @(*)
 begin
@@ -183,6 +183,7 @@ ID id_reg(
   branch_or_jump_signal, // branch or jump signal, input for the mux before the PC
   reg2_write_address_id,
   reg1_write_address_id,
+  hazard_detect_signal,
   // outputs
   rotate_signal_id_reg_out, 
   mux_complmnt_id_reg_out, 
@@ -205,7 +206,8 @@ ID id_reg(
   fun_3_id_reg_out,
   switch_cache_w_id_reg_out,
   reg2_write_address_id_out,
-  reg1_write_address_id_out
+  reg1_write_address_id_out,
+  hazard_detect_signal_out
 );  
 
 instruction_execute_unit iex_unit(
@@ -234,13 +236,16 @@ instruction_execute_unit iex_unit(
   mux5_out_write_data,
   d_mem_r_id_reg_out,
   write_address_id_reg_out,
+  hazard_detect_signal_out,
+  hazard_detect_signal_ex_reg_out,
   // outputs
   branch_jump_addres,
   result_iex_unit_out,
   branch_or_jump_signal, // branch or jump signal, input for the mux before the PC
   mem_read_en_out,
   register_write_address_out,
-  fwd_mux2_out
+  fwd_mux2_out,
+  hazard_detect_signal_ex_out
 );
 
 EX ex_reg(
@@ -258,6 +263,7 @@ EX ex_reg(
   busywait,
   reg2_write_address_id_out,
   reg1_write_address_id_out,
+  hazard_detect_signal_ex_out,
   // outputs
   data_2_ex_reg_out, // data 2 reg values
   result_mux_4_ex_reg_out, // goes to mux4
@@ -268,7 +274,8 @@ EX ex_reg(
   fun_3_ex_reg_out, // funct 3
   write_address_ex_reg_out, // write_address
   reg2_write_address_ex,
-  reg1_write_address_ex
+  reg1_write_address_ex,
+  hazard_detect_signal_ex_reg_out
 );
 
 

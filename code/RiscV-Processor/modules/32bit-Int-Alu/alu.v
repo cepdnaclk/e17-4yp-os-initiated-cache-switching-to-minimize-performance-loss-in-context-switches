@@ -67,8 +67,8 @@ module alu(RESULT, DATA1, DATA2, SELECT, ROTATE,zero_signal,sign_bit_signal,sltu
 		endcase
   end
 		
-  assign zero_signal= ~(|RESULT);                                      // zero flag set when data 1 and data 2 is equal(Z flag)
-  assign sign_bit_signal=RESULT[31];                                   // sign bit  (G flag)
+  assign zero_signal= ~(|RESULT);             // zero flag set when data 1 and data 2 is equal(Z flag)
+  assign sign_bit_signal=RESULT[31];          // sign bit  (G flag)
   assign sltu_bit_signal=SLTU[0];	
   
 endmodule
