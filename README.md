@@ -6,6 +6,7 @@ Context switching is a method to share CPU time among multiple threads effective
 
 In this project, we aim to introduce a cache bank instead of a single cache system to a RISC-V pipelined processor and measure the impact on the system performance compared to the single cache system. 
 
+![image](docs/images/intergration.png)
 
 ___
 
