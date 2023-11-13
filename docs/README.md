@@ -125,7 +125,7 @@ Lam et al. The optimization technique is based on a specialized block size that 
 
 ![experment setup](./images/experiment.png)
 
-- Benchmarks are modified such that they are trigger the counter of the setup at the beginning and the end. 
+- Benchmarks are modified such that they trigger the counter of the setup at the beginning and the end. 
 
 ![experment setup](./images/trig.png)
 
@@ -136,6 +136,11 @@ Lam et al. The optimization technique is based on a specialized block size that 
 |B2|2 context switches, 55 memory access|1293|1136|
 |B3|4 context switches, 78 memory access|1625|1412|
 |..|..|..|..|
+![Alt text](images/result.JPG)
+
+..
+..
+..
 
 - When the number of context switches becomes smaller and the number of memory accesses smaller, the number of times taken by the cache bank is higher than the number of clock cycles taken by the single cache. This is because the cache-changing instructions make a considerable impact on the system.
 
