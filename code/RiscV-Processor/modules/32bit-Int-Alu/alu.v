@@ -1,4 +1,4 @@
-`timescale 1ns/100ps
+
 
 module alu(RESULT, DATA1, DATA2, SELECT, ROTATE,zero_signal,sign_bit_signal,sltu_bit_signal);		//this is alu module
 	
@@ -11,7 +11,7 @@ module alu(RESULT, DATA1, DATA2, SELECT, ROTATE,zero_signal,sign_bit_signal,sltu
 	
 	wire[31:0] ADD,AND,OR,XOR,SLL,SRL,SRA,SLT,SLTU;
 	
-	assign  #1 ADD=DATA1 + DATA2;
+	assign  ADD=DATA1 + DATA2;
 	assign  AND=DATA1 & DATA2;
 	assign  OR=DATA1 | DATA2;
 	assign  XOR=DATA1 ^ DATA2;

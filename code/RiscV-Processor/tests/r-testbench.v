@@ -30,7 +30,7 @@ module cpuTestbench;
 		RESET = 1'b0;
         
         // finish simulation after some time
-        #6000
+        #50000
         $finish;
         
     end

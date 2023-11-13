@@ -1,4 +1,4 @@
-`timescale  1ns/100ps
+
 module Instruction_memory(
     // inputs
     reset,
@@ -33,7 +33,12 @@ initial
 begin
 
     //  $readmemh("memfile.mem", memory_array);
-   $readmemh("C:/Users/Arshad/Desktop/FYP/Clone4/e/code/RiscV-Processor/modules/i-cache/memfile.mem", memory_array);
+     $readmemh("fpga_single_cache.mem", memory_array);
+//    $readmemh("C:/Users/Arshad/Desktop/FYP/Clone4/e/code/RiscV-Processor/modules/i-cache/memfile.mem", memory_array);
+//    $readmemh("C:/Users/Arshad/Desktop/FYP/Clone4/e/code/RiscV-Processor/modules/i-cache/memfile_tri.mem", memory_array);
+    // $readmemh("C:/Users/Arshad/Desktop/FYP/Clone4/e/code/RiscV-Processor/modules/i-cache/memfile_single_cache.mem", memory_array);
+    // $readmemh("C:/Users/Arshad/Desktop/FYP/Clone4/e/code/RiscV-Processor/modules/i-cache/memfile_cache_bank.mem", memory_array);
+
 //    $readmemh("C:/Users/Arshad/Desktop/FYP/Clone4/e/code/RiscV-Processor/modules/i-cache/memfile_test.mem", memory_array);
 
 end

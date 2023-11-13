@@ -243,8 +243,7 @@ module dcache (
     always @(negedge clock, posedge reset)
     begin
         if(reset)begin
-            state <= IDLE;
-            
+            state <= IDLE;    
         end
         else
             state <= next_state;
