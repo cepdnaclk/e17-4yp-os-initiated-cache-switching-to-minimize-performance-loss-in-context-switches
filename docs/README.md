@@ -137,6 +137,10 @@ Lam et al. The optimization technique is based on a specialized block size that 
 
 ## Conclusion
 
+In this scholarly work, researchers introduce an innovative cache architecture designed to facilitate the utilization of dedicated cache cores by distinct threads. The primary objective of this pioneering approach is to mitigate performance losses arising from cache invalidations, a prevalent occurrence during context switching. Empirical evidence is presented through experimental results, demonstrating the efficacy of employing individualized cache cores for each thread, as opposed to the conventional use of a single cache core with a uniform size. Performance improvement is quantified in terms of clock cycle count.
+
+The proposed concept of a switchable cache introduces a prospect for broader integration into multiprocessor systems. Granting each thread its own cache core not only addresses the challenges associated with cache invalidations during thread switching but also augments the overall system performance. The experimental findings contribute compelling support for the advantages of this cache architecture, thereby establishing a robust foundation for potential applications in more intricate multiprocessor environments.
+
 ## Publications
 - Pending...
 
