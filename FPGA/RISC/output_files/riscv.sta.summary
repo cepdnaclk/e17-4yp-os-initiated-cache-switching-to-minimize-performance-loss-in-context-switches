@@ -1,0 +1,329 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'f_devider:inst7|out_clk'
+Slack : -17.093
+TNS   : -13824.166
+
+Type  : Slow 1200mV 85C Model Setup 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|data_memory:my_data_memory|counter[0]'
+Slack : -10.987
+TNS   : -58508.370
+
+Type  : Slow 1200mV 85C Model Setup 'cpu:inst|EX:ex_reg|result_mux_4_out[4]'
+Slack : -7.946
+TNS   : -186.598
+
+Type  : Slow 1200mV 85C Model Setup 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.MEM_WRITE'
+Slack : -7.504
+TNS   : -462.389
+
+Type  : Slow 1200mV 85C Model Setup 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.CACHE_WRITE'
+Slack : -6.825
+TNS   : -24.951
+
+Type  : Slow 1200mV 85C Model Setup 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|state.MEM_READ'
+Slack : -6.294
+TNS   : -11.076
+
+Type  : Slow 1200mV 85C Model Setup 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|Instruction_memory:my_i_memory|counter[0]'
+Slack : -5.591
+TNS   : -343.137
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -4.398
+TNS   : -71.559
+
+Type  : Slow 1200mV 85C Model Setup 'button'
+Slack : -0.173
+TNS   : -0.326
+
+Type  : Slow 1200mV 85C Model Hold 'f_devider:inst7|out_clk'
+Slack : -3.693
+TNS   : -238.784
+
+Type  : Slow 1200mV 85C Model Hold 'cpu:inst|EX:ex_reg|result_mux_4_out[4]'
+Slack : -3.579
+TNS   : -49.069
+
+Type  : Slow 1200mV 85C Model Hold 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|data_memory:my_data_memory|counter[0]'
+Slack : -3.042
+TNS   : -899.422
+
+Type  : Slow 1200mV 85C Model Hold 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.MEM_WRITE'
+Slack : -2.981
+TNS   : -104.314
+
+Type  : Slow 1200mV 85C Model Hold 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.CACHE_WRITE'
+Slack : -1.844
+TNS   : -5.087
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : -0.861
+TNS   : -0.861
+
+Type  : Slow 1200mV 85C Model Hold 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|Instruction_memory:my_i_memory|counter[0]'
+Slack : -0.144
+TNS   : -0.144
+
+Type  : Slow 1200mV 85C Model Hold 'button'
+Slack : 0.440
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|state.MEM_READ'
+Slack : 4.344
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -45.405
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'button'
+Slack : -3.000
+TNS   : -8.140
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'f_devider:inst7|out_clk'
+Slack : -1.285
+TNS   : -2833.425
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cpu:inst|EX:ex_reg|result_mux_4_out[4]'
+Slack : -0.708
+TNS   : -75.412
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|data_memory:my_data_memory|counter[0]'
+Slack : 0.244
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|Instruction_memory:my_i_memory|counter[0]'
+Slack : 0.364
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.MEM_WRITE'
+Slack : 0.379
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.CACHE_WRITE'
+Slack : 0.415
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|state.MEM_READ'
+Slack : 0.456
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'f_devider:inst7|out_clk'
+Slack : -15.430
+TNS   : -12620.781
+
+Type  : Slow 1200mV 0C Model Setup 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|data_memory:my_data_memory|counter[0]'
+Slack : -10.173
+TNS   : -53200.420
+
+Type  : Slow 1200mV 0C Model Setup 'cpu:inst|EX:ex_reg|result_mux_4_out[4]'
+Slack : -7.445
+TNS   : -173.252
+
+Type  : Slow 1200mV 0C Model Setup 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.MEM_WRITE'
+Slack : -6.846
+TNS   : -423.130
+
+Type  : Slow 1200mV 0C Model Setup 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.CACHE_WRITE'
+Slack : -6.067
+TNS   : -21.818
+
+Type  : Slow 1200mV 0C Model Setup 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|state.MEM_READ'
+Slack : -5.690
+TNS   : -9.981
+
+Type  : Slow 1200mV 0C Model Setup 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|Instruction_memory:my_i_memory|counter[0]'
+Slack : -5.082
+TNS   : -313.253
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -4.004
+TNS   : -61.342
+
+Type  : Slow 1200mV 0C Model Setup 'button'
+Slack : -0.052
+TNS   : -0.090
+
+Type  : Slow 1200mV 0C Model Hold 'f_devider:inst7|out_clk'
+Slack : -3.309
+TNS   : -200.054
+
+Type  : Slow 1200mV 0C Model Hold 'cpu:inst|EX:ex_reg|result_mux_4_out[4]'
+Slack : -3.182
+TNS   : -43.251
+
+Type  : Slow 1200mV 0C Model Hold 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|data_memory:my_data_memory|counter[0]'
+Slack : -2.742
+TNS   : -761.398
+
+Type  : Slow 1200mV 0C Model Hold 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.MEM_WRITE'
+Slack : -2.655
+TNS   : -91.611
+
+Type  : Slow 1200mV 0C Model Hold 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.CACHE_WRITE'
+Slack : -1.787
+TNS   : -4.935
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : -0.819
+TNS   : -0.819
+
+Type  : Slow 1200mV 0C Model Hold 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|Instruction_memory:my_i_memory|counter[0]'
+Slack : -0.076
+TNS   : -0.076
+
+Type  : Slow 1200mV 0C Model Hold 'button'
+Slack : 0.387
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|state.MEM_READ'
+Slack : 4.028
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -45.405
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'button'
+Slack : -3.000
+TNS   : -8.140
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'f_devider:inst7|out_clk'
+Slack : -1.285
+TNS   : -2833.425
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cpu:inst|EX:ex_reg|result_mux_4_out[4]'
+Slack : -0.549
+TNS   : -61.691
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|data_memory:my_data_memory|counter[0]'
+Slack : 0.093
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|Instruction_memory:my_i_memory|counter[0]'
+Slack : 0.349
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.CACHE_WRITE'
+Slack : 0.378
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.MEM_WRITE'
+Slack : 0.413
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|state.MEM_READ'
+Slack : 0.451
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'f_devider:inst7|out_clk'
+Slack : -8.192
+TNS   : -6215.718
+
+Type  : Fast 1200mV 0C Model Setup 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|data_memory:my_data_memory|counter[0]'
+Slack : -5.506
+TNS   : -29161.299
+
+Type  : Fast 1200mV 0C Model Setup 'cpu:inst|EX:ex_reg|result_mux_4_out[4]'
+Slack : -3.654
+TNS   : -81.661
+
+Type  : Fast 1200mV 0C Model Setup 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.MEM_WRITE'
+Slack : -3.595
+TNS   : -176.751
+
+Type  : Fast 1200mV 0C Model Setup 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.CACHE_WRITE'
+Slack : -3.532
+TNS   : -12.163
+
+Type  : Fast 1200mV 0C Model Setup 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|state.MEM_READ'
+Slack : -2.995
+TNS   : -5.174
+
+Type  : Fast 1200mV 0C Model Setup 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|Instruction_memory:my_i_memory|counter[0]'
+Slack : -2.451
+TNS   : -136.224
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -1.794
+TNS   : -19.335
+
+Type  : Fast 1200mV 0C Model Setup 'button'
+Slack : 0.438
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'f_devider:inst7|out_clk'
+Slack : -2.094
+TNS   : -195.727
+
+Type  : Fast 1200mV 0C Model Hold 'cpu:inst|EX:ex_reg|result_mux_4_out[4]'
+Slack : -1.931
+TNS   : -29.889
+
+Type  : Fast 1200mV 0C Model Hold 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|data_memory:my_data_memory|counter[0]'
+Slack : -1.712
+TNS   : -768.978
+
+Type  : Fast 1200mV 0C Model Hold 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.MEM_WRITE'
+Slack : -1.700
+TNS   : -71.327
+
+Type  : Fast 1200mV 0C Model Hold 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.CACHE_WRITE'
+Slack : -0.879
+TNS   : -2.479
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : -0.605
+TNS   : -0.605
+
+Type  : Fast 1200mV 0C Model Hold 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|Instruction_memory:my_i_memory|counter[0]'
+Slack : -0.142
+TNS   : -0.147
+
+Type  : Fast 1200mV 0C Model Hold 'button'
+Slack : 0.201
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|state.MEM_READ'
+Slack : 2.398
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -37.980
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'button'
+Slack : -3.000
+TNS   : -7.744
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'f_devider:inst7|out_clk'
+Slack : -1.000
+TNS   : -2205.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cpu:inst|EX:ex_reg|result_mux_4_out[4]'
+Slack : -0.320
+TNS   : -19.266
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|data_memory:my_data_memory|counter[0]'
+Slack : 0.027
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.MEM_WRITE'
+Slack : 0.207
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cpu:inst|memory_access_unit:mem_access_unit|Cache_controller:myCache_controller|dcache:dcache4|state.CACHE_WRITE'
+Slack : 0.235
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|Instruction_memory:my_i_memory|counter[0]'
+Slack : 0.344
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'cpu:inst|instruction_fetch_unit:if_unit|icache:myicache|state.MEM_READ'
+Slack : 0.389
+TNS   : 0.000
+
+------------------------------------------------------------

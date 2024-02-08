@@ -3,7 +3,6 @@
 `include "../modules/units/instruction_fetch_unit.v"
 `include "../modules/units/instruction_decode_unit.v"
 
-
 `include "../modules/pipeline/EX.v"
 `include "../modules/pipeline/ID.v"
 `include "../modules/pipeline/IF.v"
@@ -41,13 +40,12 @@ module cpu(
     input clk,
     input reset,
     // what are the uses for these registers ? 
-    output [31:0] reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output,
+    output [31:0] reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output, reg8_output, reg14_output, reg15_output,
 	  // why program counter as a output ? 
     output reg[31:0]pc,
     // what does this do
     output reg[31:0]debug_ins
   );
-
 
 wire d_mem_r_id_unit_out, d_mem_w_id_unit_out,branch_id_unit_out,jump_id_unit_out,write_reg_en_id_unit_out,mux_d_mem_id_unit_out,mux_inp_2_id_unit_out,mux_complmnt_id_unit_out,mux_inp_1_id_unit_out, rotate_signal_id_unit_out,switch_cache_w_id_unit_out,switch_cache_w_id_reg_out;
 wire branch_or_jump_signal,data_memory_busywait,busywait;
@@ -58,7 +56,7 @@ wire [4:0] write_address_for_current_instruction_id_unit_out;
 wire [1:0]mux_result_id_unit_out;
 wire [2:0] alu_op_id_unit_out,fun_3_id_unit_out,alu_op_id_reg_out,fun_3_id_reg_out,fun_3_ex_reg_out;
 wire rotate_signal_id_reg_out,mux_complmnt_id_reg_out,mux_inp_2_id_reg_out,mux_inp_1_id_reg_out,mux_d_mem_id_reg_out,write_reg_en_id_reg_out,d_mem_r_id_reg_out,d_mem_w_id_reg_out,branch_id_reg_out,jump_id_reg_out;
-wire [31:0] pc_4_id_reg_out,pc_id_reg_out,data_1_id_reg_out,data_2_id_reg_out,mux_1_out_id_reg_out;
+wire [31:0] pc_4_id_reg_out,pc_id_reg_out,data_1_id_reg_out,data_2_id_reg_out,mux_1_out_id_reg_out, fwd_mux2_out;
 wire [1:0] mux_result_id_reg_out;
 wire [4:0] write_address_id_reg_out,write_address_ex_reg_out;
 wire [31:0]result_iex_unit_out,data_2_ex_reg_out,result_mux_4_ex_reg_out;
@@ -75,7 +73,7 @@ wire [31:0] alu_out_mem;
 wire mem_read_en_out, write_reg_en_MEM;
 wire [4:0] register_write_address_out;
 wire reset_ID_reg, reset_IF_reg, hold_IF_reg;
-wire hazard_detect_signal, busywait_imem;
+wire hazard_detect_signal, busywait_imem, hazard_detect_signal_out, hazard_detect_signal_ex_out, hazard_detect_signal_ex_reg_out;
 
 always @(*)
 begin
@@ -120,7 +118,7 @@ IF if_reg(
 instruction_decode_unit id_unit(
   // outputs
   switch_cache_w_id_unit_out,
-  reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output,
+  reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output, reg8_output, reg14_output, reg15_output,
   write_address_for_current_instruction_id_unit_out,
   rotate_signal_id_unit_out,
   d_mem_r_id_unit_out, 
@@ -185,6 +183,7 @@ ID id_reg(
   branch_or_jump_signal, // branch or jump signal, input for the mux before the PC
   reg2_write_address_id,
   reg1_write_address_id,
+  hazard_detect_signal,
   // outputs
   rotate_signal_id_reg_out, 
   mux_complmnt_id_reg_out, 
@@ -207,7 +206,8 @@ ID id_reg(
   fun_3_id_reg_out,
   switch_cache_w_id_reg_out,
   reg2_write_address_id_out,
-  reg1_write_address_id_out
+  reg1_write_address_id_out,
+  hazard_detect_signal_out
 );  
 
 instruction_execute_unit iex_unit(
@@ -236,12 +236,16 @@ instruction_execute_unit iex_unit(
   mux5_out_write_data,
   d_mem_r_id_reg_out,
   write_address_id_reg_out,
+  hazard_detect_signal_out,
+  hazard_detect_signal_ex_reg_out,
   // outputs
   branch_jump_addres,
   result_iex_unit_out,
   branch_or_jump_signal, // branch or jump signal, input for the mux before the PC
   mem_read_en_out,
-  register_write_address_out
+  register_write_address_out,
+  fwd_mux2_out,
+  hazard_detect_signal_ex_out
 );
 
 EX ex_reg(
@@ -252,13 +256,14 @@ EX ex_reg(
   write_reg_en_id_reg_out,
   write_address_id_reg_out,
   fun_3_id_reg_out,  // funct 3
-  data_2_id_reg_out,
+  fwd_mux2_out,
   result_iex_unit_out,
   reset,
   clk,
   busywait,
   reg2_write_address_id_out,
   reg1_write_address_id_out,
+  hazard_detect_signal_ex_out,
   // outputs
   data_2_ex_reg_out, // data 2 reg values
   result_mux_4_ex_reg_out, // goes to mux4
@@ -269,7 +274,8 @@ EX ex_reg(
   fun_3_ex_reg_out, // funct 3
   write_address_ex_reg_out, // write_address
   reg2_write_address_ex,
-  reg1_write_address_ex
+  reg1_write_address_ex,
+  hazard_detect_signal_ex_reg_out
 );
 
 

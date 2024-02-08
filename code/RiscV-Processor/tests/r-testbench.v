@@ -6,8 +6,10 @@ module cpuTestbench;
 
     reg CLK, RESET;
 
-    wire [31:0] reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output,pc,debug_ins;
-    cpu mycpu(CLK,RESET,reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output,pc,debug_ins);
+    integer k;
+
+    wire [31:0] reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output,reg8_output, reg14_output, reg15_output, pc,debug_ins;
+    cpu mycpu(CLK,RESET,reg0_output,reg1_output,reg2_output,reg3_output,reg4_output,reg5_output,reg6_output,reg8_output, reg14_output, reg15_output,pc,debug_ins);
 
     always
         #5 CLK = ~CLK;
@@ -19,21 +21,16 @@ module cpuTestbench;
         $dumpfile("cpuwave.vcd");
 		$dumpvars(0, cpuTestbench);
 		
-        
         CLK = 1'b0;
         RESET = 1'b0;
-        
-        // TODO: Reset the CPU (by giving a pulse to RESET signal) to start the program execution
-		// RESET = 1'b1;
+
 		#2
 		RESET = 1'b1;
 		#4
 		RESET = 1'b0;
-		// #4
-		// RESET = 1'b0;
         
         // finish simulation after some time
-        #6000
+        #50000
         $finish;
         
     end

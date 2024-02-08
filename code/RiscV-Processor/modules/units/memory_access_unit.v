@@ -11,7 +11,7 @@ module memory_access_unit (
     // outputs
     output data_memory_busywait,
     // output [31:0] mux5_out_write_data,
-    output [31:0] load_data,
+    output [31:0] load_data,    //dmem data out
     output [31:0] alu_out_mem,
     // inputs
     input [2:0] func3_cache_select_reg_value, // funct 3 from previous pipline reg (ID reg)

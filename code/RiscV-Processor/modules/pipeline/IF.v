@@ -42,6 +42,8 @@ module IF(
       pc_out <=pc_in;
       pc_4_out <=pc_4_in;
       instration_out <=instration_in;
+    end else if (busywait_imem) begin
+      instration_out <=32'd0;
     end
 
   end
