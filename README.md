@@ -1,16 +1,21 @@
 ___
 # OS-Initiated Cache Switching to Minimize Performance Loss in Context Switches
+Usually, accessing the main memory consumes a considerable amount of time. Therefore, the cache is placed between the main memory and the CPU to reduce memory access latency. Caches primarily rely on spatial and temporal locality to enhance data access speed.
 
-Caches work like faster and more efficient versions of computer memory, helping to speed up operations. However, the best way to set up a cache depends on how a specific program uses memory. When switching between different tasks, the cache needs to be cleared and refilled with new data, which takes time and energy.
+Context switching is a method to share CPU time among multiple threads effectively. Context switching may result in invalidating cached content because, when a new thread is loaded, it may not have the same working set as the previous context. Therefore, the CPU has to access the main memory and load the relevant data block into the cache. This process places a considerable burden on the CPU, reducing its performance. As a solution, it is important to introduce a design that minimizes cache misses during context-switching.
 
-To make caches perform better, researchers have developed different techniques. One idea is called cache partitioning, where the cache is divided into smaller sections. When a program is running, it can choose the most suitable section of the cache to use by following special instructions. This method reduces the interference between cache data from different programs and makes task switching faster and more efficient. Ultimately, this improves overall performance and reduces the time and energy wasted during context 
-switches.
+In this project, we aim to introduce a cache bank instead of a single cache system to a RISC-V pipelined processor and measure the impact on the system performance compared to the single cache system. 
+
+![image](docs/images/intergration.png)
 
 ___
+
+
 
 ## Project Page
 - [click here](https://cepdnaclk.github.io/e17-4yp-os-initiated-cache-switching-to-minimize-performance-loss-in-context-switches/)
 
+## Other Pages
 - [Department of Computer Engineering](http://www.ce.pdn.ac.lk/)
 - [Faculty of Engineering](https://eng.pdn.ac.lk)
 - [University of Peradeniya](https://www.pdn.ac.lk)

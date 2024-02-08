@@ -63,12 +63,16 @@ module Cache_controller (
 
     data_memory my_data_memory(clock,reset,mem_read,mem_write,mem_address,mem_writedata,mem_readdata,mem_busywait);
 
-
+    // 4 cache cores
     dcache dcache1(clock,reset,cache1_read,cache1_write,address,writedata,cache1_read_data,cache1_busywait,cache_1_mem_read,cache_1_mem_write,cache_1_mem_address,cache_1_mem_writedata,mem_readdata,cache_1_mem_busywait);
     dcache dcache2(clock,reset,cache2_read,cache2_write,address,writedata,cache2_read_data,cache2_busywait,cache_2_mem_read,cache_2_mem_write,cache_2_mem_address,cache_2_mem_writedata,mem_readdata,cache_2_mem_busywait);
     dcache dcache3(clock,reset,cache3_read,cache3_write,address,writedata,cache3_read_data,cache3_busywait,cache_3_mem_read,cache_3_mem_write,cache_3_mem_address,cache_3_mem_writedata,mem_readdata,cache_3_mem_busywait);
     dcache dcache4(clock,reset,cache4_read,cache4_write,address,writedata,cache4_read_data,cache4_busywait,cache_4_mem_read,cache_4_mem_write,cache_4_mem_address,cache_4_mem_writedata,mem_readdata,cache_4_mem_busywait);
 
+//     dcache dcache1(clock,reset,cache1_read,cache1_write,address,writedata,cache1_read_data,cache1_busywait,cache_1_mem_read,cache_1_mem_write,cache_1_mem_address,cache_1_mem_writedata,mem_readdata,cache_1_mem_busywait);
+//     dcache dcache2(clock,reset,cache2_read,cache2_write,address,writedata,cache2_read_data,cache2_busywait,cache_2_mem_read,cache_2_mem_write,cache_2_mem_address,cache_2_mem_writedata,mem_readdata,cache_2_mem_busywait);
+//     dcache dcache3(clock,reset,cache3_read,cache3_write,address,writedata,cache3_read_data,cache3_busywait,cache_3_mem_read,cache_3_mem_write,cache_3_mem_address,cache_3_mem_writedata,mem_readdata,cache_3_mem_busywait);
+//     dcache dcache4(clock,reset,cache4_read,cache4_write,address,writedata,cache4_read_data,cache4_busywait,cache_4_mem_read,cache_4_mem_write,cache_4_mem_address,cache_4_mem_writedata,mem_readdata,cache_4_mem_busywait);
 
     always @(*) begin
         case(cache_switching_reg)
