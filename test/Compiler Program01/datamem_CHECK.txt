@@ -1,0 +1,22 @@
+0x03200013	addi x0,x0,50
+0x01808093  addi x1,x1,24
+
+0x0200a223	sw x0, 36(x1)	mem(60) = 50   (36+24)
+0x00d40793	addi x15, x8, 13
+0x02102723	sw x1, 46(x0)	mem(96) = 24
+0x0240a103	lw x2, 36(x1)	x2=	mem(60)=50
+
+
+
+alu
+DATA1 = 36
+DATA2 = 24
+
+mux1 out = 24
+mux2 out = 36
+
+fwd1
+output = 24 (add)
+
+fwd2
+output = 50 (data)

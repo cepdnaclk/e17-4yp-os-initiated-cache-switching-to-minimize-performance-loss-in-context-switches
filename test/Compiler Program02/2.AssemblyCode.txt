@@ -1,0 +1,46 @@
+main:                                   # @main
+        addi    sp, sp, 64 
+        addi    sp, sp, -48
+        sw      ra, 44(sp)                      # 4-byte Folded Spill
+        sw      s0, 40(sp)                      # 4-byte Folded Spill
+        addi    s0, sp, 48
+        addi    a1, zero, 0
+        sw      a1, -12(s0)
+        addi    a0, zero, 5
+        sw      a0, -16(s0)
+        addi    a0, zero, 4
+        sw      a0, -20(s0)
+        addi    a2, zero, 3
+        sw      a2, -24(s0)
+        addi    a2, zero, 2
+        sw      a2, -28(s0)
+        addi    a2, zero, 1
+        sw      a2, -32(s0)
+        sw      a1, -36(s0)
+        sw      a0, -40(s0)
+        jal     a7, .LBB0_1
+.LBB0_1:                                # =>This Inner Loop Header: Depth=1
+        lw      a0, -40(s0)
+        blt     a0, zero, .LBB0_4
+        jal     a7, .LBB0_2
+.LBB0_2:                                #   in Loop: Header=BB0_1 Depth=1
+        lw      a0, -36(s0)
+        lw      a1, -40(s0)
+        slli    a2, a1, 2
+        addi    a1, s0, -32
+        add     a1, a1, a2
+        lw      a1, 0(a1)
+        add     a0, a0, a1
+        sw      a0, -36(s0)
+        jal     a7, .LBB0_3
+.LBB0_3:                                #   in Loop: Header=BB0_1 Depth=1
+        lw      a0, -40(s0)
+        addi    a0, a0, -1
+        sw      a0, -40(s0)
+        jal     a7, .LBB0_1
+.LBB0_4:
+        addi    a0, zero, 0
+        lw      ra, 44(sp)                      # 4-byte Folded Reload
+        lw      s0, 40(sp)                      # 4-byte Folded Reload
+        addi    sp, sp, 48
+        ret

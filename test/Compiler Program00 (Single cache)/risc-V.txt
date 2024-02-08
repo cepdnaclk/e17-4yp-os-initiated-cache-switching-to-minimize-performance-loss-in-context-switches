@@ -1,0 +1,194 @@
+main:
+        addi    sp, sp, 128
+        addi    sp,sp,-48
+        sw      s0,44(sp)
+        addi    s0,sp,48
+        sw      zero,-32(s0)
+        addi    a5, zero, 1
+        sw      a5,-24(s0)
+        lw      a4,-32(s0)
+        lw      a5,-24(s0)
+        add     a5,a4,a5
+        sw      a5,-28(s0)
+        addi    a5, zero, 20
+        sw      a5,-36(s0)
+        addi    a5, zero, 3
+        sw      a5,-20(s0)
+        jal     a6, .L2
+.L3:
+        lw      a5,-24(s0)
+        sw      a5,-32(s0)
+        lw      a5,-28(s0)
+        sw      a5,-24(s0)
+        lw      a4,-32(s0)
+        lw      a5,-24(s0)
+        add     a5,a4,a5
+        sw      a5,-28(s0)
+        lw      a5,-20(s0)
+        addi    a5,a5,1
+        sw      a5,-20(s0)
+.L2:
+        lw      a4,-36(s0)
+        lw      a5,-20(s0)
+        bge     a4,a5,.L3
+.L5:
+        sw      sp, 200(zero)
+        sw      a5, 204(zero)
+        sw      a4, 208(zero)
+        sw      a6, 212(zero)
+        sw      a0, 216(zero)
+        sw      s0, 220(zero)
+        sw      ra, 224(zero)
+        addi    sp, zero, 0
+        addi    a5, zero, 0
+        addi    a4, zero, 0
+        addi    a6, zero, 0
+        addi    a0, zero, 0
+        addi    s0, zero, 0
+        addi    ra, zero, 0
+main1:                                   # @main
+        sw      ra, 28(sp)                      # 4-byte Folded Spill
+        sw      s0, 24(sp)                      # 4-byte Folded Spill
+        addi    s0, sp, 32
+        addi    a0, zero, 0
+        sw      a0, -12(s0)
+        addi    a1, zero, 6
+        sw      a1, -16(s0)
+        sw      a0, -20(s0)
+        addi    a0, zero, 1
+        sw      a0, -24(s0)
+        jal     a7, .LBB0_1
+.LBB0_1:                                # =>This Inner Loop Header: Depth=1
+        lw      a1, -24(s0)
+        lw      a0, -16(s0)
+        blt     a0, a1, .LBB0_4
+        jal     a7, .LBB0_2
+.LBB0_2:                                #   in Loop: Header=BB0_1 Depth=1
+        lw      a1, -24(s0)
+        lw      a0, -20(s0)
+        add     a0, a0, a1
+        sw      a0, -20(s0)
+        jal     a7, .LBB0_3
+.LBB0_3:                                #   in Loop: Header=BB0_1 Depth=1
+        lw      a0, -24(s0)
+        addi    a0, a0, 1
+        sw      a0, -24(s0)
+        jal     a7, .LBB0_1
+.LBB0_4:
+        addi    a0, zero, 0
+        lw      ra, 28(sp)                      # 4-byte Folded Reload
+        lw      s0, 24(sp)                      # 4-byte Folded Reload
+        addi    sp, sp, 32
+.L6:
+        lw      sp, 200(zero)
+        lw      a5, 204(zero)
+        lw      a4, 208(zero)
+        lw      a6, 212(zero)
+        lw      a0, 216(zero)
+        lw      s0, 220(zero)
+        lw      ra, 224(zero)
+.L4:
+        addi    a5, zero, 0
+        addi    a0, a5, 0
+        lw      s0,44(sp)
+        addi    sp,sp,48
+        jal     ra, 0
+		
+------------------------------
+------------------------------
+main:
+        addi    sp, sp, 64
+        addi    sp,sp,-48
+        sw      s0,44(sp)
+        addi    s0,sp,48
+        sw      zero,-32(s0)
+        addi    a5, zero, 1
+        sw      a5,-24(s0)
+        lw      a4,-32(s0)
+        lw      a5,-24(s0)
+        add     a5,a4,a5
+        sw      a5,-28(s0)
+        addi    a5, zero, 20
+        sw      a5,-16(s0)
+        addi    a5, zero, 3
+        sw      a5,-20(s0)
+        jal     a6, .L2
+.L3:
+        lw      a5,-24(s0)
+        sw      a5,-32(s0)
+        lw      a5,-28(s0)
+        sw      a5,-24(s0)
+        lw      a4,-32(s0)
+        lw      a5,-24(s0)
+        add     a5,a4,a5
+        sw      a5,-28(s0)
+        lw      a5,-20(s0)
+        addi    a5,a5,1
+        sw      a5,-20(s0)
+.L2:
+        lw      a4,-16(s0)
+        lw      a5,-20(s0)
+        bge     a4,a5,.L3
+.L5:
+        sw      sp, 0(zero)
+        sw      a5, 4(zero)
+        sw      a4, 20(zero)
+        sw      a6, 52(zero)
+        sw      a0, 56(zero)
+        sw      s0, 60(zero)
+        sw      ra, 64(zero)
+        addi    sp, zero, 0
+        addi    a5, zero, 0
+        addi    a4, zero, 0
+        addi    a6, zero, 0
+        addi    a0, zero, 0
+        addi    s0, zero, 0
+        addi    ra, zero, 0
+        addi    x20, x20, 100
+main1:                                   # @main
+        sw      ra, 28(sp)                      # 4-byte Folded Spill
+        sw      s0, 24(sp)                      # 4-byte Folded Spill
+        addi    s0, sp, 32
+        addi    a0, zero, 0
+        sw      a0, -12(s0)
+        addi    a1, zero, 6
+        sw      a1, -16(s0)
+        sw      a0, -20(s0)
+        addi    a0, zero, 1
+        sw      a0, -24(s0)
+        jal     a7, .LBB0_1
+.LBB0_1:                                # =>This Inner Loop Header: Depth=1
+        lw      a1, -24(s0)
+        lw      a0, -16(s0)
+        blt     a0, a1, .LBB0_4
+        jal     a7, .LBB0_2
+.LBB0_2:                                #   in Loop: Header=BB0_1 Depth=1
+        lw      a1, -24(s0)
+        lw      a0, -20(s0)
+        add     a0, a0, a1
+        sw      a0, -20(s0)
+        jal     a7, .LBB0_3
+.LBB0_3:                                #   in Loop: Header=BB0_1 Depth=1
+        lw      a0, -24(s0)
+        addi    a0, a0, 1
+        sw      a0, -24(s0)
+        jal     a7, .LBB0_1
+.LBB0_4:
+        addi    a0, zero, 0
+        lw      ra, 28(sp)                      # 4-byte Folded Reload
+        lw      s0, 24(sp)                      # 4-byte Folded Reload
+        addi    sp, sp, 32
+.L6:
+        lw      sp, 0(zero)
+        lw      a5, 4(zero)
+        lw      a4, 20(zero)
+        lw      a6, 52(zero)
+        lw      a0, 56(zero)
+        lw      s0, 60(zero)
+        lw      ra, 64(zero)
+.L4:
+        addi    a5, zero, 0
+        addi    a0, a5, 0
+        lw      s0,44(sp)
+        addi    sp,sp,48
+        jal     ra, 0
